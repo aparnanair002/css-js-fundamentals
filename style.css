@@ -1,0 +1,51 @@
+@font-face {
+    font-family: 'jump';
+    src: url('elr.ttf');
+}
+
+
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+nav {
+    background: transparent;
+    padding: 8px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-family: jump, sans-serif;
+}
+
+nav h1 {
+    color: rgb(255, 251, 0);
+}
+
+.contain {
+    background-color: white;
+    padding: 10px;
+    border-radius: 15px;
+    width: 50px;
+    height: 10px;
+    align-items: center;
+    display: flex;
+    position: relative;
+    box-shadow: 0 0 0 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+
+.circle {
+    width: 30px;
+    height: 100%;
+    background-color: #000c7a;
+    border-radius: 50%;
+    top: 15.2px;
+    left: 15px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
