@@ -3,3 +3,12 @@
   padding:50px;
   border:12px thick #ff01f2;
 }
+
+.modules{
+    width:100%;
+    padding:50px;
+    border:12px solid #ff01f2;  
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    
+}
