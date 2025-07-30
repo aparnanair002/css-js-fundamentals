@@ -1,14 +1,24 @@
-.notes{
-  width:100%;
-  padding:50px;
-  border:12px thick #ff01f2;
+.notes {
+  width: 100%;
+  padding: 50px;
+  border: 12px thick #ff01f2;
 }
 
-.modules{
-    width:100%;
-    padding:50px;
-    border:12px solid #ff01f2;  
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    
+
+.sidebar {
+  width: 15%;
+  height: 100vh;
+  background-color: #f0f0f0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  padding: 20px;
+}
+
+.sidebody{
+  width:75%;
+  height: 100vh;
+  left:20%;
+  position: fixed;
 }
