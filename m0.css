@@ -1,22 +1,12 @@
 .notes {
   width: 100%;
-  padding: 50px;
-  border: 12px thick #ff01f2;
+  padding: 20px 0px;
+    font-family: jump;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: justify;
 }
 
-.notes.head{
-  width: 100%;
-  height: 100px;
-  position: fixed;
-  top: 0;
-  left: 0;
-    font-family: jump;
-  font-size: 25px;
-  color: #ffffff;
-  font-weight: bold;
-  text-align: center;
-  z-index: -1;
-}
 
 .sidebar {
   width: 15%;
@@ -39,14 +29,29 @@
 .heading{
   font-family: jump;
   font-size: 50px;
-  color: #ffffff;
+  color: #a200ff;
   font-weight: bold;
   padding-top: 50px;
   text-align: justify;
 }
 
 .heading .subheading{
-  font-size: 20px;
+  font-size: 25px;
   padding-top: 50px;
 
+}
+
+textarea{
+  border:2px white solid;
+  padding: 20px;
+  background-color: black;
+  font-family: 'SF Mono', 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+  color: #00ff00;               
+  font-size: 16px;
+  line-height: 1.5;
+  width:90%;
+  min-height: 200px;
+  height:auto;
+  overflow-y: scroll;
+  scrollbar-color: transparent transparent;
 }
