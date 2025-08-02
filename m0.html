@@ -10,7 +10,12 @@
   <body>
     <div class="sidebar">
       <div class="sidebar-content">
-        <a href="./index.html">Home</a>
+        <div class="module" tabindex="0"></div>
+        Home
+      </div>
+      <div class="sidebar-content">
+        <div class="module" tabindex="0"></div>
+        Home
       </div>
     </div>
     <div class="sidebody">
@@ -23,7 +28,7 @@
         </div>
       </nav>
       <div class="heading">
-        Making the Unknown Knowns
+        Making the Unknown Known
         <div class="subheading">
           There where a lot of things that were unknown to me before this
           module. I'm noting it here!
@@ -31,9 +36,8 @@
       </div>
       <div id="intro">
         <div class="notes">
-          The first block- the first block was about css selectors itself. I
-          didnt know there was a difference between '.a, .b' , '.a .b' and
-          '.a.b'
+          The first thing i learned was about css selectors itself. I didnt know
+          there was a difference between '.a, .b' , '.a .b' and '.a.b'
         </div>
 
         <textarea>
@@ -46,12 +50,32 @@
 //for .a .b
 <div class="a">
   <div class="b">This matches</div>
+</div>
 
+//for .a.b
+<div class="a b">This matches</div>
 
-</textarea
+        </textarea>
+        <div class="notes">Even this was a new knowledge for me...!!</div>
+        <textarea name="" id="">
+✅ 1) .sidebar-content:first-child
+Selects any .sidebar-content that is the first child of its parent — no matter who that parent is.
 
+👉 So this might not work as expected if:
 
-        >
+.sidebar-content is not the very first child of .sidebar.
+
+There’s any whitespace or another element before it.
+
+✅ 2) .sidebar > .sidebar-content:first-child
+Selects .sidebar-content that is:
+
+A direct child of .sidebar, and
+
+The first child among all children inside .sidebar
+
+🔐 Safer and more specific — ensures you’re only styling the first .sidebar-content that is directly inside .sidebar.
+        </textarea>
       </div>
     </div>
   </body>
