@@ -27,9 +27,7 @@ body {
   width: 75%;
   height: 100vh;
   margin-left: 20%;
-  overflow: auto auto;
-  scrollbar-color: #0000 transparent;
-  padding-bottom: 120px;
+  
 }
 
 .heading {
@@ -68,7 +66,8 @@ textarea {
   border-radius: 50%;
   border: 5px solid #ffee00;
   background-color: #ffffff;
-  margin: 8px 50px;
+  margin: 20px;
+  position: relative;
 }
 
 .module:focus {
@@ -76,16 +75,28 @@ textarea {
   background-color: #ffee00;
 }
 
-.sidebar-content {
+.module .sidebar-content {
   font-family: jump;
   font-size: 20px;
   color: #ffffff;
   text-align: center;
   display: flex;
   align-items: center;
-  ;
+  margin-left:30px;
+
 }
 
-.sidebar-content:first-child {
+.module:first-child {
   margin-top: 50px;
+}
+
+.module:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 40px; 
+  background-color: #ffffff;
 }

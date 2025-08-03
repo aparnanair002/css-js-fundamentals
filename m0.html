@@ -9,14 +9,13 @@
   </head>
   <body>
     <div class="sidebar">
-      <div class="sidebar-content">
-        <div class="module" tabindex="0"></div>
-        Home
-      </div>
-      <div class="sidebar-content">
-        <div class="module" tabindex="0"></div>
-        Home
-      </div>
+  <div class="module-column">
+    <div class="module" tabindex="0"><div class="sidebar-content">Home</div></div>
+    <div class="module" tabindex="0"><div class="sidebar-content">About</div></div>
+    <div class="module" tabindex="0"><div class="sidebar-content">Contact</div></div>
+  </div>
+</div>
+
     </div>
     <div class="sidebody">
       <nav>
@@ -58,23 +57,15 @@
         </textarea>
         <div class="notes">Even this was a new knowledge for me...!!</div>
         <textarea name="" id="">
-✅ 1) .sidebar-content:first-child
-Selects any .sidebar-content that is the first child of its parent — no matter who that parent is.
+.sidebar > .sidebar-content:first-child
 
-👉 So this might not work as expected if:
-
-.sidebar-content is not the very first child of .sidebar.
-
-There’s any whitespace or another element before it.
-
-✅ 2) .sidebar > .sidebar-content:first-child
 Selects .sidebar-content that is:
 
 A direct child of .sidebar, and
 
 The first child among all children inside .sidebar
 
-🔐 Safer and more specific — ensures you’re only styling the first .sidebar-content that is directly inside .sidebar.
+Safer and more specific — ensures you’re only styling the first .sidebar-content that is directly inside .sidebar.
         </textarea>
       </div>
     </div>
