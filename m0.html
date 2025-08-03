@@ -9,14 +9,14 @@
   </head>
   <body>
     <div class="sidebar">
-  <div class="module-column">
-    <div class="module" tabindex="0"><div class="sidebar-content">Home</div></div>
-    <div class="module" tabindex="0"><div class="sidebar-content">About</div></div>
-    <div class="module" tabindex="0"><div class="sidebar-content">Contact</div></div>
-  </div>
+        <div class="module-item" id="mod1">
+    <div class="module" ><div class="sidebar-content">Home</div></div>
+        </div>
+          <div class="module-item" id="mod1">
+    <div class="module" ><div class="sidebar-content">Intro</div></div></div>
+      <div class="module-item" id="mod1">
+    <div class="module"><div class="sidebar-content">Media queries</div></div></div>
 </div>
-
-    </div>
     <div class="sidebody">
       <nav>
         <h1>CSS Playground</h1>
@@ -70,4 +70,11 @@ Safer and more specific — ensures you’re only styling the first .sidebar-con
       </div>
     </div>
   </body>
+  <script>
+document.getElementById("mod1").addEventListener("click", function() {
+      console.log("mod1 clicked"); // check console
+
+  window.location.href = "index.html";
+});
+  </script>
 </html>

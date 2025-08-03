@@ -66,37 +66,40 @@ textarea {
   border-radius: 50%;
   border: 5px solid #ffee00;
   background-color: #ffffff;
-  margin: 20px;
+  margin: 20px 0;
+  cursor: pointer;
   position: relative;
 }
 
-.module:focus {
-  border: 2px solid white;
-  background-color: #ffee00;
-}
 
 .module .sidebar-content {
   font-family: jump;
   font-size: 20px;
   color: #ffffff;
   text-align: center;
-  display: flex;
   align-items: center;
   margin-left:30px;
 
 }
+.module-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  position:relative;
+}
 
-.module:first-child {
+.module-item:first-child {
   margin-top: 50px;
 }
 
-.module:not(:last-child)::after {
+.module-item:not(:last-child)::after {
   content: '';
   position: absolute;
-  top: 100%;
-  left: 50%;
+  top: 60%;
+  left: 6%;
   transform: translateX(-50%);
   width: 5px;
-  height: 40px; 
+  height: calc(100% - 20px);
   background-color: #ffffff;
 }
