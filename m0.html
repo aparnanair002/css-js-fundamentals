@@ -9,14 +9,23 @@
   </head>
   <body>
     <div class="sidebar">
-        <div class="module-item" id="mod1">
-    <div class="module" ><div class="sidebar-content">Home</div></div>
-        </div>
-          <div class="module-item" id="mod1">
-    <div class="module" ><div class="sidebar-content">Intro</div></div></div>
       <div class="module-item" id="mod1">
-    <div class="module"><div class="sidebar-content">Media queries</div></div></div>
-</div>
+        <div class="module">
+          <div class="sidebar-content">Home</div>
+        </div>
+      </div>
+      <div class="module-item" id="mod2">
+        <div class="module">
+          <div class="sidebar-content">Intro</div>
+        </div>
+      </div>
+      <div class="module-item" id="mod3">
+        <div class="module">
+          <div class="sidebar-content">Media queries</div>
+        </div>
+      </div>
+    </div>
+
     <div class="sidebody">
       <nav>
         <h1>CSS Playground</h1>
@@ -26,55 +35,61 @@
           </div>
         </div>
       </nav>
+
       <div class="heading">
         Making the Unknown Known
         <div class="subheading">
-          There where a lot of things that were unknown to me before this
+          There were a lot of things that were unknown to me before this
           module. I'm noting it here!
         </div>
       </div>
+
       <div id="intro">
         <div class="notes">
-          The first thing i learned was about css selectors itself. I didnt know
-          there was a difference between '.a, .b' , '.a .b' and '.a.b'
+          The first thing I learned was about CSS selectors. I didn’t know
+          there was a difference between '.a, .b', '.a .b', and '.a.b'
         </div>
 
-        <textarea>
-//for .a, .b
-
-
+        <textarea readonly>
+<!-- for .a, .b -->
 <div class="a">This matches</div>
-<div class="b">This also matches</div> 
+<div class="b">This also matches</div>
 
-//for .a .b
+<!-- for .a .b -->
 <div class="a">
   <div class="b">This matches</div>
 </div>
 
-//for .a.b
+<!-- for .a.b -->
 <div class="a b">This matches</div>
-
         </textarea>
-        <div class="notes">Even this was a new knowledge for me...!!</div>
-        <textarea name="" id="">
+
+        <div class="notes">Even this was new knowledge for me...!!</div>
+
+        <textarea readonly>
 .sidebar > .sidebar-content:first-child
 
 Selects .sidebar-content that is:
+- A direct child of .sidebar, and
+- The first among all children inside .sidebar
 
-A direct child of .sidebar, and
-
-The first child among all children inside .sidebar
-
-Safer and more specific — ensures you’re only styling the first .sidebar-content that is directly inside .sidebar.
+Safer and more specific — ensures you’re only styling the first .sidebar-content directly inside .sidebar.
         </textarea>
       </div>
     </div>
-  </body>
-  <script>
-document.getElementById("mod1").addEventListener("click", function() {
-      console.log("mod1 clicked"); // check console
 
-  window.location.href = "index.html";
-});
-  </script>
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        const mod1 = document.getElementById("mod1");
+        if (mod1) {
+          console.log("mod1 found");
+          mod1.addEventListener("click", function () {
+             window.location.href = "index.html";
+          });
+        } else {
+          console.log("mod1 not found!");
+        }
+      });
+    </script>
+  </body>
 </html>
