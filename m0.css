@@ -101,3 +101,16 @@ textarea {
   height: calc(100% - 20px);
   background-color: #ffffff;
 }
+
+.p{
+  margin-bottom:20px !important;
+  font-size: 20px;
+}
+
+.ap{
+  margin-bottom:20px !important;
+  font-family: jump;
+  font-size: 30px;
+  color: #bb00ff;
+  text-align: justify;
+}

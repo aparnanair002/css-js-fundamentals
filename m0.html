@@ -76,6 +76,65 @@ Selects .sidebar-content that is:
 Safer and more specific — ensures you’re only styling the first .sidebar-content directly inside .sidebar.
         </textarea>
       </div>
+      <div class="media">
+        <p> In the context of a media query, max-width is a “media feature”, not a CSS property. </p>
+        <p> Now, about the CSS Selectors</p>
+        <div class="ap">Pseudo-classes</div>
+        <textarea readonly> 
+button:hover ~ [onMouseEnter/onMouseLeave]
+button:focus //Please don't add outline: none to get rid of the focus outlines
+ input:checked //The :checked pseudo-class only applies to checkboxes and radio buttons that are "filled in". 
+ p:first-child //Selects the first <p> element that is a child of its parent
+ p:last-child //Selects the last <p> element that is a child of its parent
+  p:nth-child(2) //Selects the second <p> element that is a child of its parent
+  p:nth-last-child(2) //Selects the second-to-last <p> element that is a child of its parent
+  p:nth-of-type(2) //Selects the second <p> element of its type among its siblings
+  p:nth-last-of-type(2) //Selects the second-to-last <p>
+
+ </textarea>
+ <div class="ap">pseudo-elements</div>
+ we can style the placeholder text in a form input with ::placeholder:
+Pseudo-elements are like pseudo-classes, but they don't target a specific state.
+Instead, they target "sub-elements" within an element.
+        <textarea readonly>
+           <style>
+  input {
+    font-size: 1rem;
+  }
+  input::placeholder {
+    color: goldenrod;
+  }
+</style>
+
+<label>
+  Postal Code:
+  <input
+    type="text"
+    placeholder="A1A 1A1"
+  />
+</label>
+
+        </textarea>
+pseudo-elements use two colons instead of one (::)
+<textarea readonly>
+  <style>
+  p::before {
+    content: '→ ';
+    color: deeppink;
+  }
+  
+  p::after {
+    content: ' ←';
+    color: deeppink;
+  }
+</style>
+
+<p>
+  This paragraph has little arrows!
+</p>
+</textarea>
+<div class="ap">Combinators</div>
+      </div>
     </div>
 
     <script>
