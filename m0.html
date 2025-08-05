@@ -39,15 +39,15 @@
       <div class="heading">
         Making the Unknown Known
         <div class="subheading">
-          There were a lot of things that were unknown to me before this
-          module. I'm noting it here!
+          There were a lot of things that were unknown to me before this module.
+          I'm noting it here!
         </div>
       </div>
 
       <div id="intro">
         <div class="notes">
-          The first thing I learned was about CSS selectors. I didn’t know
-          there was a difference between '.a, .b', '.a .b', and '.a.b'
+          The first thing I learned was about CSS selectors. I didn’t know there
+          was a difference between '.a, .b', '.a .b', and '.a.b'
         </div>
 
         <textarea readonly>
@@ -77,10 +77,14 @@ Safer and more specific — ensures you’re only styling the first .sidebar-con
         </textarea>
       </div>
       <div class="media">
-        <p> In the context of a media query, max-width is a “media feature”, not a CSS property. </p>
-        <p> Now, about the CSS Selectors</p>
+        <p>
+          In the context of a media query, max-width is a “media feature”, not a
+          CSS property.
+        </p>
+        <p>Now, about the CSS Selectors</p>
         <div class="ap">Pseudo-classes</div>
-        <textarea readonly> 
+        <textarea readonly>
+ 
 button:hover ~ [onMouseEnter/onMouseLeave]
 button:focus //Please don't add outline: none to get rid of the focus outlines
  input:checked //The :checked pseudo-class only applies to checkboxes and radio buttons that are "filled in". 
@@ -91,11 +95,14 @@ button:focus //Please don't add outline: none to get rid of the focus outlines
   p:nth-of-type(2) //Selects the second <p> element of its type among its siblings
   p:nth-last-of-type(2) //Selects the second-to-last <p>
 
- </textarea>
- <div class="ap">pseudo-elements</div>
- we can style the placeholder text in a form input with ::placeholder:
-Pseudo-elements are like pseudo-classes, but they don't target a specific state.
-Instead, they target "sub-elements" within an element.
+ </textarea
+        >
+        <div class="ap">pseudo-elements</div>
+        <p>
+          we can style the placeholder text in a form input with ::placeholder:
+          Pseudo-elements are like pseudo-classes, but they don't target a
+          specific state. Instead, they target "sub-elements" within an element.
+        </p>
         <textarea readonly>
            <style>
   input {
@@ -115,8 +122,8 @@ Instead, they target "sub-elements" within an element.
 </label>
 
         </textarea>
-pseudo-elements use two colons instead of one (::)
-<textarea readonly>
+        <p>pseudo-elements use two colons instead of one (::)</p>
+        <textarea readonly>
   <style>
   p::before {
     content: '→ ';
@@ -132,23 +139,24 @@ pseudo-elements use two colons instead of one (::)
 <p>
   This paragraph has little arrows!
 </p>
-</textarea>
-<div class="ap">Combinators</div>
+</textarea
+        >
+        <div class="ap">Combinators</div>
       </div>
     </div>
 
     <script>
-      window.addEventListener("DOMContentLoaded", function () {
-        const mod1 = document.getElementById("mod1");
+      window.addEventListener('DOMContentLoaded', function () {
+        const mod1 = document.getElementById('mod1')
         if (mod1) {
-          console.log("mod1 found");
-          mod1.addEventListener("click", function () {
-             window.location.href = "index.html";
-          });
+          console.log('mod1 found')
+          mod1.addEventListener('click', function () {
+            window.location.href = 'index.html'
+          })
         } else {
-          console.log("mod1 not found!");
+          console.log('mod1 not found!')
         }
-      });
+      })
     </script>
   </body>
 </html>
