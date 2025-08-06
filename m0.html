@@ -24,6 +24,11 @@
           <div class="sidebar-content">Media queries</div>
         </div>
       </div>
+      <div class="module-item" id="mod4">
+        <div class="module">
+          <div class="sidebar-content">selectors</div>
+        </div>
+      </div>
     </div>
 
     <div class="sidebody">
@@ -38,6 +43,7 @@
 
       <div class="heading">
         Making the Unknown Known
+        <div class="ap">Combinators</div>
         <div class="subheading">
           There were a lot of things that were unknown to me before this module.
           I'm noting it here!
@@ -47,7 +53,7 @@
       <div id="intro">
         <div class="notes">
           The first thing I learned was about CSS selectors. I didn’t know there
-          was a difference between '.a, .b', '.a .b', and '.a.b'
+          was a difference between '.a, .b', '.a .b',''.a> .b','.a.b'
         </div>
 
         <textarea readonly>
@@ -55,13 +61,21 @@
 <div class="a">This matches</div>
 <div class="b">This also matches</div>
 
+<!-- for .a > .b -->
+<div class="a">
+  <div class="b">What if we only want to target children, and not deeper descendants</div>
+  </div>
 <!-- for .a .b -->
 <div class="a">
   <div class="b">This matches</div>
 </div>
 
 <!-- for .a.b -->
-<div class="a b">This matches</div>
+<div class="a b">
+  By putting a space between a and b, we're combining two selectors in a very specific way:
+   we're saying that the styles should only apply to a tags that are nested within nav tags.
+
+</div>
         </textarea>
 
         <div class="notes">Even this was new knowledge for me...!!</div>
@@ -141,7 +155,33 @@ button:focus //Please don't add outline: none to get rid of the focus outlines
 </p>
 </textarea
         >
-        <div class="ap">Combinators</div>
+       <div class="ap">Colors</div> 
+        <p>
+          I learned about the different ways to specify colors in CSS, including
+          named colors, hexadecimal values, RGB, RGBA, HSL, and HSLA.
+        </p>
+        <textarea readonly>
+           HSL (Hue/Saturation/Lightness).
+  .box {
+  background-color: hsl(0deg 100% 50%)
+}
+//transparency
+.first.box {
+    background-color: hsl(340deg 100% 50% / 1);
+  }
+  </textarea>
+  <div class="ap">Units</div>
+        <p>
+          I learned about the different units of measurement in CSS, including
+          pixels (px), ems, rems, percentages (%), viewport width (vw), and
+          viewport height (vh).
+        </p>
+        <textarea readonly>
+          The em unit is an interesting fellow. It's a relative unit, equal to the font size of the current element.
+
+          The rem unit is quite a lot like the em unit, with one crucial difference: it's always relative to the root element, the <html> tag.
+             you shouldn't actually set a px font size on the html tag. This will override a user's chosen default font size. 
+          </textarea>
       </div>
     </div>
 
