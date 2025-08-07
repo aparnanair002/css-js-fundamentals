@@ -1,0 +1,123 @@
+.notes {
+  width: 100%;
+  padding: 30px 0px;
+  font-family: jump;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: justify;
+}
+
+body {
+  scrollbar-color: #0000 transparent;
+}
+
+.sidebar {
+  width: 15%;
+  height: 100vh;
+  background-color: #a200ff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  border-right: 5px solid white;
+}
+
+.sidebody {
+  width: 75%;
+  height: 100vh;
+  margin-left: 20%;
+  
+}
+
+.heading {
+  font-family: jump;
+  font-size: 50px;
+  color: #a200ff;
+  font-weight: bold;
+  padding-top: 50px;
+  text-align: justify;
+}
+
+.subheading {
+  font-size: 25px;
+  padding-top: 50px;
+
+}
+
+textarea {
+  border: 2px white solid;
+  padding: 20px;
+  background-color: black;
+  font-family: 'SF Mono', 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+  color: #00ff00;
+  font-size: 16px;
+  line-height: 1.5;
+  width: 90%;
+  min-height: 200px;
+  height: auto;
+  overflow-y: scroll;
+  scrollbar-color: #a200ff transparent;
+}
+
+.module {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 5px solid #ffee00;
+  background-color: #ffffff;
+  margin: 20px 0;
+  cursor: pointer;
+  position: relative;
+}
+
+
+.module .sidebar-content {
+  font-family: jump;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  align-items: center;
+  margin-left:30px;
+
+}
+.module-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position:relative;
+}
+
+.module-item:first-child {
+  margin-top: 50px;
+}
+
+.module-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 60%;
+  left: 6%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: calc(100% - 20px);
+  background-color: #ffffff;
+}
+
+p{
+     width: 100%;
+  padding: 30px 0px;
+  font-family: jump;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: justify;
+  line-height: 2;
+  margin-bottom: 20px;
+}
+
+.ap{
+  margin-bottom:20px !important;
+  font-family: jump;
+  font-size: 30px;
+  color: #bb00ff;
+  text-align: justify;
+}
+
