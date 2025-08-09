@@ -44,50 +44,67 @@
       <div class="heading">
         Module 1
         <div class="ap">Rendering Logic</div>
-        <div class="subheading">
-          There were a lot of things that were unknown to me before this module.
-          I'm noting it here!
-        </div>
       </div>
 
       <div id="intro">
         <div class="notes">
           <a href="https://www.joshwcomeau.com/css/custom-css-reset/">Css reset</a>
         </div>
+        <textarea name="" id="">/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
-        <textarea readonly>
-<!-- for .a, .b -->
-<div class="a">This matches</div>
-<div class="b">This also matches</div>
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
 
-<!-- for .a > .b -->
-<div class="a">
-  <div class="b">What if we only want to target children, and not deeper descendants</div>
-  </div>
-<!-- for .a .b -->
-<div class="a">
-  <div class="b">This matches</div>
-</div>
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
 
-<!-- for .a.b -->
-<div class="a b">
-  By putting a space between a and b, we're combining two selectors in a very specific way:
-   we're saying that the styles should only apply to a tags that are nested within nav tags.
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
 
-</div>
-        </textarea>
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
 
-        <div class="notes">Even this was new knowledge for me...!!</div>
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
 
-        <textarea readonly>
-.sidebar > .sidebar-content:first-child
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
 
-Selects .sidebar-content that is:
-- A direct child of .sidebar, and
-- The first among all children inside .sidebar
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
 
-Safer and more specific — ensures you’re only styling the first .sidebar-content directly inside .sidebar.
-        </textarea>
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}</textarea>
+       
       </div>
       <div class="media">
         <p>
