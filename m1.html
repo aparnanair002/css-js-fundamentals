@@ -106,6 +106,71 @@ h1, h2, h3, h4, h5, h6 {
 }</textarea>
        
       </div>
+
+      <div id="intro">
+        <div class="ap">Cascade</div>
+        CASCADE IS SUCCESSION OF SOMETHINGS
+        [ 0,0,0 ]   Universal selector        → * { }
+        [ 0,0,1 ]   Element/Tag selectors     → p, h1, div
+        [ 0,1,0 ]   Class selectors           → .intro, .btn
+        [ 0,1,0 ]   Attribute selectors       → [type="text"]
+        [ 0,1,0 ]   Pseudo-classes            → :hover, :nth-child()
+        [ 1,0,0 ]   ID selectors              → #header
+        [ 1,0,0+ ]  Inline styles             → style="color: red"
+        [ ! ]       !important                → Overrides all normal rules
+        <textarea name="" id="">
+        !important  🚨 (highest)
+        ───────────────
+        Inline styles
+        ───────────────
+        ID selectors (#id)
+        ───────────────
+        Classes (.class), attributes ([type=]), pseudo-classes (:hover)
+        ───────────────
+        Element/tag selectors (p, h1, div) & pseudo-elements (::before)
+        ───────────────
+        Universal selector (*)
+
+        </textarea>
+        CSS Cascade & Specificity — Summary
+
+When an element matches multiple CSS rules, the browser collects all applicable rules and resolves conflicts using the cascade algorithm.
+
+If two rules set the same property, the more specific selector wins:
+
+Tags (low specificity)
+
+Classes (medium specificity)
+
+IDs (high specificity)
+
+Inline styles (higher)
+
+!important (highest)
+
+Non-conflicting styles are merged.
+
+In the example:
+
+css
+Copy
+Edit
+p { font-weight: bold; color: gray; }
+.introduction { color: violet; }
+→ The paragraph gets font-weight from p and color from .introduction (class overrides tag).
+
+This process is like JavaScript object merging with spread syntax:
+
+js
+Copy
+Edit
+const appliedStyles = { ...tagStyles, ...classStyles };
+Later (more specific) styles overwrite earlier ones.
+
+Deep specificity rules (like comparing #about-page button:last-of-type vs .form > button#submit) can be calculated, but modern development often makes exact specificity calculation less critical thanks to better tooling and CSS architecture patterns.
+
+
+      </div>
    
     </div>
 
