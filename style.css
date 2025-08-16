@@ -198,13 +198,14 @@ textarea {
   text-align: center;
   align-items: center;
   margin-left:30px;
-
+  margin-top: 0px;
 }
 .module-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  position:relative;
+  gap: 15px;        /* spacing between circle & text */
+  height: 120px;    /* more vertical spacing */
+  position: relative;
 }
 
 .module-item:first-child {
@@ -214,13 +215,15 @@ textarea {
 .module-item:not(:last-child)::after {
   content: '';
   position: absolute;
-  top: 60%;
-  left: 6%;
-  transform: translateX(-50%);
+  top: 50%;               /* centers vertically */
+  left: 15px;             /* aligns with module circle */
+  transform: translateY(0);  
   width: 5px;
-  height: calc(100% - 20px);
+  height: 100%;           /* full height between modules */
   background-color: #ffffff;
+  z-index: -1;            /* keeps line behind circles */
 }
+
 
 p{
      width: 100%;

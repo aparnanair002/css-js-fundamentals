@@ -16,17 +16,24 @@
       </div>
       <div class="module-item" id="mod2">
         <div class="module">
-          <div class="sidebar-content">Intro</div>
+          <div class="sidebar-content">Rendering logic</div>
         </div>
       </div>
       <div class="module-item" id="mod3">
         <div class="module">
-          <div class="sidebar-content">Media queries</div>
+          <div class="sidebar-content">Cascade</div>
         </div>
       </div>
       <div class="module-item" id="mod4">
         <div class="module">
-          <div class="sidebar-content">selectors</div>
+          <div class="sidebar-content">Block model and Inline direction
+</div>
+        </div>
+      </div>
+      <div class="module-item" id="mod4">
+        <div class="module">
+          <div class="sidebar-content">Box model
+</div>
         </div>
       </div>
     </div>
@@ -108,6 +115,7 @@ h1, h2, h3, h4, h5, h6 {
 
       <div id="cascade">
         <div class="ap">Cascade</div>
+        <div class="notes">
         CASCADE IS SUCCESSION OF SOMETHINGS
         [ 0,0,0 ]   Universal selector        → * { }
         [ 0,0,1 ]   Element/Tag selectors     → p, h1, div
@@ -116,7 +124,7 @@ h1, h2, h3, h4, h5, h6 {
         [ 0,1,0 ]   Pseudo-classes            → :hover, :nth-child()
         [ 1,0,0 ]   ID selectors              → #header
         [ 1,0,0+ ]  Inline styles             → style="color: red"
-        [ ! ]       !important                → Overrides all normal rules
+        [ ! ]       !important                → Overrides all normal rules</div>
         <textarea name="" id="">
         !important  🚨 (highest)
         ───────────────
@@ -131,6 +139,7 @@ h1, h2, h3, h4, h5, h6 {
         Universal selector (*)
 
         </textarea>
+        <div class="notes">
         CSS Cascade & Specificity — Summary
 
 When an element matches multiple CSS rules, the browser collects all applicable rules and resolves conflicts using the cascade algorithm.
@@ -167,7 +176,7 @@ const appliedStyles = { ...tagStyles, ...classStyles };
 Later (more specific) styles overwrite earlier ones.
 
 Deep specificity rules (like comparing #about-page button:last-of-type vs .form > button#submit) can be calculated, but modern development often makes exact specificity calculation less critical thanks to better tooling and CSS architecture patterns.
-
+</div>
 
       </div>
 
@@ -186,14 +195,52 @@ Deep specificity rules (like comparing #about-page button:last-of-type vs .form 
 
 -Downside: Slightly less habit-friendly and not supported in some older browsers (IE 10/11, Opera Mini, older Safari).
 
--Practical advice: This course uses conventional properties (like margin-left), but for new projects, logical properties are worth trying.
+-Practical advice: This course uses conventional properties (like margin-left), but for new projects, logical properties are worth trying.</textarea>
     </div>
+<div id="block">
+  <div class="ap">
+    Box Model
+  </div>
+  <div class="notes">
+    The box model is a fundamental concept in CSS that describes how elements are structured and how their dimensions are calculated.
+  The four main properties of the box model are:
+  <ul>
+    <li>Margin: The space between the box and other elements.</li>
+    <li>Border: The line surrounding the box.</li>
+    <li>Padding: The space between the content and the border.</li>
+    <li>Content: The actual content inside the box.</li>
+  </ul>
+  </div>
+  <textarea name="" id="">
+    <style>
+  section {
+    width: 500px;
+  }
+  .box {
+    width: 100%;
+    padding: 20px;
+    border: 4px solid;
+  }
+</style>
 
+<section>
+  <div class="box"></div>
+</section>
+  </textarea>
+  <div class="notes">
+  the answer of box dimension is 548*48 px 
+  Instead of having to remember to swap box-sizing on every layout element, we can set it as the default value for all elements with this handy CSS snippet:
+</div>
+  <textarea name="" id="">*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}</textarea>
+</div>
     <script>
       window.addEventListener('DOMContentLoaded', function () {
         const mod1 = document.getElementById('mod1')
         if (mod1) {
-          console.log('mod1 found')
           mod1.addEventListener('click', function () {
             window.location.href = 'index.html'
           })
