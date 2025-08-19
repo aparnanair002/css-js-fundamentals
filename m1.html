@@ -256,8 +256,24 @@ Deep specificity rules (like comparing #about-page button:last-of-type vs .form 
   </textarea>
   <div class="ap">Flow layout</div>
   <div class="notes">
+    There are 7 layout modules, lets start with the first one: Flow layout.
     Flow layout is the default layout mode in CSS, where elements are arranged in a linear sequence, one after another, based on their order in the HTML document.
     It allows for easy stacking of elements vertically and horizontally.
+    think of Flow layout as the “Microsoft Word” layout algorithm. Two main types:
+    <textarea name="" id="">
+      Block elements: things like headings, paragraphs, footers, asides. The chunks of content that make up a page.
+Inline elements: things like links, or a string of bold text. Generally, inline elements are meant to highlight bits of text, or elements within a block container.
+    </textarea>
+    picture inline elements as go-with-the-flow-type folks. They're like polite dinner-party guests who sit exactly where they're assigned.
+    “magic space” is that the browser treats inline elements as if they're typography. It makes sense that with text, you'd want a bit of extra space, so that the lines in a paragraph aren't crammed in too tightly.
+
+    <textarea name="" id="">
+      Solution:
+      Set images to display: block — if you're noticing this problem, there's a good chance your images aren't interspersed with text, so setting them to display as blocks makes sense.
+Set the line-height on the wrapping div to 0
+ An inline-block element is a block-level element that can be placed in an inline context. You know the expression “a wolf in sheep's clothing”? We can think of inline-block as “a block in inline's clothing”.
+    </textarea>
+    When you place a block level element on the page, its content box greedily expands to fill the entire available horizontal space.
 </div>
 
     <script>
