@@ -274,6 +274,20 @@ Set the line-height on the wrapping div to 0
  An inline-block element is a block-level element that can be placed in an inline context. You know the expression “a wolf in sheep's clothing”? We can think of inline-block as “a block in inline's clothing”.
     </textarea>
     When you place a block level element on the page, its content box greedily expands to fill the entire available horizontal space.
+    <div class="ap">Width algorithm</div>
+    <div class="notes">
+    Block elements have a default width value of auto, not 100%. width: auto works very similar to margin: auto;
+    It's a subtle but important distinction: by default, block elements have dynamic sizing. They're context-aware.
+
+two kinds of values we can specify for width:
+
+Measurements (100%, 200px, 5rem)
+Keywords (auto, fit-content)</div>
+    <textarea name="" id="">
+    When we set width: min-content, we're specifying that we want our element to become as narrow as it can, based on the child contents. This is a totally different perspective: we aren't 
+    sizing based on the space made available by the parent, we're sizing based on the element's children!
+  known as an intrinsic value, while measurements and the auto keyword are extrinsic. </textarea>
+
 </div>
 
     <script>
