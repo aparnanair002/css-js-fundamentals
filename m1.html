@@ -286,8 +286,28 @@ Keywords (auto, fit-content)</div>
     <textarea name="" id="">
     When we set width: min-content, we're specifying that we want our element to become as narrow as it can, based on the child contents. This is a totally different perspective: we aren't 
     sizing based on the space made available by the parent, we're sizing based on the element's children!
-  known as an intrinsic value, while measurements and the auto keyword are extrinsic. </textarea>
+  known as an intrinsic value, while measurements and the auto keyword are extrinsic.
 
+h2 {
+  display: table;
+}
+display: table causes elements to render using Table layout. This is the layout mode used by the <table> HTML tag.
+  
+</textarea>
+<div class="ap">Height algorithms</div>
+<div class="notes">
+  Default width of block-level elements: fill parent width.
+
+Default height: shrink to fit content (like min-content).
+Fixed heights often cause overflow issues.
+
+We usually want elements to grow with content (200 → 20,000 words).
+min-height: 100% doesn’t work unless all ancestor elements (including html, body) have a set height.
+
+Otherwise, parent and child heights depend on each other, creating a deadlock.
+  <textarea name="" id="">Width → looks up the tree (parent).
+
+Height → looks down the tree (children).</textarea>
 </div>
 
     <script>
