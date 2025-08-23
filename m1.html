@@ -297,7 +297,6 @@ display: table causes elements to render using Table layout. This is the layout 
 <div class="ap">Height algorithms</div>
 <div class="notes">
   Default width of block-level elements: fill parent width.
-
 Default height: shrink to fit content (like min-content).
 Fixed heights often cause overflow issues.
 
@@ -307,7 +306,11 @@ min-height: 100% doesn’t work unless all ancestor elements (including html, bo
 Otherwise, parent and child heights depend on each other, creating a deadlock.
   <textarea name="" id="">Width → looks up the tree (parent).
 
-Height → looks down the tree (children).</textarea>
+Height → looks down the tree (children).
+</textarea>
+<div class="ap">Rules </div>
+<div class="notes">
+  1. Block elements have a default width of auto, meaning they fill the available horizontal space of their parent container.
 </div>
 
     <script>
