@@ -310,7 +310,16 @@ Height → looks down the tree (children).
 </textarea>
 <div class="ap">Rules </div>
 <div class="notes">
-  1. Block elements have a default width of auto, meaning they fill the available horizontal space of their parent container.
+  1. Only vertical margins collapse
+  2.Margins only collapse in Flow layout
+  3.Only adjacent elements collapse . It is somewhat common to use the < b r > tag (a line-break) to increase space between block elements
+  4.The bigger margin wins
+  5.Nesting doesn't prevent collapsing
+  6.Margins can collapse in the same direction
+  7.More than two margins can collapse
+  8.Negative margins
+
+
 </div>
 
     <script>
