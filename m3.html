@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module 0</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="module-item" id="mod1">
+        <div class="module">
+          <div class="sidebar-content">Home</div>
+        </div>
+      </div>
+      <div class="module-item" id="mod2">
+        <div class="module">
+          <div class="sidebar-content">Intro</div>
+        </div>
+      </div>
+      <div class="module-item" id="mod3">
+        <div class="module">
+          <div class="sidebar-content">Media queries</div>
+        </div>
+      </div>
+      <div class="module-item" id="mod4">
+        <div class="module">
+          <div class="sidebar-content">selectors</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebody">
+      <nav>
+        <h1>CSS Playground</h1>
+        <div class="contain">
+          <div class="circle">
+            <div class="moon"></div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="heading">
+        Making the Unknown Known
+        <div class="ap">Combinators</div>
+        <div class="subheading">
+          There were a lot of things that were unknown to me before this module.
+          I'm noting it here!
+        </div>
+      </div>
+
+      <div id="intro">
+        <div class="notes">
+          The first thing I learned was about CSS selectors. I didn’t know there
+          was a difference between '.a, .b', '.a .b',''.a> .b','.a.b'
+        </div>
+
+        <textarea readonly>
+<!-- for .a, .b -->
+<div class="a">This matches</div>
+<div class="b">This also matches</div>
+
+<!-- for .a > .b -->
+<div class="a">
+  <div class="b">What if we only want to target children, and not deeper descendants</div>
+  </div>
+<!-- for .a .b -->
+<div class="a">
+  <div class="b">This matches</div>
+</div>
+
+<!-- for .a.b -->
+<div class="a b">
+  By putting a space between a and b, we're combining two selectors in a very specific way:
+   we're saying that the styles should only apply to a tags that are nested within nav tags.
+
+</div>
+        </textarea>
+
+        <div class="notes">Even this was new knowledge for me...!!</div>
+
+        <textarea readonly>
+.sidebar > .sidebar-content:first-child
+
+Selects .sidebar-content that is:
+- A direct child of .sidebar, and
+- The first among all children inside .sidebar
+
+Safer and more specific — ensures you’re only styling the first .sidebar-content directly inside .sidebar.
+        </textarea>
+      </div>
+      <div class="media">
+        <p>
+          In the context of a media query, max-width is a “media feature”, not a
+          CSS property.
+        </p>
+        <p>Now, about the CSS Selectors</p>
+        <div class="ap">Pseudo-classes</div>
+        <textarea readonly>
+ 
+button:hover ~ [onMouseEnter/onMouseLeave]
+button:focus //Please don't add outline: none to get rid of the focus outlines
+ input:checked //The :checked pseudo-class only applies to checkboxes and radio buttons that are "filled in". 
+ p:first-child //Selects the first <p> element that is a child of its parent
+ p:last-child //Selects the last <p> element that is a child of its parent
+  p:nth-child(2) //Selects the second <p> element that is a child of its parent
+  p:nth-last-child(2) //Selects the second-to-last <p> element that is a child of its parent
+  p:nth-of-type(2) //Selects the second <p> element of its type among its siblings
+  p:nth-last-of-type(2) //Selects the second-to-last <p>
+
+ </textarea
+        >
+        <div class="ap">pseudo-elements</div>
+        <p>
+          we can style the placeholder text in a form input with ::placeholder:
+          Pseudo-elements are like pseudo-classes, but they don't target a
+          specific state. Instead, they target "sub-elements" within an element.
+        </p>
+        <textarea readonly>
+           <style>
+  input {
+    font-size: 1rem;
+  }
+  input::placeholder {
+    color: goldenrod;
+  }
+</style>
+
+<label>
+  Postal Code:
+  <input
+    type="text"
+    placeholder="A1A 1A1"
+  />
+</label>
+
+        </textarea>
+        <p>pseudo-elements use two colons instead of one (::)</p>
+        <textarea readonly>
+  <style>
+  p::before {
+    content: '→ ';
+    color: deeppink;
+  }
+  
+  p::after {
+    content: ' ←';
+    color: deeppink;
+  }
+</style>
+
+<p>
+  This paragraph has little arrows!
+</p>
+</textarea
+        >
+       <div class="ap">Colors</div> 
+        <p>
+          I learned about the different ways to specify colors in CSS, including
+          named colors, hexadecimal values, RGB, RGBA, HSL, and HSLA.
+        </p>
+        <textarea readonly>
+           HSL (Hue/Saturation/Lightness).
+  .box {
+  background-color: hsl(0deg 100% 50%)
+}
+//transparency
+.first.box {
+    background-color: hsl(340deg 100% 50% / 1);
+  }
+  </textarea>
+  <div class="ap">Units</div>
+        <p>
+          I learned about the different units of measurement in CSS, including
+          pixels (px), ems, rems, percentages (%), viewport width (vw), and
+          viewport height (vh).
+        </p>
+        <textarea readonly>
+          The em unit is an interesting fellow. It's a relative unit, equal to the font size of the current element.
+
+          The rem unit is quite a lot like the em unit, with one crucial difference: it's always relative to the root element, the <html> tag.
+             you shouldn't actually set a px font size on the html tag. This will override a user's chosen default font size. 
+          </textarea>
+      </div>
+    </div>
+
+    <script>
+      window.addEventListener('DOMContentLoaded', function () {
+        const mod1 = document.getElementById('mod1')
+        if (mod1) {
+          console.log('mod1 found')
+          mod1.addEventListener('click', function () {
+            window.location.href = 'index.html'
+          })
+        } else {
+          console.log('mod1 not found!')
+        }
+      })
+    </script>
+  </body>
+</html>
