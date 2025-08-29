@@ -76,6 +76,21 @@ Selects .sidebar-content that is:
 
 Safer and more specific — ensures you’re only styling the first .sidebar-content directly inside .sidebar.
         </textarea>
+        <div class="ap">Containing block</div>
+        <div class="notes">
+          The containing block is the area in which an element is positioned. It
+          is determined by the nearest ancestor element that has a position
+          value other than static (the default value). If no such ancestor
+          exists, the containing block is the initial containing block, which
+          is usually the viewport (the visible area of the web page).
+
+          Absolute elements can only be contained by other elements using Positioned layout. 
+          Here's how the algorithm works: When deciding where to place an absolutely-positioned element, it crawls up through the tree, looking for a Positioned ancestor. The first one it finds will provide the containing block
+
+          When we set the position of an element using top / left / right / bottom, we're positioning the element based on the element's containing block. 
+          If our element sets top: 0; left: 0, the element will be nestled in the top-left corner of the containing block.
+
+          if no ancestoral element is found the element will be positioned according to the “initial containing block”. This is a box the size of the viewport, right at the top of the document.
       </div>
     </div>
   </body>
