@@ -100,7 +100,24 @@ Safer and more specific — ensures you’re only styling the first .sidebar-con
 
     The truth is that Flow layout isn't really built with layering in mind. Most of the time, when we want to layer elements, we'll want to use positioned layout.
       </textarea>
+      <div class="ap">Z index</div>
+      <div class="notes">
+        If we don't specify a z-index, the browser will paint positioned elements based on their DOM order. So as long as our card uses positioned layout (with position: relative) and comes after the blobs, it'll be painted on top. This is true across browsers and devices.
+
     </div>
+    <textarea name="" id="">
+      The two side cards have a z-index of 1, so they slip behind the header. But the primary card matches the header's z-index of 2. And since the primary card comes later in the DOM order, it shows up on top.
+      [explains a header which has a z index of 2 and a card which has a z index of 2, where header comes first in the DOM order]
+    
+    The isolation property does precisely 1 thing: creates a stacking context.
+    do this:
+
+.pricing {
+  isolation: isolate;
+}
+the same effect of flattening all of the child elements, but it does so without requiring that we also set a z-index on the parent. It's the lightest-touch way to create a stacking context.
+    
+    </textarea>
 
   </body>
 </html>
