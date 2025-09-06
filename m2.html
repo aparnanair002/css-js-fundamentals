@@ -138,6 +138,14 @@ the same effect of flattening all of the child elements, but it does so without 
         How can we instruct the container to not linewrap, and instead to leave the content in a single line? The white-space property has got our back:
             white-space: nowrap;
 
+        A parent’s overflow only responds to children it actually contains.
+
+        position: absolute children can be contained if the parent has position: relative.
+
+        position: fixed elements are never contained by their DOM parents — instead, they are anchored to the initial containing block (the viewport by default).
+
+        Because of this, a fixed element won’t cause its parent’s scrollbars to appear, nor can it be clipped by overflow: hidden.
+
       </textarea>
 </div>
 
