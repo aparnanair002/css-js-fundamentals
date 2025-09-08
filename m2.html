@@ -150,7 +150,35 @@ the same effect of flattening all of the child elements, but it does so without 
       <div class="ap">Sticky positioning</div>
       <div class="notes">
         An often-overlooked aspect of position: sticky is that the element will never follow the scroll outside of its parent container. Sticky elements only stick while their container is in view
+      in exercises, 
+    
       </div>
+      <textarea name="" id="">
+        solution to exercise 1:
+         header {
+    position:sticky;
+    top:-10px;
+    height: 70px;
+    padding:10px;
+    background: slateblue;
+    color: white;
+    opacity: 0.96;
+    
+         }
+         solution to exercise 2:
+         should add this to header instead of the container according to the example:
+         header{
+         position: sticky;
+  top: 0;
+         }
+      </textarea>
+      <div class="ap">Hidden content</div>
+      <div class="notes">
+        The visibility property can be used to hide elements without removing them from the document flow. When an element is set to visibility: hidden, it will not be visible on the page, but it will still take up space in the layout. This means that other elements will still be positioned as if the hidden element were present.
+
+        This is different from display: none, which completely removes the element from the document flow, causing other elements to shift and fill the space that was occupied by the removed element.We cant make it clicked or focused
+      </div>
+
 </div>
 
   </body>
