@@ -74,6 +74,34 @@ ul{
   }
 </style>
         </textarea>
-        <div class="ap">Alignment and hacks</div>
-    </body>
+        <div class="ap">Alignment Tricks</div>
+        align self and justify self
+        <div class="notes">align self</div>
+        <textarea name="" id="">
+           align-self allows us to pick specific alignment options for each individual item along the cross (secondary) axis. 
+           Unfortunately, justify-self doesn't exist in Flexbox. And if you think about it.
+           my answer:
+           <style>
+  /* TODO */
+ol{
+  display:flex;
+  flex-direction:column;
+}
+.message.sent{
+  align-self:flex-end;
+}
+</style>
+
+correct answer:
+<style>
+  ol {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .message.sent {
+    align-self: flex-end;
+  }
+</style>
     </html>
