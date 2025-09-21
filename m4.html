@@ -199,7 +199,48 @@ Since flex-basis is a synonym for width in a flex row, we're effectively shrinki
 
   //wrote justify-item instead of justify-content
               </textarea>
-              <div class="notes">To summarize: when we use the flex shorthand, we set flex-basis to 0, and this value will override any width you set. In other words, width has no effect in this snippet (when used inside a flex-direction: row container):</div>
+              <div class="notes">
+                To summarize: when we use the flex shorthand, we set flex-basis to 0, and this value will override any width you set. In other words, width has no effect in this snippet (when used inside a flex-direction: row container)
+              In Flexbox, a similar concept to inline exists, via the flex-wrap property.
+              align-content only has an effect if there's extra space in the cross axis, and there are multiple lines of content.
+            </div>
+            <textarea name="" id="">
+              nowrap (default):
+All flex items are placed on a single line, and they may overflow the container if necessary.
+flex-wrap: nowrap;
+
+wrap:
+Flex items will wrap onto multiple lines, from top to bottom (or left to right in horizontal writing modes).
+flex-wrap: wrap;
+
+wrap-reverse:
+Flex items will wrap onto multiple lines, but in reverse order (bottom to top or right to left in horizontal writing modes).
+flex-wrap: wrap-reverse;
+            </textarea>
+
+            <div class="notes">Excercize 2</div>
+            <textarea name="" id="">
+              <style>
+  main {
+    display: flex;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  article {
+    flex:0 1 150px;
+  }
+  
+</style>
+its called deconstructed pancake
+            </textarea>
+            <div class="notes">Gap</div>
+            <textarea name="" id="">
+              Gap is a shorthand for row-gap and column-gap.
+              row-gap sets the gap between rows in a multi-row layout.
+              column-gap sets the gap between columns in a multi-column layout.
+              In Flexbox, gap will set the spacing between items in the main axis. If there's wrapping, it will also set the spacing in the cross axis.
+              </textarea>
+              
     </div>
   </body>
 </html>
