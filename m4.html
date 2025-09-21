@@ -168,4 +168,38 @@ By default, flex-grow will distribute any extra space that isn't taken up by the
 flex: 1 will assign flex-grow: 1, but it will also set flex-basis: 0. It won't affect the default value for flex-shrink, which is 1.
 Since flex-basis is a synonym for width in a flex row, we're effectively shrinking each child to have a “hypothetical width” of 0px, and then distributing all of the space between each child.</div>
 <div class="notes">Did the excercie on the same page on 18/09/25</div>    
+          <div class="ap">Constraints</div>
+          <div class="notes">What i did :
+            <textarea name="" id="">
+              <style>
+  .wrapper {
+    display: flex;
+    
+  }
+
+  nav {
+  max-width:150px;
+    width:33%;
+   flex:1;
+  }
+
+  main {
+   flex:2;
+    max-width:500px;
+  }
+</style>
+            </textarea>
+            What i missed:
+            <textarea name="" id="">
+                .wrapper {
+    display: flex;
+    justify-content:center;
+    
+  }
+
+  //wrote justify-item instead of justify-content
+              </textarea>
+              <div class="notes">To summarize: when we use the flex shorthand, we set flex-basis to 0, and this value will override any width you set. In other words, width has no effect in this snippet (when used inside a flex-direction: row container):</div>
+    </div>
+  </body>
 </html>
