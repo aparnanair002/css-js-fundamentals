@@ -27,6 +27,20 @@
            <div class="notes">The @media keyword is known as an "at-rule". at-rules are a special kind of CSS statement that changes behaviour. There are a handful of at-rules that all do different things; another example is @keyframes
              display: revert; //revert is a special keyword that restores the property to its default value. 
            </div>
+           <div class="ap">Breakpoints</div>
+           <div class="notes">
+            0-550px — Mobile
+            550-1100px — Tablet
+            1100-1500px — Laptop
+            1500+px — Desktop
+           </div>
+           <textarea name="" id="">
+            Some developers like to create queries for "exclusive" ranges. For example, if we wanted to target only tablet sizes—nothing smaller, nothing bigger—we could do this with the and keyword:
+
+            @media (min-width: 550px) and (max-width: 1099.99px) {
+              /* Tablet-only styles */
+            }
+           </textarea>
 
     </div>
 
