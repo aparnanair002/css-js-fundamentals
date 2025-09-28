@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module 5</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="module-item" id="mod1">
+        <div class="module">
+          <div class="sidebar-content">Home</div>
+        </div>
+      </div>
+    </div>
+    <div class="sidebody">
+     <div class="ap">Text Rendering</div>
+     <div class="notes">
+        While comparing chrome and safari, it was found that Chrome tucks the commas closer to the preceding word than Safari.
+         the reason that the letter placement is slightly different between browsers is that the browsers implement different <b>kerning algorithms.</b>
+         Using CSS, we can opt to disable kerning altogether with font-kerning: none, but we aren't offered any fine-grained control. letter-spacing, the property that allows us to increase/decrease the space between individual characters, acts as a "kerning multiplier"
+     <textarea name="" id=""> -webkit-font-smoothing property.
+
+This property allows us to switch which aliasing algorithm the browser uses. But, tragically, it only works on macOS, and only in Chrome/Safari/Edge (not Firefox).</textarea>
+     <div class="notes">WebKit is a browser rendering engine developed by Apple*</div>
+     To summerize,
+     <textarea name="" id="">
+       <b> Kerning (character spacing)</b>
+
+Chrome and Safari render text slightly differently.
+
+Commas, letters, and spacing vary because each browser uses its own kerning algorithms.
+
+Designers can tweak kerning manually with CSS (font-kerning: none + letter-spacing), but it’s tricky.
+
+<b>Text rasterization & anti-aliasing</b>
+
+Fonts are vectors, so browsers must “rasterize” them into pixels.
+
+Anti-aliasing smooths edges, but each OS/browser has its own approach.
+
+Windows uses subpixel rendering with colored edges (ClearType), macOS uses grayscale antialiasing.
+
+<b>Font smoothing in CSS</b>
+
+-webkit-font-smoothing (macOS only) lets you toggle antialiasing methods, but it’s limited.
+
+Since macOS Mojave, Apple disabled subpixel antialiasing on Retina screens (too many tiny pixels, causes muddiness).
+
+Firefox on macOS uses -moz-osx-font-smoothing, but it rarely makes a difference.
+
+Windows browsers don’t expose smoothing controls via CSS.
+
+<b>Accessibility debate</b>
+
+Subpixel antialiasing was once considered crisper and better for readability (2012 article), but on modern high-DPI displays, grayscale antialiasing usually works better.
+
+Browser rendering engines
+
+Safari uses WebKit.
+
+Chrome/Edge use Blink, a fork of WebKit.
+
+That’s why many browsers still support -webkit- prefixed CSS.
+     </textarea>
+        </div>
+    </div>
+    </body>
+    </html
