@@ -64,6 +64,19 @@ Chrome/Edge use Blink, a fork of WebKit.
 
 That’s why many browsers still support -webkit- prefixed CSS.
      </textarea>
+     <div class="ap">Text overflow</div>
+     <div class="notes">With the overflow-wrap property, we can linewrap longer words/strings:</div>
+     <textarea name="" id="">
+        <style>
+  p {
+    overflow-wrap: break-word;
+    hyphens: auto;
+    
+    /* Prefix for Safari */
+    -webkit-hyphens: auto;
+  }
+</style>
+     </textarea>
         </div>
     </div>
     </body>
