@@ -77,7 +77,40 @@ That’s why many browsers still support -webkit- prefixed CSS.
   }
 </style>
      </textarea>
+     <div class="notes">
+      Handling long unbreakable words/URLs
+
+If no soft wrap opportunities exist, text can overflow.
+
+Fix with overflow-wrap: break-word (or word-wrap in IE).
+
+Hyphenation
+
+hyphens: auto allows breaking words with hyphens.
+
+Works best with overflow-wrap: break-word.
+
+Requires <html lang="...">. Behavior varies by browser.
+
+Ellipsis for overflow
+
+text-overflow: ellipsis + overflow: hidden can truncate text with “…”.
+
+Single-line ellipsis requires white-space: nowrap.
+
+Multi-line ellipsis can be done with -webkit-line-clamp, though setup is verbose and buggy with flex/grid unless wrapped.
+
+Best practices & cautions
+
+Ellipsis should be used carefully (don’t hide critical info).
+
+Hyphenation and truncation improve readability but depend on browser support.
+
+Always balance usability and design when concealing text.
+
+     </div>
         </div>
+
     </div>
     </body>
     </html
