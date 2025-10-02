@@ -155,6 +155,37 @@ p:not(:first-of-type) {
   font-family: 'Merriweather', serif;
 }
 </div>
+<div class="notes">
+  column layout
+  break-inside: avoid; //prevents an element from being split across multiple columns, pages, or regions.
+  floats
+  floats:left //The element is removed from the normal document flow and positioned to the left of its containing element. Other content will flow around it on the right side.
+  Indentation
+  <textarea name="" id="">
+      p::first-letter {
+    margin-left: 2rem;
+  }
+  p {
+    text-indent: 2rem;
+  }
+  </textarea>
+  Justified alignment
+  <textarea name="" id="">
+     p {
+    text-align: justify;
+    padding: 16px;
+  }
+  </textarea>
+  p:first-of-type::first-letter {
+  initial-letter: 2; /* Makes the first letter span 2 lines in height */
+}
+Explanation:
+p:first-of-type → selects the first <p> inside a parent.
+
+::first-letter → targets the very first letter of that paragraph.
+
+initial-letter: 2; → asks the browser to render that first letter as a “drop cap” spanning 2 lines high
+</div>
     </div>
     </body>
     </html
