@@ -158,6 +158,9 @@ p:not(:first-of-type) {
 <div class="notes">
   column layout
   break-inside: avoid; //prevents an element from being split across multiple columns, pages, or regions.
+  column-count: 2; //specifies the number of columns an element should be divided into.
+  column-gap: 150px; //specifies the gap between columns in a multi-column layout.
+  list-style-type:none; //removes the default bullet points or numbering from list items.
   floats
   floats:left //The element is removed from the normal document flow and positioned to the left of its containing element. Other content will flow around it on the right side.
   Indentation
@@ -175,7 +178,8 @@ p:not(:first-of-type) {
     text-align: justify;
     padding: 16px;
   }
-  </textarea>
+  </textarea>\
+  <div class="notes">
   p:first-of-type::first-letter {
   initial-letter: 2; /* Makes the first letter span 2 lines in height */
 }
@@ -185,7 +189,14 @@ p:first-of-type → selects the first <p> inside a parent.
 ::first-letter → targets the very first letter of that paragraph.
 
 initial-letter: 2; → asks the browser to render that first letter as a “drop cap” spanning 2 lines high
+
 </div>
+<div class="ap">Masonry Layout</div>
+<div class="notes">
+  in tobiath ahlin's blog, he mentioned that "Masonry layout is a grid layout based on columns, but unlike other grid layouts, it doesn’t have fixed height rows. Instead, the rows are determined by the height of the content within each column, creating a staggered, brick-like appearance."
+  also, using order and nth -of-type pseudo class, we can create a masonry layout using flexbox.
+</div>
+
     </div>
     </body>
     </html
