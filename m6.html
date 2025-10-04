@@ -196,7 +196,41 @@ initial-letter: 2; → asks the browser to render that first letter as a “drop
   in tobiath ahlin's blog, he mentioned that "Masonry layout is a grid layout based on columns, but unlike other grid layouts, it doesn’t have fixed height rows. Instead, the rows are determined by the height of the content within each column, creating a staggered, brick-like appearance."
   also, using order and nth -of-type pseudo class, we can create a masonry layout using flexbox.
 </div>
+<div class="ap">Text Styling</div>
+<div class="notes">Line Length</div>
+<textarea name="" id="">  max-width: 50ch; [for character per line]</textarea>
+<div class="notes">Text alignment</div>
+<textarea name="" id=""> text-align: justify; [for justified alignment]</textarea>
+<div class="ap">Font stacks</div>
+<div class="notes">font-family</div>
+<textarea name="" id="">A rising trend in recent years is to use the "system font stack". This is a stack of fonts that default to the nicest default option for each platform.
 
+It looks like this:
+
+p {
+  font-family:
+    -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
+    helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
+}
+or using font-variables
+html {
+  --font-sans-serif:
+    -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
+    helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
+  --font-serif:
+    Iowan Old Style, Apple Garamond, Baskerville, Times New Roman,
+    Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji,
+    Segoe UI Emoji, Segoe UI Symbol;
+
+  /* Set a global default */
+  font-family: var(--font-sans-serif);
+}
+
+/* Apply different fonts as needed */
+p {
+  font-family: var(--font-serif);
+}
+</textarea>
     </div>
     </body>
     </html
