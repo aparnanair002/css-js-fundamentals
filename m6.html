@@ -239,6 +239,14 @@ p {
 
 If we try to use bold text without supplying a bold font file, the browser creates “faux” bold text by artificially thickening every line in the font, which often results in muddy and indistinct letters.
 </textarea>
+In order to understand this property, we need to talk about the font-display timeline.
+
+The moment an HTML element tries to render text in our web font, a timer starts. Like a hockey game, there are 3 periods:
+
+The block period. During this time, the text will be painted in an invisible ink, so that no text is visible. It'll render the font ASAP if it becomes available during this period.
+The swap period. During this time, a fallback font is rendered (the first available font in the font stack). If the web font becomes available during this period, it gets swapped in immediately.
+The failure period. If the font isn't loaded during the block or swap periods, it stops trying, and will keep showing the fallback font no matter what happens with the web font.
+How long are each of these periods? It depends on the font-display property. Essentially, font-display is a way to control the length of each window.
     </div>
     </body>
     </html
