@@ -249,5 +249,10 @@ The failure period. If the font isn't loaded during the block or swap periods, i
 How long are each of these periods? It depends on the font-display property. Essentially, font-display is a way to control the length of each window.
     </div>
     <div class="ap">Font Loading UX</div>
+    <div class="notes">When using font-display: swap, text often switches from a fallback font to the final web font, causing layout shifts if the fonts differ in size or shape. To reduce this, browsers introduced font descriptors (f-mods) — properties like size-adjust, ascent-override, and descent-override that let developers adjust fallback fonts to better match the web font’s proportions.
+
+Tools such as Fallback Font Generator, Fontaine, and next/font (for Next.js) help calculate these values automatically. Developers have found that tweaking these settings—like pairing Verdana with Wotfard—greatly reduces visual jumps.
+
+While f-mods aren’t yet supported in Safari, they’re safe to use and improve the text rendering experience in Chrome, Firefox, and Edge.</div>
     </body>
     </html
