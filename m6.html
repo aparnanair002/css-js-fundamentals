@@ -256,5 +256,26 @@ Tools such as Fallback Font Generator, Fontaine, and next/font (for Next.js) hel
 While f-mods aren’t yet supported in Safari, they’re safe to use and improve the text rendering experience in Chrome, Firefox, and Edge.</div>
   <div class="ap">Icons</div> 
   <div class="notes">SVG (Scalable Vector Graphic) is an XML-based image format that defines images using shapes and paths instead of pixels — making it infinitely scalable without losing quality.</div>
+<div class="ap">Images</div>
+<div class="notes">Alt text should not include additional contextual information. For example, here's what you shouldn't do:
+
+<div>
+  <textarea name="" id=""><img
+  src="/landscape.jpg"
+  alt="Painting of a beautiful landscape. Artist: C. Essess"
+/>
+Instead, the attribution should go in a <figcaption> below the image:
+
+<figure>
+  <img
+    src="/landscape.jpg"
+    alt="Painting of a beautiful landscape."
+  />
+  <figcaption>
+    Artist: C. Essess
+  </figcaption>
+</figure></textarea>
+</div>
+</div>
 </body>
     </html
