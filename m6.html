@@ -283,7 +283,7 @@ Instead, the attribution should go in a <figcaption> below the image:
   object-position: top; //Aligns the image to the top of its container.
   </textarea>
   <div class="notes">Images and flexbox</div>
-  
+
   <textarea name="" id="">
       main{
     display:flex;
@@ -296,6 +296,103 @@ Instead, the attribution should go in a <figcaption> below the image:
     min-width:360px;
     width:100%;
   }
+  </textarea>
+  <div class="notes">
+    tried out a similar layout with another and found this
+  </div>
+  <textarea name="" id="">
+    img{
+  aspect-ratio:1/1;
+  object-fit: cover;
+  width:100%;
+}
+section{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.wrap{
+ width:32% ;
+  flex:1;
+ min-width:100px;
+}</textarea>
+<div class="notes">Aspect ratio</div>
+<textarea name="" id="">
+  aspect-ratio: 16/9; //Sets a fixed aspect ratio of 16:9 for the element.
+  aspect-ratio: 1/1; //Sets a square aspect ratio (1:1) for the element.
+  aspect-ratio: auto; //Allows the element to maintain its intrinsic aspect ratio based on its content or image dimensions.
+  
+@supports is known as a feature query. It works just like a media query, but instead of targeting specific window sizes, it targets support for specific CSS declarations. We'll learn more about feature queries in the next module
+  </textarea>
+  <div class="notes">Reesponsive images</div>
+  <textarea name="" id="">
+    srcset → Simpler, great for basic responsive images.
+
+<picture> → Needed for multiple formats or complex setups.
+
+Generating many image variants can be tedious; tools like Next/Image or Gatsby-Image automate this.
+</picture> is more flexible, allowing different images for various conditions (like art direction changes), while srcset is simpler for basic responsive needs.
+  </textarea>
+  <div class="notes">Background images</div>
+  <textarea name="" id="">
+    Background Images (Summary)
+1. When to Use
+
+<img> tags can’t tile images, so for repeating patterns, we use CSS background images.
+
+Example:
+
+body {
+  background-image: url('pattern.png');
+}
+
+
+By default, the image appears at its native size and tiles automatically.
+
+2. Handling High-DPI Screens
+
+High-DPI displays make normal images look blurry.
+To fix this, use media queries with the min-resolution feature:
+
+@media (min-resolution: 2dppx) {
+  body { background-image: url('pattern@2x.png'); }
+}
+@media (min-resolution: 3dppx) {
+  body { background-image: url('pattern@3x.png'); }
+}
+
+
+Add a fallback -webkit-min-device-pixel-ratio for older Safari versions.
+
+Set background-size equal to the 1x image size to keep scaling correct.
+
+3. Fit and Positioning
+
+background-size controls how the image fits:
+
+cover — fills the entire area (like object-fit: cover).
+
+contain — scales to fit inside the element.
+
+background-position works like object-position, controlling placement.
+
+4. Background Repeat Options
+
+By default, images tile (repeat) both horizontally and vertically.
+Other options:
+
+repeat — default tiling.
+
+round — scales images so they fit evenly, no cut-off edges.
+
+space — adds gaps between tiles, keeping original size.
+
+5. Generative (CSS) Backgrounds
+
+background-image can also use gradients, not just URLs.
+
+CSS-only background patterns can be created using gradient tricks.
+👉 Example resource: Magic Pattern (pure CSS geometric patterns).
   </textarea>
 </div>
 </div>
