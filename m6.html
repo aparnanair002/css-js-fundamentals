@@ -275,6 +275,28 @@ Instead, the attribution should go in a <figcaption> below the image:
     Artist: C. Essess
   </figcaption>
 </figure></textarea>
+<div class="notes">Fit and position</div>
+<textarea name="" id="">
+  object-fit: cover; //The image will cover the entire container, cropping if necessary, while maintaining its aspect ratio.
+  object-fit: contain; //The image will be scaled to fit within the container without cropping, maintaining its aspect ratio. There may be empty space if the aspect ratios differ.
+  object-position: center; //Centers the image within its container.
+  object-position: top; //Aligns the image to the top of its container.
+  </textarea>
+  <div class="notes">Images and flexbox</div>
+  
+  <textarea name="" id="">
+      main{
+    display:flex;
+    flex-wrap:wrap;
+  }
+  .wrapper,.reviews{
+    flex:1;
+  }
+  .wrapper img{
+    min-width:360px;
+    width:100%;
+  }
+  </textarea>
 </div>
 </div>
 </body>
