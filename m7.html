@@ -17,7 +17,39 @@
     <div class="sidebody">
         <div class="ap">CSS GRID</div>
         <div class="notes">Completed css grid game in mental model on 14/10/25</div>
-    </div>
+        <div class="ap">Grid Flow and Laout modes</div>
+        <div class="notes">When we change grid-auto-flow from row to column, we're not fundamentally changing the orientation of our grid; everything stays the same, except for the fact that our grid will have multiple columns instead of multiple rows.</div>
+        <div class="ap">Grid Construction</div>
+        <div class="notes">
+          grid-template-row: 100px 200px 100px; <br />
+          grid-template-column: 100px 200px 100px; <br /> 
+          also other units are available like fr, auto, %, vw, vh <br />
+          What happens if we include more than 3 children?
+the browser creates a 4th row and squeezes it in. It doesn't cause an overflow, it just means that there's less available space for the other elements.
+          </div>  
+          <textarea name="" id="">
+            .calendar {
+  grid-template-columns: 250px repeat(5, 1fr);
+}
+          </textarea>
+          to repeat a column multiple times, we can use the repeat function. In this case, we want to repeat a column that takes up 1 fraction of the available space 5 times.
+          <textarea name="" id="">
+            const Wrapper = styled.div`
+  border: 3px solid;
+  display:grid;
+  grid-template-columns:repeat(7,2rem);
+  gap:5px 5px;
+  padding:20px;
+    width: max-content;  
+`;
 
+const Day = styled.div`
+  border: 2px solid;
+  border-radius: 4px;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+          </textarea>
 </body>
     </html>
