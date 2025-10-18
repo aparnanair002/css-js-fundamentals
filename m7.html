@@ -51,5 +51,28 @@ const Day = styled.div`
   align-items: center;
 `;
           </textarea>
+          <div class="ap">Alignment</div>
+          <div class="notes">
+            For Grid containers, we have the following alignment properties available to us:
+            justify-content: start | end | center | stretch | space-between | space-around | space-evenly; <br />
+            align-content: start | end | center | stretch | space-between | space-around | space-evenly; <br />
+
+            justify-items: start | end | center | stretch; <br />
+            align-items: start | end | center | stretch; <br />
+            align-items is used on the parent to control the cross-axis position for all of the elements. But we also have align-self, which allows a specific child to overrule it
+            align-content is used when there is extra space in the grid container. It controls how that extra space is distributed.
+            justify-content does the same thing, but for the main axis.
+            justify-items works like align-items, but for the main axis.
+          </div>
+          <textarea name="" id="">
+            .box.one {
+            background-color: pink;
+            width: calc(var(--rect-width) * 0.25);
+          }
+          .box.two {
+            background-color: pink;
+            width: calc(var(--rect-width) * 0.75);
+}
+          </textarea>
 </body>
     </html>
