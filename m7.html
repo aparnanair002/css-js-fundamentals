@@ -74,8 +74,53 @@ const Day = styled.div`
             width: calc(var(--rect-width) * 0.75);
 }
           </textarea>
-          <div class="notes">
-            grid-template-areas:
+          <div class="notes">  grid-template-areas:
+    'sidebar header'
+    'sidebar main-content'; 
+    this allows us to name different areas of our grid, and then assign children to those areas using the grid-area property.
           </div>
+          <textarea name="" id="">
+            <style>
+  .wrapper {
+    display: grid;
+    grid-template-columns: 200px 1fr 150px;
+    grid-template-rows: 4rem 1fr 5rem;
+    grid-template-areas:
+      'header header header'
+      'sidebar main ad'
+      'footer footer footer';
+    min-height: 100%;
+  }
+
+  header {
+    grid-area: header;
+  }
+  nav {
+    grid-area: sidebar;
+  }
+  main {
+    grid-area: main;
+  }
+  aside {
+    grid-area: ad;
+  }
+  footer {
+    grid-area: footer;
+  }
+</style>
+
+<div class="wrapper">
+  <header></header>
+  <nav></nav>
+  <main></main>
+  <aside></aside>
+  <footer></footer>
+</div>
+<div class="notes">Minmax</div>
+<textarea name="" id="">
+  One quick gotcha: the flexible unit has to come last. minmax(1fr, 250px) is invalid, because 1fr isn't a valid "minimum" value.
+</textarea>
+<div class="notes"></div>
+          </textarea>
 </body>
     </html>
