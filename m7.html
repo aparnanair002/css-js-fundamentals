@@ -116,11 +116,77 @@ const Day = styled.div`
   <aside></aside>
   <footer></footer>
 </div>
+</textarea>
 <div class="notes">Minmax</div>
 <textarea name="" id="">
   One quick gotcha: the flexible unit has to come last. minmax(1fr, 250px) is invalid, because 1fr isn't a valid "minimum" value.
+  <style>
+  .grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns:
+      minmax(50px, 1fr)
+      minmax(250px, 1fr);
+  }
+</style>
 </textarea>
-<div class="notes"></div>
-          </textarea>
+<div class="notes">
+autofill and autofit
+When using the repeat function with the auto-fill or auto-fit keywords, the grid will automatically create as many columns (or rows) as will fit in the container, based on the size of the items.
+</div>
+ <textarea name="" id="">
+  <style>
+  .grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns:
+      repeat(auto-fill, 150px);
+  }
+</style>
+ </textarea>    
+ <div class="notes">
+  Putting them together with minmax:
+  </div>
+  <textarea name="" id="">
+  <style>
+  .grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns:
+      repeat(auto-fill, minmax(150px, 1fr));
+  }
+  
+</style>
+</textarea>
+<div class="notes">
+  autofill and autofit difference:
+  With auto-fill, the grid will create as many columns (or rows) as will fit in the container, even if some of those columns are empty. 
+  With auto-fit, the grid will collapse any empty columns, so that there are no gaps in the layout.
+  The Fluid Layout
+</div>
+
+<textarea name="" id="">
+  <style>
+  .grid {
+    --min-column-width: min(320px, 100%);
+    display: grid;
+    grid-template-columns:
+      repeat(auto-fill, minmax(var(--min-column-width), 1fr));
+    gap: 16px;
+    padding: 16px;
+  }
+</style>
+</textarea>
+<div class="notes">Two Line Center</div>
+<textarea name="" id="">
+  The place-content property will set both justify-content and align-content at the same time. This means that we now have a CSS centering trick that's just 2 declarations long!
+
+  .container {
+    display: grid;
+    place-content: center;
+    height: 100vh;
+  }
+</textarea>
+ </div>     
 </body>
     </html>
