@@ -46,6 +46,7 @@ transform: scale(1.2, 0.8);
 <h3>4. Rotate</h3>
 <p class="notes">
 Rotates an element around its origin. Common units are <code>deg</code> (degrees) and <code>turn</code> (1 turn = 360°).
+One common gotcha with transforms is that they don't work with inline elements in Flow layout.
 </p>
 <textarea>
 transform: rotate(45deg);
@@ -113,7 +114,28 @@ Fix by changing display to <code>inline-block</code> or using Flex/Grid.
 Transforms act on the GPU layer (like flat textures), avoiding layout recalculations.  
 This makes them ideal for smooth, high-performance animations.
 </p>
+<div class="ap">Transitions</div>
+<div class="notes">
+    transition-timing-function
+    :ease-out [its like   deceleration ]
+    :linear [its like smooth]
+    :ease-in ;[acceleration]
+    :ease-in-out [acc-dec-acc,symmetrical]
+    :ease[default ,acc-dec, assymetrical]
 
-    </div>
+    Or, we can pass it directly to the transition shorthand property:
+</div>
+<div class="textarea">
+    .btn {
+  transition: transform 250ms linear;
+}
+</div>
+<div class="notes">
+    Also there is cubic-bezier function where we can define our own timing function by passing 4 control points
+</div>
+
+  
+</div>
+
     </body>
     </html>
