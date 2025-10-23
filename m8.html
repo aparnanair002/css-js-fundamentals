@@ -1,1 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module 7</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="module-item" id="mod1">
+        <div class="module">
+          <div class="sidebar-content">Home</div>
+        </div>
+      </div>
+    </div>
+    <div class="sidebody">
+        <div class="ap">Animation</div>
+        <h3>1. Transform Property</h3>
+<p class="notes">
+The <code>transform</code> property allows us to visually change an element — move, rotate, scale, or skew it.  
+It doesn’t affect the element’s layout position — only how it looks.
+</p>
 
+<h3>2. Translation</h3>
+<p class="notes">
+Moves an element along the <strong>x</strong> and <strong>y</strong> axes. Positive values move right/down, negative values move left/up.  
+The element’s layout isn’t affected (unlike <code>position</code> offsets). Percentages in <code>translate()</code> refer to the element’s own size.
+</p>
+<textarea>
+transform: translate(50px, -30px);
+transform: translateX(20%);
+transform: translateY(calc(100% + 10px));
+</textarea>
+
+<h3>3. Scale</h3>
+<p class="notes">
+Grows or shrinks an element. Affects the entire element including text and children.  
+Scale values are unitless multipliers. Faster for animation since it avoids layout recalculations.
+</p>
+<textarea>
+transform: scale(1.5);
+transform: scale(1.2, 0.8);
+</textarea>
+
+<h3>4. Rotate</h3>
+<p class="notes">
+Rotates an element around its origin. Common units are <code>deg</code> (degrees) and <code>turn</code> (1 turn = 360°).
+</p>
+<textarea>
+transform: rotate(45deg);
+transform: rotate(0.25turn);
+</textarea>
+
+<h3>5. Skew</h3>
+<p class="notes">
+Tilts an element along the X or Y axis. Useful for creative or diagonal designs.
+</p>
+<textarea>
+transform: skew(20deg, 10deg);
+transform: skewX(15deg);
+</textarea>
+
+<h3>6. Transform Origin</h3>
+<p class="notes">
+Defines the pivot point (anchor) for transformations.  
+Affects how rotation and scaling behave.
+</p>
+<textarea>
+transform-origin: center;  /* default */
+transform-origin: top left;
+</textarea>
+
+<h3>7. Combining Multiple Transforms</h3>
+<p class="notes">
+Multiple transform functions can be chained.  
+Order matters — transforms are applied from right to left.
+</p>
+<textarea>
+transform: translateX(50px) rotate(45deg);
+transform: rotate(45deg) translateX(50px);
+</textarea>
+
+<h3>8. Animation Example</h3>
+<p class="notes">
+By combining <code>rotate()</code> and <code>translateX()</code>, we can simulate orbit-like motion.
+</p>
+<textarea>
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateX(80px);
+  }
+  to {
+    transform: rotate(360deg) translateX(80px);
+  }
+}
+</textarea>
+
+<h3>9. Inline Elements Limitation</h3>
+<p class="notes">
+The <code>transform</code> property doesn’t work on purely inline elements.  
+Fix by changing display to <code>inline-block</code> or using Flex/Grid.
+</p>
+<textarea>
+.inline-fella {
+  display: inline-block;
+  transform: rotate(-10deg);
+}
+</textarea>
+
+<h3>10. Why Transforms Are Fast</h3>
+<p class="notes">
+Transforms act on the GPU layer (like flat textures), avoiding layout recalculations.  
+This makes them ideal for smooth, high-performance animations.
+</p>
+
+    </div>
+    </body>
+    </html>
