@@ -133,8 +133,243 @@ This makes them ideal for smooth, high-performance animations.
 <div class="notes">
     Also there is cubic-bezier function where we can define our own timing function by passing 4 control points
 </div>
+<div class="ap">Keyframe animations</div>
+  <div class="notes">
+    🟢 1. Basics of Keyframe Animations
 
-  
+Declared using @keyframes rule.
+
+Define transitions between different CSS states (from → to or 0% → 100%).
+
+Each @keyframes must have a name (e.g., slide-in).
+
+Applied to elements using the animation property.
+
+🟢 2. Animation Property
+
+Syntax: animation: <name> <duration>;
+
+Duration is required (e.g., 1000ms or 1s).
+
+Browser automatically interpolates between the states.
+
+Multiple CSS properties can be animated simultaneously.
+
+🟢 3. Timing Functions
+
+Control the speed curve of animation.
+
+Default: ease.
+
+Can be changed using animation-timing-function (e.g., ease-in, linear, etc.).
+
+🟢 4. Looping Animations
+
+By default, an animation runs once.
+
+Controlled with animation-iteration-count.
+
+Example: 3 → repeats 3 times.
+
+infinite → loops forever.
+
+Useful for things like spinners.
+
+🟢 5. Spinner Example
+
+Uses rotation to simulate loading:
+
+@keyframes spin {
+  from { transform: rotate(0turn); }
+  to { transform: rotate(1turn); }
+}
+
+
+Should use linear timing for constant motion.
+
+Set to infinite iteration for continuous spin.
+
+🟢 6. Multi-Step Animations
+
+Use percentages (0%, 25%, 50%, 100%) for multiple keyframes.
+
+from = 0% and to = 100%.
+
+Each step has its own timing function applied.
+
+Creates more complex motion sequences.
+
+🟢 7. Alternating Animations
+
+Use animation-direction to control direction of animation:
+
+normal → 0% to 100%
+
+reverse → 100% to 0%
+
+alternate → ping-pongs between both directions.
+
+Eliminates need for extra steps (e.g., grow → shrink).
+
+Example: breathing effect using scale().
+
+🟢 8. Duration & Iteration
+
+If you use alternate, one full cycle = 2 iterations.
+
+Example: a 2s grow + 2s shrink = total 4s for full loop.
+
+🟢 9. Animation Shorthand
+
+Combines all properties into one line:
+
+animation: name duration timing-function iteration-count direction;
+
+
+Example:
+
+animation: grow-and-shrink 2000ms ease-in-out infinite alternate;
+
+
+Order doesn’t matter except for animation-delay (must come after duration).
+
+🟢 10. Common Animation Properties
+Property	Purpose
+animation-name	Defines which keyframes to use
+animation-duration	Time for one cycle
+animation-timing-function	Speed curve
+animation-delay	Wait time before starting
+animation-iteration-count	Number of repeats
+animation-direction	Play direction (normal, reverse, alternate)
+🟢 1. The Problem
+
+After an animation ends, the element reverts to its original style.
+
+This happens because the @keyframes styles apply only while the animation is running.
+
+Example: a fade-out animation makes opacity go to 0, but when it ends, it pops back to 1.
+
+🟢 2. Default Behavior
+
+Once animation completes, the element uses its default CSS values again.
+
+To keep it hidden, we could set opacity: 0; in the base selector — but that’s not elegant.
+
+🟢 3. Solution — animation-fill-mode
+
+This property controls how styles from keyframes are applied before and after the animation runs.
+
+🟢 4. forwards
+
+Keeps the final state (from the to or 100% block) after animation ends.
+
+Example:
+
+animation-fill-mode: forwards;
+
+
+Graphically: animation ends → element stays in its final appearance (e.g., faded out).
+
+🟢 5. backwards
+
+Applies the initial state (from the from or 0% block) during animation delay.
+
+Prevents a “flash” of the default style before the animation starts.
+
+Example:
+
+animation-delay: 500ms;
+animation-fill-mode: backwards;
+
+
+Graphically: element looks like frame 0% even before the animation begins.
+
+🟢 6. both
+
+Combines the effects of forwards + backwards.
+
+Initial state applies during delay, final state persists after completion.
+
+Recommended for most animations.
+
+Example:
+
+animation-fill-mode: both;
+
+🟢 7. Shorthand Usage
+
+You can include fill mode in the shorthand:
+
+.box {
+  animation: slide-in 1000ms ease-out both;
+  animation-delay: 500ms;
+}
+
+🟢 8. Summary Table
+Fill Mode	Before Animation	After Animation	Use Case
+none (default)	Default CSS applies	Default CSS applies	No persistence
+forwards	Default CSS applies	Keeps final (to) styles	Fade-out, end states
+backwards	Keeps initial (from) styles	Default CSS applies	With delay
+both	Keeps initial styles	Keeps final styles	Best default choice ✅
+🟢 1. Animations Don’t Have to Start on Page Load
+
+CSS animations begin whenever a valid animation property is applied.
+
+They can be triggered dynamically — for example, through JavaScript or React state updates.
+
+Example: Clicking a button can add animation: jump 1000ms infinite; to an element → animation starts immediately.
+
+Removing it (setting to undefined) stops the animation.
+
+🟢 2. Problem: Abrupt “Interruptions”
+
+When an animation property is removed, the element’s animated styles disappear instantly.
+
+The element jumps back to its default state → creates a jarring effect.
+
+🟢 3. Solution: animation-play-state
+
+Instead of removing the animation, you can pause or resume it smoothly.
+
+Example:
+
+animation-play-state: paused; /* freezes animation */
+animation-play-state: running; /* resumes from same point */
+
+
+In React, you can toggle it dynamically:
+
+style={{
+  animationPlayState: animated ? 'running' : 'paused'
+}}
+
+
+Works like a “pause button” — freezes mid-animation and resumes seamlessly.
+
+🟢 4. Use Cases for animation-play-state
+
+Useful for interactive elements (e.g., loaders, games, visual demos).
+
+Supported in all modern browsers (since IE10).
+
+Not commonly used, but great for controlled animations.
+
+🟢 5. @keyframes vs. transition
+Feature	@keyframes Animation	CSS Transition
+Control	Complex, reusable, controllable (loop, pause, multi-step)	Simple one-time property change
+Triggers	Can run on load or via JS	Triggered by state changes (hover, click, etc.)
+Looping	✅ Supported (infinite)	❌ Not supported
+Multi-step motion	✅ Supports multiple keyframes	❌ Only start → end
+Pause/Resume	✅ animation-play-state	❌ Not possible
+Best for	Repeated, timed, or decorative motion	Smooth value transitions on UI changes
+🟢 6. Quick Takeaway
+
+Use @keyframes for ongoing, complex, or timed animations.
+
+Use transition for UI feedback or state-driven visual changes.
+
+For dynamic control (start, stop, pause, resume) → manage animation and animation-play-state via JS.
+  </div>
 </div>
 
     </body>
