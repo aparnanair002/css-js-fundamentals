@@ -370,7 +370,43 @@ Use transition for UI feedback or state-driven visual changes.
 
 For dynamic control (start, stop, pause, resume) → manage animation and animation-play-state via JS.
   </div>
-</div>
+  🌀 Using @keyframes with Styled-Components — Summary
 
+In styled-components, styles are scoped to components, but @keyframes is normally global in CSS.
+
+To safely use animations, styled-components provides a special helper:
+
+import styled, { keyframes } from 'styled-components';
+
+🧩 How It Works
+
+Define the animation using the keyframes helper:
+
+const float = keyframes`
+  from { transform: translateY(10px); }
+  to { transform: translateY(-10px); }
+`;
+
+
+Apply it inside a styled component:
+
+const FloatingCircle = styled.div`
+  animation: ${float} 1000ms infinite alternate ease-in-out;
+`;
+
+✅ Benefits
+
+Each animation gets a unique, automatically generated name, preventing naming conflicts (unlike global CSS where two animations named fadeIn might overwrite each other).
+
+Works exactly like regular @keyframes, but scoped safely within styled-components.
+
+💡 Key Takeaway
+
+Using keyframes from styled-components lets you write animations that are component-scoped, conflict-free, and behave just like standard CSS animations.
+</div>
+<div class="notes">
+    transform-style: preserve-3d;  /* to enable 3d space for children */
+    
+</div>
     </body>
     </html>
