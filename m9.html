@@ -76,6 +76,54 @@ comes with several parameters:
   }
 </style>
 </div>
+<div class="ap">Smooth Scrolling</div>
+<div class="notes">
+  To enable smooth scrolling for the entire webpage, you can use the following CSS:
+  html {
+  scroll-behavior: smooth;
+}
+also,
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+} 
+
+</div>
+<div class="ap">Scroll Snapping</div>
+<div class="notes">
+scroll-snap-type — this controls the direction and precision of the scroll snapping.
+scroll-snap-align — this controls which part of the child we want to snap.
+</div>
+<textarea name="" id="">
+    .wrapper {
+    scroll-snap-type: x mandatory;
+  }
+  .box {
+    scroll-snap-align: start;
+  }
+  html {
+  --color-thumb: red;
+  --color-track: white;
+
+  /* Official styles (Firefox) */
+  scrollbar-color:
+    var(--color-thumb)
+    var(--color-track);
+  scrollbar-width: thin;
+}
+
+/* Vendor prefix for other browsers */
+::-webkit-scrollbar {
+  background-color: var(--color-track);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-thumb);
+}
+Scroll-margin-top: 20px;
+overflow-y:scroll;
+
+</textarea>
         </div>
         </body>
         </html>
