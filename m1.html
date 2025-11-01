@@ -259,21 +259,25 @@ Deep specificity rules (like comparing #about-page button:last-of-type vs .form 
     There are 7 layout modules, lets start with the first one: Flow layout.
     Flow layout is the default layout mode in CSS, where elements are arranged in a linear sequence, one after another, based on their order in the HTML document.
     It allows for easy stacking of elements vertically and horizontally.
-    think of Flow layout as the “Microsoft Word” layout algorithm. Two main types:
+    think of Flow layout as the “Microsoft Word” layout algorithm. Two main types:</div>
     <textarea name="" id="">
       Block elements: things like headings, paragraphs, footers, asides. The chunks of content that make up a page.
 Inline elements: things like links, or a string of bold text. Generally, inline elements are meant to highlight bits of text, or elements within a block container.
     </textarea>
+      <div class="notes">
+
     picture inline elements as go-with-the-flow-type folks. They're like polite dinner-party guests who sit exactly where they're assigned.
     “magic space” is that the browser treats inline elements as if they're typography. It makes sense that with text, you'd want a bit of extra space, so that the lines in a paragraph aren't crammed in too tightly.
-
+      </div>
     <textarea name="" id="">
       Solution:
       Set images to display: block — if you're noticing this problem, there's a good chance your images aren't interspersed with text, so setting them to display as blocks makes sense.
 Set the line-height on the wrapping div to 0
  An inline-block element is a block-level element that can be placed in an inline context. You know the expression “a wolf in sheep's clothing”? We can think of inline-block as “a block in inline's clothing”.
     </textarea>
-    When you place a block level element on the page, its content box greedily expands to fill the entire available horizontal space.
+          <div class="notes">
+
+    When you place a block level element on the page, its content box greedily expands to fill the entire available horizontal space.</div>
     <div class="ap">Width algorithm</div>
     <div class="notes">
     Block elements have a default width value of auto, not 100%. width: auto works very similar to margin: auto;
@@ -303,21 +307,21 @@ Fixed heights often cause overflow issues.
 We usually want elements to grow with content (200 → 20,000 words).
 min-height: 100% doesn’t work unless all ancestor elements (including html, body) have a set height.
 
-Otherwise, parent and child heights depend on each other, creating a deadlock.
+Otherwise, parent and child heights depend on each other, creating a deadlock.</div>
   <textarea name="" id="">Width → looks up the tree (parent).
 
 Height → looks down the tree (children).
 </textarea>
 <div class="ap">Rules </div>
 <div class="notes">
-  1. Only vertical margins collapse
-  2.Margins only collapse in Flow layout
-  3.Only adjacent elements collapse . It is somewhat common to use the < b r > tag (a line-break) to increase space between block elements
-  4.The bigger margin wins
-  5.Nesting doesn't prevent collapsing
-  6.Margins can collapse in the same direction
-  7.More than two margins can collapse
-  8.Negative margins
+  1. Only vertical margins collapse<br>
+  2.Margins only collapse in Flow layout<br>
+  3.Only adjacent elements collapse . It is somewhat common to use the < b r > tag (a line-break) to increase space between block elements<br>
+  4.The bigger margin wins<br>
+  5.Nesting doesn't prevent collapsing<br>
+  6.Margins can collapse in the same direction<br>
+  7.More than two margins can collapse<br>
+  8.Negative margins<br>
 
 
 </div>
