@@ -139,7 +139,9 @@ a{
   top: 0;
   left: 0;
   padding: 20px;
-  border-right: 5px solid white;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: white transparent;
 }
 
 .sidebody {
