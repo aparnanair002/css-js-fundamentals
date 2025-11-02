@@ -8,87 +8,158 @@
   </head>
   <body>
      <div class="sidebar">
-      <div class="module-item" id="mod1">
-        <div class="module">
-          <a href="#home" class="sidebar-content">Home</a>
-          <a href="#css-grid" class="sidebar-content">CSS GRID</a>
-          <a href="#grid-flow" class="sidebar-content">Grid Flow and Layout Modes</a>
-          <a href="#grid-construction" class="sidebar-content">Grid Construction</a>
-          <a href="#alignment" class="sidebar-content">Alignment</a>
-          <a href="#minmax" class="sidebar-content">Minmax</a>
-          <a href="#autofill" class="sidebar-content">Autofill and Autofit</a>
-          <a href="#fluid-layout" class="sidebar-content">Fluid Layout</a>
-          <a href="#two-line-center" class="sidebar-content">Two Line Center</a>
-        </div>
-      </div>
+  <div class="module-item" id="mod1">
+    <div class="module">
+      <a href="#home" class="sidebar-content">Home</a>
     </div>
-    <div class="sidebody">
+  </div>
+
+  <div class="module-item" id="mod2">
+    <div class="module">
+      <a href="#css-grid" class="sidebar-content">CSS GRID</a>
+    </div>
+  </div>
+
+  <div class="module-item" id="mod3">
+    <div class="module">
+      <a href="#grid-flow" class="sidebar-content">Grid Flow and Layout Modes</a>
+    </div>
+  </div>
+
+  <div class="module-item" id="mod4">
+    <div class="module">
+      <a href="#grid-construction" class="sidebar-content">Grid Construction</a>
+    </div>
+  </div>
+
+  <div class="module-item" id="mod5">
+    <div class="module">
+      <a href="#alignment" class="sidebar-content">Alignment</a>
+    </div>
+  </div>
+
+  <div class="module-item" id="mod6">
+    <div class="module">
+      <a href="#minmax" class="sidebar-content">Minmax</a>
+    </div>
+  </div>
+
+  <div class="module-item" id="mod7">
+    <div class="module">
+      <a href="#autofill" class="sidebar-content">Autofill and Autofit</a>
+    </div>
+  </div>
+
+  <div class="module-item" id="mod8">
+    <div class="module">
+      <a href="#fluid-layout" class="sidebar-content">Fluid Layout</a>
+    </div>
+  </div>
+
+  <div class="module-item" id="mod9">
+    <div class="module">
+      <a href="#two-line-center" class="sidebar-content">Two Line Center</a>
+    </div>
+  </div>
+</div>
+ <div class="sidebody">
+
+      <!-- CSS GRID -->
+      <section id="css-grid">
         <div class="ap">CSS GRID</div>
-        <div class="notes">Completed css grid game in mental model on 14/10/25</div>
-        <div class="ap">Grid Flow and Laout modes</div>
-        <div class="notes">When we change grid-auto-flow from row to column, we're not fundamentally changing the orientation of our grid; everything stays the same, except for the fact that our grid will have multiple columns instead of multiple rows.</div>
+        <div class="notes">Completed CSS Grid game in mental model on 14/10/25</div>
+      </section>
+
+      <!-- GRID FLOW -->
+      <section id="grid-flow">
+        <div class="ap">Grid Flow and Layout Modes</div>
+        <div class="notes">
+          Changing <code>grid-auto-flow</code> from <b>row</b> to <b>column</b> doesn’t alter the grid orientation; it simply changes how new items are placed — multiple columns instead of multiple rows.
+        </div>
+      </section>
+
+      <!-- GRID CONSTRUCTION -->
+      <section id="grid-construction">
         <div class="ap">Grid Construction</div>
         <div class="notes">
-          grid-template-row: 100px 200px 100px; <br />
-          grid-template-column: 100px 200px 100px; <br /> 
-          also other units are available like fr, auto, %, vw, vh <br />
-          What happens if we include more than 3 children?
-the browser creates a 4th row and squeezes it in. It doesn't cause an overflow, it just means that there's less available space for the other elements.
-          </div>  
-          <textarea name="" id="">
-            .calendar {
+          <p>
+            <code>grid-template-rows: 100px 200px 100px;</code><br />
+            <code>grid-template-columns: 100px 200px 100px;</code><br />
+            You can also use other units like <b>fr</b>, <b>auto</b>, <b>%</b>, <b>vw</b>, <b>vh</b>.
+          </p>
+          <p>
+            If we include more than 3 children, the browser creates a 4th row and squeezes it in without overflow.
+          </p>
+        </div>
+
+        <textarea>
+.calendar {
   grid-template-columns: 250px repeat(5, 1fr);
 }
-          </textarea>
-          to repeat a column multiple times, we can use the repeat function. In this case, we want to repeat a column that takes up 1 fraction of the available space 5 times.
-          <textarea name="" id="">
-            const Wrapper = styled.div`
+        </textarea>
+
+        <div class="notes">
+          <p>
+            Use <code>repeat()</code> to simplify repetitive grid columns.
+          </p>
+        </div>
+
+        <textarea>
+const Wrapper = styled.div`
   border: 3px solid;
-  display:grid;
-  grid-template-columns:repeat(7,2rem);
-  gap:5px 5px;
-  padding:20px;
-    width: max-content;  
+  display: grid;
+  grid-template-columns: repeat(7, 2rem);
+  gap: 5px;
+  padding: 20px;
+  width: max-content;  
 `;
 
 const Day = styled.div`
   border: 2px solid;
   border-radius: 4px;
-   display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 `;
-          </textarea>
-          <div class="ap">Alignment</div>
-          <div class="notes">
-            For Grid containers, we have the following alignment properties available to us:
-            justify-content: start | end | center | stretch | space-between | space-around | space-evenly; <br />
-            align-content: start | end | center | stretch | space-between | space-around | space-evenly; <br />
+        </textarea>
+      </section>
 
-            justify-items: start | end | center | stretch; <br />
-            align-items: start | end | center | stretch; <br />
-            align-items is used on the parent to control the cross-axis position for all of the elements. But we also have align-self, which allows a specific child to overrule it
-            align-content is used when there is extra space in the grid container. It controls how that extra space is distributed.
-            justify-content does the same thing, but for the main axis.
-            justify-items works like align-items, but for the main axis.
-          </div>
-          <textarea name="" id="">
-            .box.one {
-            background-color: pink;
-            width: calc(var(--rect-width) * 0.25);
-          }
-          .box.two {
-            background-color: pink;
-            width: calc(var(--rect-width) * 0.75);
+      <!-- ALIGNMENT -->
+      <section id="alignment">
+        <div class="ap">Alignment</div>
+        <div class="notes">
+          <p>Alignment properties for Grid containers:</p>
+          <ul>
+            <li><b>justify-content</b>: start | end | center | stretch | space-between | space-around | space-evenly</li>
+            <li><b>align-content</b>: start | end | center | stretch | space-between | space-around | space-evenly</li>
+            <li><b>justify-items</b>: start | end | center | stretch</li>
+            <li><b>align-items</b>: start | end | center | stretch</li>
+          </ul>
+          <p>
+            <code>align-items</code> and <code>align-self</code> control cross-axis alignment.<br />
+            <code>align-content</code> and <code>justify-content</code> handle extra space distribution.
+          </p>
+        </div>
+
+        <textarea>
+.box.one {
+  background-color: pink;
+  width: calc(var(--rect-width) * 0.25);
 }
-          </textarea>
-          <div class="notes">  grid-template-areas:
-    'sidebar header'
-    'sidebar main-content'; 
-    this allows us to name different areas of our grid, and then assign children to those areas using the grid-area property.
-          </div>
-          <textarea name="" id="">
-            <style>
+.box.two {
+  background-color: pink;
+  width: calc(var(--rect-width) * 0.75);
+}
+        </textarea>
+
+        <div class="notes">
+          <p>
+            <code>grid-template-areas</code> allows naming grid regions and assigning children via <code>grid-area</code>.
+          </p>
+        </div>
+
+        <textarea>
+<style>
   .wrapper {
     display: grid;
     grid-template-columns: 200px 1fr 150px;
@@ -100,21 +171,11 @@ const Day = styled.div`
     min-height: 100%;
   }
 
-  header {
-    grid-area: header;
-  }
-  nav {
-    grid-area: sidebar;
-  }
-  main {
-    grid-area: main;
-  }
-  aside {
-    grid-area: ad;
-  }
-  footer {
-    grid-area: footer;
-  }
+  header { grid-area: header; }
+  nav { grid-area: sidebar; }
+  main { grid-area: main; }
+  aside { grid-area: ad; }
+  footer { grid-area: footer; }
 </style>
 
 <div class="wrapper">
@@ -124,11 +185,20 @@ const Day = styled.div`
   <aside></aside>
   <footer></footer>
 </div>
-</textarea>
-<div class="notes">Minmax</div>
-<textarea name="" id="">
-  One quick gotcha: the flexible unit has to come last. minmax(1fr, 250px) is invalid, because 1fr isn't a valid "minimum" value.
-  <style>
+        </textarea>
+      </section>
+
+      <!-- MINMAX -->
+      <section id="minmax">
+        <div class="ap">Minmax</div>
+        <div class="notes">
+          <p>
+            The flexible unit must come last — <code>minmax(1fr, 250px)</code> is invalid because <code>1fr</code> isn’t a valid minimum.
+          </p>
+        </div>
+
+        <textarea>
+<style>
   .grid {
     display: grid;
     gap: 16px;
@@ -137,13 +207,20 @@ const Day = styled.div`
       minmax(250px, 1fr);
   }
 </style>
-</textarea>
-<div class="notes">
-autofill and autofit
-When using the repeat function with the auto-fill or auto-fit keywords, the grid will automatically create as many columns (or rows) as will fit in the container, based on the size of the items.
-</div>
- <textarea name="" id="">
-  <style>
+        </textarea>
+      </section>
+
+      <!-- AUTOFILL / AUTOFIT -->
+      <section id="autofill">
+        <div class="ap">Autofill and Autofit</div>
+        <div class="notes">
+          <p>
+            Using <code>repeat()</code> with <b>auto-fill</b> or <b>auto-fit</b> automatically creates as many columns (or rows) as fit the container.
+          </p>
+        </div>
+
+        <textarea>
+<style>
   .grid {
     display: grid;
     gap: 16px;
@@ -151,30 +228,44 @@ When using the repeat function with the auto-fill or auto-fit keywords, the grid
       repeat(auto-fill, 150px);
   }
 </style>
- </textarea>    
- <div class="notes">
-  Putting them together with minmax:
-  </div>
-  <textarea name="" id="">
-  <style>
+        </textarea>
+
+        <div class="notes">
+          <p>
+            Combine with <code>minmax()</code> for flexibility:
+          </p>
+        </div>
+
+        <textarea>
+<style>
   .grid {
     display: grid;
     gap: 16px;
     grid-template-columns:
       repeat(auto-fill, minmax(150px, 1fr));
   }
-  
 </style>
-</textarea>
-<div class="notes">
-  autofill and autofit difference:
-  With auto-fill, the grid will create as many columns (or rows) as will fit in the container, even if some of those columns are empty. 
-  With auto-fit, the grid will collapse any empty columns, so that there are no gaps in the layout.
-  The Fluid Layout
-</div>
+        </textarea>
 
-<textarea name="" id="">
-  <style>
+        <div class="notes">
+          <p>
+            <b>auto-fill</b> keeps empty columns visible.<br />
+            <b>auto-fit</b> collapses empty columns for tighter layouts.
+          </p>
+        </div>
+      </section>
+
+      <!-- FLUID LAYOUT -->
+      <section id="fluid-layout">
+        <div class="ap">Fluid Layout</div>
+        <div class="notes">
+          <p>
+            Create fluid grids using <code>min()</code> and <code>auto-fill</code> for responsive columns.
+          </p>
+        </div>
+
+        <textarea>
+<style>
   .grid {
     --min-column-width: min(320px, 100%);
     display: grid;
@@ -184,26 +275,40 @@ When using the repeat function with the auto-fill or auto-fit keywords, the grid
     padding: 16px;
   }
 </style>
-</textarea>
-<div class="notes">Two Line Center</div>
-<textarea name="" id="">
-  The place-content property will set both justify-content and align-content at the same time. This means that we now have a CSS centering trick that's just 2 declarations long!
+        </textarea>
+      </section>
 
-  .container {
-    display: grid;
-    place-content: center;
-    height: 100vh;
-  }
-</textarea>
-<div class="notes">
+      <!-- TWO LINE CENTER -->
+      <section id="two-line-center">
+        <div class="ap">Two Line Center</div>
+        <div class="notes">
+          <p>
+            <code>place-content</code> sets both <code>justify-content</code> and <code>align-content</code>, making centering super easy.
+          </p>
+        </div>
 
-The asterisk (*) is a wildcard: it matches everything. This means that every child we pop into this grid will be lined up inside the 2nd column.
-</div>
-<textarea name="" id="">
-    .wrapper > * {
+        <textarea>
+.container {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+}
+        </textarea>
+
+        <div class="notes">
+          <p>
+            The asterisk (*) wildcard matches all elements. <br />
+            Example:
+          </p>
+        </div>
+
+        <textarea>
+.wrapper > * {
   grid-column: 2;
 }
-</textarea>
-</div>     
-</body>
-    </html>
+        </textarea>
+      </section>
+
+    </div>
+  </body>
+</html>
