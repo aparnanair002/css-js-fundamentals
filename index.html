@@ -9,8 +9,8 @@
   <body>
     <nav>
       <h1>CSS Playground</h1>
-      <h1 id="display_css">CSS</h1>
-      <h1  id="display_js">JS</h1>
+      <h1 class="retro" id="display_css">CSS</h1>
+      <h1 class="retro" id="display_js">JS</h1>
       <div class="contain">
         <div class="circle">
           <div class="moon"></div>
@@ -54,20 +54,26 @@ window.addEventListener('load', () => {
 
   cssBox.style.display = 'grid';
   jsBox.style.display = 'none';
-  displ_css.style.backgroundColor = '#ff0d91';
+  displ_css.style.backgroundColor = '#000000';
+  displ_css.style.boxShadow = '0 0 10px #ffee00';
   displ_js.style.backgroundColor = ''; 
 
   displ_css.addEventListener('click', () => {
     cssBox.style.display = 'grid';
     jsBox.style.display = 'none';
-    displ_css.style.backgroundColor = '#ff0d91';
+    displ_css.style.backgroundColor = '#000000';
+    displ_css.style.boxShadow = '0 0 10px #ffee00';
+    displ_js.style.boxShadow = 'none';
     displ_js.style.backgroundColor = ''; 
   });
 
   displ_js.addEventListener('click', () => {
     cssBox.style.display = 'none';
     jsBox.style.display = 'grid';
-    displ_js.style.backgroundColor = '#ff0d91';
+    displ_js.style.backgroundColor = '#000000';
+     displ_js.style.boxShadow = '0 0 10px #ffee00';
+        displ_css.style.boxShadow = 'none';
+
     displ_css.style.backgroundColor = ''; 
   });
 });

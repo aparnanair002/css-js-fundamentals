@@ -77,6 +77,15 @@ nav h1 {
     margin: 5% 20%;
 }
 
+.retro{
+   padding :10px;
+    border: 2px solid #ffee00 ;
+    border-radius: 10px;
+    min-width: 80px;
+    text-align: center;
+    cursor: pointer;
+}
+
 .gridded {
     color: #ffffff;
     background-color: #000000;
