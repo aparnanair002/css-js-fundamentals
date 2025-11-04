@@ -71,7 +71,7 @@ nav h1 {
 }
 
 .gridbox {
-    display: grid;
+    display: none;
     grid-template-columns: repeat(3, 1fr);
     gap: 50px;
     margin: 5% 20%;
