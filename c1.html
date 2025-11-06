@@ -1,12 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Module 7</title>
-    <link href="style.css" rel="stylesheet" />
-  </head>
-  <body>
-    
-  </body>
-  </html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JavaScript Summary – Values, Types, and Operators</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>💡 JavaScript Summary</h1>
+    <h2>Values, Types, and Operators</h2>
+  </header>
+
+  <main>
+    <section class="intro">
+      <p>Everything in a computer is <strong>data</strong>, represented as <strong>bits (0s and 1s)</strong>. In JavaScript, these bits are grouped into <strong>values</strong>, and each value has a <strong>type</strong> that determines how it behaves.</p>
+    </section>
+
+    <section class="topic">
+      <h3>🔢 Numbers</h3>
+      <ul>
+        <li>All numbers use <strong>64-bit floating-point</strong> format.</li>
+        <li>Precise up to <strong>9 quadrillion</strong> for whole numbers.</li>
+        <li>Supports fractions (e.g., <code>9.81</code>) and scientific notation (<code>2.998e8</code>).</li>
+        <li><strong>Operators:</strong> +, -, *, /, %</li>
+        <li><strong>Special values:</strong> <code>Infinity</code>, <code>-Infinity</code>, <code>NaN</code></li>
+      </ul>
+    </section>
+
+    <section class="topic">
+      <h3>🧵 Strings</h3>
+      <ul>
+        <li>Text enclosed in <code>'single'</code>, <code>"double"</code>, or <code>`backtick`</code> quotes.</li>
+        <li>Use backslash (<code>\</code>) for <strong>escaping</strong> characters.</li>
+        <li>Strings use the <strong>Unicode</strong> system.</li>
+        <li><code>+</code> concatenates strings.</li>
+        <li>Template literals support <code>${expressions}</code> and multiline text.</li>
+      </ul>
+    </section>
+
+    <section class="topic">
+      <h3>☯️ Booleans</h3>
+      <ul>
+        <li>Represents <strong>true</strong> or <strong>false</strong>.</li>
+        <li><strong>Comparison operators:</strong> &gt;, &lt;, &gt;=, &lt;=, ==, !=, ===, !==</li>
+        <li><code>NaN</code> is not equal to itself.</li>
+      </ul>
+    </section>
+
+    <section class="topic">
+      <h3>⚙️ Logical Operators</h3>
+      <ul>
+        <li><code>&&</code> (and), <code>||</code> (or), <code>!</code> (not)</li>
+        <li><code>?:</code> – Ternary operator (conditional)</li>
+        <li><strong>Short-circuiting:</strong> ignores right side if unnecessary.</li>
+        <li><code>??</code> – Nullish coalescing (checks for <code>null</code> or <code>undefined</code>)</li>
+      </ul>
+    </section>
+
+    <section class="topic">
+      <h3>🌫️ Empty Values</h3>
+      <ul>
+        <li><code>null</code> and <code>undefined</code> represent “no value.”</li>
+        <li>They are mostly interchangeable.</li>
+      </ul>
+    </section>
+
+    <section class="topic">
+      <h3>🔄 Automatic Type Conversion</h3>
+      <ul>
+        <li>JavaScript converts between types automatically (<strong>type coercion</strong>).</li>
+        <li>Examples:
+          <ul>
+            <li><code>"5" - 1 → 4</code></li>
+            <li><code>"5" + 1 → "51"</code></li>
+            <li><code>false == 0 → true</code></li>
+          </ul>
+        </li>
+        <li>Use <code>===</code> and <code>!==</code> to avoid unexpected conversions.</li>
+      </ul>
+    </section>
+
+    <section class="operators">
+      <h3>🧩 Operator Summary</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Operators</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Arithmetic</td><td>+, -, *, /, %</td><td>Basic math</td></tr>
+          <tr><td>Comparison</td><td>&gt;, &lt;, ==, ===, !=, !==</td><td>Compare values</td></tr>
+          <tr><td>Logical</td><td>&& , || , ! , ??</td><td>Combine or negate</td></tr>
+          <tr><td>Unary</td><td>- , ! , typeof</td><td>Single operand operations</td></tr>
+          <tr><td>Ternary</td><td>? :</td><td>Conditional expression</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="summary">
+      <h3>🧠 In Essence</h3>
+      <p>These are JavaScript’s <strong>basic building blocks</strong> — values, types, and operators — that let you store, compare, and manipulate data. They form the foundation for all programming in JavaScript.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 JavaScript Learning Notes</p>
+  </footer>
+</body>
+</html>
