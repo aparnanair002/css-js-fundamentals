@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JavaScript Summary – Program Structure</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>💡 JavaScript Summary</h1>
+    <h2>Program Structure</h2>
+  </header>
+
+  <main>
+    <section class="intro">
+      <p>A JavaScript program is a sequence of <strong>statements</strong> that the computer executes one by one. Statements are built using <strong>expressions</strong>, <strong>variables</strong>, <strong>keywords</strong>, and <strong>operators</strong>.</p>
+    </section>
+
+    <section class="topic">
+      <h3>📜 Statements & Semicolons</h3>
+      <ul>
+        <li>Each statement performs an action, such as a calculation or a variable declaration.</li>
+        <li>Statements are separated by <strong>semicolons</strong> (<code>;</code>).</li>
+        <li>Line breaks often act as semicolons automatically (<strong>Automatic Semicolon Insertion</strong>), but relying on it is risky.</li>
+      </ul>
+    </section>
+
+    <section class="topic">
+      <h3>🔣 Expressions</h3>
+      <ul>
+        <li>An <strong>expression</strong> is a piece of code that produces a value.</li>
+        <li>Examples: <code>5 * 10</code>, <code>"Hello" + "World"</code>, <code>x > 10</code></li>
+        <li>Expressions can be combined to form more complex statements.</li>
+      </ul>
+    </section>
+
+    <section class="topic">
+      <h3>📦 Variables</h3>
+      <ul>
+        <li>Used to store values using <code>let</code>, <code>const</code>, or <code>var</code>.</li>
+        <li><code>let</code> – block-scoped, reassignable.</li>
+        <li><code>const</code> – block-scoped, cannot be reassigned.</li>
+        <li><code>var</code> – function-scoped (older way, avoid using).</li>
+      </ul>
+      <pre><code>let age = 25;
+const name = "Aparna";
+var city = "Kochi";</code></pre>
+    </section>
+
+    <section class="topic">
+      <h3>🧭 Control Flow</h3>
+      <p>By default, code executes from top to bottom. Control flow statements change this order.</p>
+      <ul>
+        <li><strong>Conditional statements</strong> – decide based on conditions.</li>
+        <li><strong>Loops</strong> – repeat actions.</li>
+        <li><strong>Functions</strong> – group code to be reused.</li>
+      </ul>
+    </section>
+
+    <section class="topic">
+      <h3>🔀 Conditional Execution</h3>
+      <pre><code>if (condition) {
+  // code runs if true
+} else if (anotherCondition) {
+  // runs if first is false
+} else {
+  // runs otherwise
+}</code></pre>
+      <ul>
+        <li><code>if</code> – executes code if the condition is true.</li>
+        <li><code>else</code> – handles false conditions.</li>
+        <li><code>else if</code> – checks multiple conditions.</li>
+        <li><code>switch</code> – alternative for multiple <code>if</code> checks.</li>
+      </ul>
+    </section>
+
+    <section class="topic">
+      <h3>🔁 Loops</h3>
+      <ul>
+        <li><code>while</code> – repeats while the condition is true.</li>
+        <li><code>do...while</code> – runs at least once, then repeats.</li>
+        <li><code>for</code> – common loop with initialization, condition, and update.</li>
+      </ul>
+      <pre><code>for (let i = 0; i < 5; i++) {
+  console.log(i);
+}</code></pre>
+    </section>
+
+    <section class="topic">
+      <h3>🧩 Functions</h3>
+      <ul>
+        <li>Encapsulate reusable code.</li>
+        <li>Declared using <code>function</code> keyword or arrow syntax (<code>=></code>).</li>
+      </ul>
+      <pre><code>function greet(name) {
+  console.log("Hello, " + name);
+}
+
+const add = (a, b) => a + b;</code></pre>
+    </section>
+
+    <section class="topic">
+      <h3>🚪 Returning Values</h3>
+      <ul>
+        <li><code>return</code> sends a value back from a function.</li>
+        <li>Stops further execution inside the function.</li>
+      </ul>
+      <pre><code>function square(x) {
+  return x * x;
+}</code></pre>
+    </section>
+
+    <section class="summary">
+      <h3>🧠 In Essence</h3>
+      <p>Program structure defines how your JavaScript code is organized and executed. It includes statements, expressions, variables, conditions, loops, and functions — all working together to give logic and order to your code.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 JavaScript Learning Notes</p>
+  </footer>
+</body>
+</html>
