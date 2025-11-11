@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Functions Summary</title>
+ 
+</head>
+<body>
+  <div class="symbol">◂ ● ▸ ?</div>
+  <h1>Functions</h1>
+
+  <blockquote>
+    People think that computer science is the art of geniuses but the actual reality is the opposite, just many people doing things that build on each other, like a wall of mini stones.<br>— Donald Knuth
+  </blockquote>
+
+  <div class="illustration">Illustration of fern leaves with a fractal shape, bees in the background</div>
+
+  <p>Functions are one of the most central tools in JavaScript programming. The concept of wrapping a piece of program in a value has many uses. It gives us a way to structure larger programs, to reduce repetition, to associate names with subprograms, and to isolate these subprograms from each other.</p>
+
+  <h2>Defining a Function</h2>
+  <pre><code>const square = function(x) {
+  return x * x;
+};
+console.log(square(12)); // → 144
+</code></pre>
+
+  <h2>Declaration Notation</h2>
+  <pre><code>function square(x) {
+  return x * x;
+}
+console.log("The future says:", future());
+function future() {
+  return "You'll never have flying cars";
+}
+</code></pre>
+
+  <h2>Arrow Functions</h2>
+  <pre><code>const square = x => x * x;
+const horn = () => console.log("Toot");
+</code></pre>
+
+  <h2>Closure Example</h2>
+  <pre><code>function multiplier(factor) {
+  return number => number * factor;
+}
+let twice = multiplier(2);
+console.log(twice(5)); // → 10
+</code></pre>
+
+  <h2>Recursion</h2>
+  <pre><code>function power(base, exponent) {
+  if (exponent == 0) return 1;
+  else return base * power(base, exponent - 1);
+}
+console.log(power(2, 3)); // → 8
+</code></pre>
+
+  <h2>Growing Functions</h2>
+  <pre><code>function zeroPad(number, width) {
+  let string = String(number);
+  while (string.length < width) string = "0" + string;
+  return string;
+}
+function printFarmInventory(cows, chickens, pigs) {
+  console.log(`${zeroPad(cows, 3)} Cows`);
+  console.log(`${zeroPad(chickens, 3)} Chickens`);
+  console.log(`${zeroPad(pigs, 3)} Pigs`);
+}
+printFarmInventory(7, 16, 3);
+</code></pre>
+
+  <hr>
+
+  <h2>Summary</h2>
+  <pre><code>// Define f to hold a function value
+const f = function(a) { console.log(a + 2); };
+
+// Declare g to be a function
+function g(a, b) { return a * b * 3.5; }
+
+// A less verbose function value
+let h = a => a % 3;
+</code></pre>
+
+</body>
+</html>
