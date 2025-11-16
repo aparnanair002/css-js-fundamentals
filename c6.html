@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Abstract Data Types & Prototypes Summary</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      color: #222;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    code {
+      background: #f4f4f4;
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Abstract Data Types, Prototypes & Classes — Summary</h1>
+
+<h2>1. Abstract Data Types (ADTs)</h2>
+<p>
+  An abstract data type hides internal complexity and provides only specific operations. 
+  JavaScript’s objects, arrays, strings, and numbers behave like ADTs.
+</p>
+
+<h2>2. Methods & <code>this</code></h2>
+<p>
+  A method is a function stored in an object. Calling <code>obj.method()</code> sets <code>this</code> to <code>obj</code>.
+</p>
+
+<pre><code>let rabbit = { type: "white", speak };
+rabbit.speak("Hello!");
+</code></pre>
+
+<p><b>The <code>call</code> method:</b></p>
+<pre><code>speak.call(rabbit, "Hi!");
+</code></pre>
+
+<p><b>Arrow functions:</b> they do not have their own <code>this</code>.</p>
+
+<h2>3. Prototypes</h2>
+<p>
+  Every JavaScript object has a prototype it inherits properties from.
+</p>
+
+<pre><code>let empty = {};
+empty.toString(); // inherited
+</code></pre>
+
+<p>You can create objects with a custom prototype:</p>
+
+<pre><code>let blackRabbit = Object.create(protoRabbit);
+</code></pre>
+
+<h2>4. Classes</h2>
+<p>Classes are cleaner syntax around prototypes:</p>
+
+<pre><code>class Rabbit {
+  constructor(type) {
+    this.type = type;
+  }
+  speak(line) {
+    console.log(`The ${this.type} rabbit says ${line}`);
+  }
+}
+</code></pre>
+
+<h2>5. Private Properties</h2>
+<pre><code>class Secret {
+  #secret = "hidden";
+  reveal() { return this.#secret; }
+}
+</code></pre>
+
+<h2>6. Overriding Properties</h2>
+<p>Object properties override prototype properties:</p>
+
+<pre><code>Rabbit.prototype.teeth = "small";
+killerRabbit.teeth = "sharp and long";
+</code></pre>
+
+<h2>7. Maps</h2>
+<p>Unlike plain objects, <code>Map</code> allows any keys and avoids prototype issues:</p>
+
+<pre><code>let ages = new Map();
+ages.set("Boris", 39);
+</code></pre>
+
+<h2>8. Polymorphism</h2>
+<p>Objects override shared methods like <code>toString</code> to define custom behavior:</p>
+
+<pre><code>Rabbit.prototype.toString = function() {
+  return `a ${this.type} rabbit`;
+};
+</code></pre>
+
+<h2>9. Getters, Setters & Static Methods</h2>
+
+<pre><code>get size() { return this.items.length; }
+set fahrenheit(v) { this.celsius = (v - 32) / 1.8; }
+
+static fromFahrenheit(v) { ... }
+</code></pre>
+
+<h2>10. Symbols</h2>
+<p>Symbols create unique property keys:</p>
+
+<pre><code>let sym = Symbol("id");
+obj[sym] = 123;
+</code></pre>
+
+<h2>11. Iteration Protocol</h2>
+<p>
+  For an object to work with <code>for...of</code>, it must implement 
+  <code>Symbol.iterator</code>.
+</p>
+
+<pre><code>"OK"[Symbol.iterator] // returns iterator
+</code></pre>
+
+</body>
+</html>
