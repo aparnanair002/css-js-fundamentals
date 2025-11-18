@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Program Structure — Summary</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        padding: 20px;
+        max-width: 900px;
+        margin: auto;
+        background: #fafafa;
+    }
+    h1, h2 {
+        color: #333;
+    }
+    code, pre {
+        background: #f0f0f0;
+        padding: 6px 10px;
+        border-radius: 4px;
+        font-size: 14px;
+        display: block;
+        margin: 10px 0;
+    }
+    .quote {
+        margin: 20px 0;
+        font-style: italic;
+        padding-left: 15px;
+        border-left: 4px solid #555;
+    }
+</style>
+</head>
+<body>
+
+<h1>Program Structure — Summary</h1>
+
+<div class="quote">
+“If we want a machine to be intelligent, it needs to be able to adjust its behavior…”
+<br>— Marvin Minsky
+</div>
+
+<p>This chapter introduces how programs are structured in JavaScript. Programming is about using simple building blocks (<strong>values</strong>, <strong>variables</strong>, <strong>operators</strong>) and organizing them into meaningful structures.</p>
+
+<h2>Expressions & Statements</h2>
+<p>
+An <strong>expression</strong> produces a value.  
+A <strong>statement</strong> performs an action.
+</p>
+
+<p>Example of an expression in a statement:</p>
+<pre><code>1;
+!false;</code></pre>
+
+<p>A real program is usually a series of statements.</p>
+
+<h2>Bindings (Variables)</h2>
+<p>A binding stores a value and lets you refer to it later:</p>
+
+<pre><code>let caught = 5 * 5;</code></pre>
+
+<p>Bindings can be updated to point to new values:</p>
+
+<pre><code>let mood = "light";
+mood = "dark";</code></pre>
+
+<p>They do not “contain” values — they simply point to them.</p>
+
+<h2>Keywords: <code>let</code>, <code>const</code>, <code>var</code></h2>
+<ul>
+    <li><strong>let</strong> — changeable binding</li>
+    <li><strong>const</strong> — binding that cannot be reassigned</li>
+    <li><strong>var</strong> — older keyword, behaves differently in scopes</li>
+</ul>
+
+<h2>Binding Names</h2>
+<p>Must start with a letter, $, or _. Examples:</p>
+
+<pre><code>archenemy, $result, _hidden</code></pre>
+
+<p>Not allowed:</p>
+<pre><code>2fast, my-variable</code></pre>
+
+<p>Some words are reserved (example: <code>let</code>, <code>class</code>, <code>return</code>).</p>
+
+<h2>Environment</h2>
+<p>The <strong>environment</strong> is the collection of bindings that exist at a given time. Some are built-in:</p>
+
+<pre><code>console.log("Hello");</code></pre>
+
+<p>You access them without creating them.</p>
+
+<h2>Functions</h2>
+<p>A function is a program wrapped in a value. You call it using parentheses:</p>
+
+<pre><code>alert("Hello!");
+console.log(Math.max(3, 11));</code></pre>
+
+<h2>Return Values</h2>
+<p>Some functions return values, others (like <code>alert()</code>) don't.</p>
+
+<h2>Control Flow</h2>
+<p>By default, statements run top to bottom. Control flow statements change that.</p>
+
+<h2>Conditional Execution</h2>
+<p><code>if</code> runs code only when something is true.</p>
+
+<pre><code>let num = 10;
+if (num > 5) {
+  console.log("Large");
+} else {
+  console.log("Small");
+}</code></pre>
+
+<h2>Looping</h2>
+<p>Loops repeat actions.</p>
+
+<h3><code>while</code> loop:</h3>
+<pre><code>let number = 0;
+while (number <= 12) {
+  console.log(number);
+  number = number + 2;
+}</code></pre>
+
+<h3><code>do…while</code> loop:</h3>
+<pre><code>do {
+  var name = prompt("Who?");
+} while (!name);</code></pre>
+
+<h3><code>for</code> loop:</h3>
+<pre><code>for (let i = 0; i <= 12; i = i + 2) {
+  console.log(i);
+}</code></pre>
+
+<h2>Breaking out</h2>
+<pre><code>for (let current = 20; ; current++) {
+  if (current % 7 == 0) {
+    console.log(current);
+    break;
+  }
+}</code></pre>
+
+<h2>Updating Bindings</h2>
+<p>Use operators like <code>+=</code> or <code>++</code>:</p>
+
+<pre><code>let counter = 0;
+counter += 2;
+counter++;
+</code></pre>
+
+<h2>Dispatching on a Value: <code>switch</code></h2>
+<pre><code>switch (weather) {
+  case "rainy":
+    console.log("Bring umbrella");
+    break;
+  case "sunny":
+    console.log("Wear sunglasses");
+    break;
+  default:
+    console.log("Unknown weather");
+}</code></pre>
+
+<h2>Capitalization</h2>
+<p>JavaScript is case-sensitive. Convention uses <strong>camelCase</strong>:</p>
+<pre><code>thisIsCamelCase
+addedTaxRate</code></pre>
+
+<h2>Comments</h2>
+<pre><code>// Single-line comment
+
+/* Multi-line
+   comment */</code></pre>
+
+<h2>Summary</h2>
+<p>This chapter introduced the basic structures of JavaScript programs—bindings, functions, control flow, loops, and conditionals—showing how simple tools combine into powerful logic.</p>
+
+</body>
+</html>
