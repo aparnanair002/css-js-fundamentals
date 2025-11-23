@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regular Expressions – Summary</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 40px auto;
+      max-width: 850px;
+      padding: 0 20px;
+      background: #fafafa;
+      color: #222;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    pre {
+      background: #f0f0f0;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    code {
+      background: #eee;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    ul {
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<section>
+  <h1>Regular Expressions – Summary</h1>
+  <p>Regular expressions (regex) are patterns used for matching, searching, and manipulating text. They are concise but can be difficult to read.</p>
+
+  <h2>1. Creating a Regex</h2>
+  <pre><code>let r1 = /abc/;
+let r2 = new RegExp("abc");</code></pre>
+  <p>Escape special characters using <code>\</code>.</p>
+
+  <h2>2. Testing Matches</h2>
+  <pre><code>/abc/.test("abcde"); // true</code></pre>
+
+  <h2>3. Character Sets</h2>
+  <ul>
+    <li><code>[0-9]</code> — digits</li>
+    <li><code>\d</code> — digit</li>
+    <li><code>\w</code> — word character</li>
+    <li><code>\s</code> — whitespace</li>
+    <li><code>.</code> — any char except newline</li>
+  </ul>
+
+  <h2>4. Unicode Properties</h2>
+  <p>Available with the <code>u</code> flag:</p>
+  <ul>
+    <li><code>\p{L}</code> — letter</li>
+    <li><code>\p{N}</code> — number</li>
+  </ul>
+
+  <h2>5. Repetition</h2>
+  <ul>
+    <li><code>+</code> — one or more</li>
+    <li><code>*</code> — zero or more</li>
+    <li><code>?</code> — optional</li>
+    <li><code>{n}</code> — exact count</li>
+    <li><code>{n,m}</code> — range</li>
+  </ul>
+
+  <h2>6. Grouping</h2>
+  <pre><code>(abc)   → capturing group
+(?:abc) → non-capturing group</code></pre>
+
+  <h2>7. exec() & match()</h2>
+  <pre><code>/\d+/.exec("one 100"); // → ["100"]</code></pre>
+
+  <h2>8. Anchors & Boundaries</h2>
+  <ul>
+    <li><code>^</code> — start of string</li>
+    <li><code>$</code> — end of string</li>
+    <li><code>\b</code> — word boundary</li>
+    <li><code>(?= )</code> — look-ahead</li>
+    <li><code>(?! )</code> — negative look-ahead</li>
+  </ul>
+
+  <h2>9. Alternatives</h2>
+  <pre><code>/pig|cow|chicken/</code></pre>
+
+  <h2>10. Backtracking</h2>
+  <p>Regex engines try multiple matching paths and backtrack when needed. Complex patterns may become slow.</p>
+
+  <h2>11. replace()</h2>
+  <pre><code>"papa".replace("p","m"); // → "mapa"</code></pre>
+  <p>Supports:</p>
+  <ul>
+    <li><code>/g</code> — global replacement</li>
+    <li>Groups like <code>$1</code>, <code>$2</code></li>
+    <li>Replacement functions</li>
+  </ul>
+
+  <h2>12. Removing Comments Example</h2>
+  <pre><code>code.replace(/\/\/.*|\/\*[^]*?\*\//g, "");</code></pre>
+
+</section>
+
+</body>
+</html>
