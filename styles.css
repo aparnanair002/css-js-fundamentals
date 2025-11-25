@@ -6,7 +6,31 @@
       line-height: 1.7;
       padding: 40px;
       margin: auto;
+      margin-left:15%;
+      width:75%;
     }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 15%;
+      height: 100%;
+      background-color: #8e0003;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    }
+    .sidebar h2 {
+      color: #fff;
+      text-align: center;
+      padding: 20px 10px;
+      border-bottom: 3px solid #fff;
+    }
+    .sidebar .gridded{
+      color:#fff;
+      padding: 10px 20px;
+    }
+    
+    .sidebar a{color:#fff; text-decoration:none;}
+    a:hover{color:#ddd; text-decoration:underline;}
 
     h1 {
       text-align: center;
