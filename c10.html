@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Modules — Summary</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="sidebar">
+  <h2>Contents</h2>
+  <ul>
+    <a href="./c1.html"><div class="gridded">Chap 1</div></a>
+    <a href="./c2.html"><div class="gridded">Chap 2</div></a>
+    <a href="./c3.html"><div class="gridded">Chap 3</div></a>
+    <a href="./c4.html"><div class="gridded">Chap 4</div></a>
+    <a href="./c5.html"><div class="gridded">Chap 5</div></a>
+    <a href="./c6.html"><div class="gridded">Chap 6</div></a>
+    <a href="./c7.html"><div class="gridded">Chap 7</div></a>
+    <a href="./c8.html"><div class="gridded">Chap 8</div></a>
+    <a href="./c9.html"><div class="gridded">Chap 9</div></a>
+    <a href="./c10.html"><div class="gridded">Chap 10</div></a>
+  </ul>
+</div>
+
+<h1>Modules — Summary</h1>
+
+<h2>1. Why Modules?</h2>
+<p>
+  Modules help break code into <b>small, independent, reusable</b> pieces.
+  They reduce complexity and allow composition of systems rather than
+  building everything in one giant file.
+</p>
+
+<h2>2. Cohesion & Decoupling</h2>
+<p>
+  Good modules group related functionality and minimize
+  unnecessary connections between components.
+</p>
+
+<h2>3. Browser Scripts Are Global by Default</h2>
+<p>
+  Without modules, each script shares a global namespace:
+</p>
+<pre><code>&lt;script src="1.js"&gt;&lt;/script&gt;
+&lt;script src="2.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p><b>Problem:</b> name collisions and hidden dependencies.</p>
+
+<h2>4. Functions Create Local Scope</h2>
+<p>
+  Wrapping code in functions isolates it from globals:
+</p>
+<pre><code>(function() {
+  function f() { ... }
+  ...
+})();
+</code></pre>
+
+<h2>5. Objects as Modules</h2>
+<p>
+  A module can return an object with only selected properties exposed.
+</p>
+
+<h2>6. Evaluating Code from Files</h2>
+<p>
+  Web browsers load scripts.
+  Node's <code>require</code> allows reading and executing files:
+</p>
+<pre><code>const require = require("readFile");
+</code></pre>
+
+<h2>7. CommonJS Modules</h2>
+<p>
+  Node uses CommonJS with <code>require()</code> and <code>module.exports</code>.
+</p>
+
+<pre><code>// exporting
+exports.sum = (a,b) => a + b;
+
+// importing
+const { sum } = require("./mod");
+</code></pre>
+
+<h2>8. Dependencies</h2>
+<p>
+  Modules can depend on other modules, creating a dependency graph.
+</p>
+
+<h2>9. Package Structure</h2>
+<p>
+  A package bundles multiple modules, config files,
+  documentation, and sometimes testing code.
+</p>
+
+<pre><code>package-name/
+ ┣ index.js
+ ┣ README.md
+ ┗ package.json
+</code></pre>
+
+<h2>10. ES Modules (ESM)</h2>
+<p>
+  Modern JavaScript uses <code>import</code> and <code>export</code>.
+</p>
+
+<pre><code>export function sum(a,b){ ... }
+import { sum } from "./sum.js";
+</code></pre>
+
+<p><b>Benefits:</b> statically analyzable, supports bundling, optimized loading.</p>
+
+<h2>11. Module Design Principles</h2>
+<p>
+  - Small surface area<br>
+  - Internal details hidden<br>
+  - Only expose what’s needed<br>
+  - Avoid tight coupling
+</p>
+
+<h2>12. Summary</h2>
+<p>
+  Modules bring structure, reuse, safety, and scalability to large programs.
+  JavaScript evolved from global scripts → CommonJS → ES modules.
+</p>
+
+</body>
+</html>
