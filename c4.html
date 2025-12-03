@@ -30,18 +30,11 @@
     “On two occasions I have been asked, ‘Pray, Mr. Babbage, if you put into the machine wrong figures, will the right answers come out?’ [...] I am not able rightly to apprehend the kind of confusion of ideas that could provoke such a question.”<br><br>
     — Charles Babbage, <em>Passages from the Life of a Philosopher</em> (1864)
   </div>
-
-  <div class="illustration">
-    Illustration of a squirrel next to a pile of books and a pair of glasses. A moon and stars are visible in the background.
-  </div>
-
   <p>Numbers, Booleans, and strings are the atoms from which data structures are built. Many types of information require more than one atom, though. Objects allow us to group values—including other objects—to build more complex structures.</p>
 
   <p>The programs we have built so far have been limited by the fact that they were operating only on simple data types. After learning the basics of data structures in this chapter, you’ll know enough to start writing useful programs.</p>
 
-  <h2>The Weresquirrel</h2>
-  <p>Every now and then, usually between 8 p.m. and 10 p.m., Jacques finds himself transforming into a small furry rodent with a bushy tail...</p>
-
+  <h2>The List</h2>
   <pre><code>let listOfNumbers = [2, 3, 5, 7, 11];
 console.log(listOfNumbers[2]); // → 5
 console.log(listOfNumbers[0]); // → 2
@@ -74,7 +67,7 @@ console.log(object1 == object2); // → true
 console.log(object1 == object3); // → false
 </code></pre>
 
-  <h2>The Lycanthrope’s Log</h2>
+  <h2>push into an array</h2>
   <pre><code>let journal = [];
 
 function addEntry(events, squirrel) {
@@ -104,5 +97,18 @@ console.log(remove(["a", "b", "c", "d", "e"], 2));
 // → ["a", "b", "d", "e"]
 </code></pre>
 
+<h2>Rest Parameter</h2>
+  <pre><code>let words = ["never", "fully"];
+console.log(["will", ...words, "understand"]);
+// → ["will", "never", "fully", "understand"]
+</code></pre>
+
+
+<h2>Excercises  </h2>
+The sum of a range
+function range(s,e)
+{
+  list
+}
 </body>
 </html>
