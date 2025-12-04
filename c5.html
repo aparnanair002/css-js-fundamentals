@@ -11,9 +11,15 @@
     <h2>Contents</h2>
     <ul>
       <a href="./c1.html"><div class="gridded">Chap 1</div></a>
-      <a href="./c2.html"><div class="gridded selected">Chap 2</div></a>
+      <a href="./c2.html"><div class="gridded">Chap 2</div></a>
       <a href="./c3.html"><div class="gridded">Chap 3</div></a>
-      <a href="./c4.html"><div class="gridded">Chap 4</div></a>
+      <a href="./c4.html"> <div class="gridded">Chap 4</div></a>
+      <a href="./c5.html"><div class="gridded">Chap 5</div></a>
+      <a href="./c6.html"> <div class="gridded">Chap 6</div></a>
+      <a href="./c7.html"><div class="gridded">Chap 7</div></a>
+      <a href="./c8.html"><div class="gridded">Chap 8</div></a>
+      <a href="./c9.html"><div class="gridded">Chap 9</div></a>
+      <a href="./c10.html"><div class="gridded">Chap 10</div></a>
     </ul>
   </div>
 
@@ -68,7 +74,7 @@ repeat(5, i =&gt; labels.push(`Unit ${i+1}`));</code></pre>
 
     <h3>Functions that Create Functions</h3>
     <pre><code>function greaterThan(n) {
-  return m =&gt; m &gt; n;
+  return m =&gt; m &gt; n; //n doesnt change, m is the argument
 }
 
 let greaterThan10 = greaterThan(10);
