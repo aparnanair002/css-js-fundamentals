@@ -1,119 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Data Structures: Objects and Arrays</title>
-    <link rel="stylesheet" href="styles.css" />
-
+  <meta charset="UTF-8">
+  <title>Higher-Order Functions</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
   <div class="sidebar">
     <h2>Contents</h2>
     <ul>
       <a href="./c1.html"><div class="gridded">Chap 1</div></a>
-      <a href="./c2.html"><div class="gridded">Chap 2</div></a>
-       <a href="./c3.html"><div class="gridded">Chap 3</div></a>
-      <a href="./c4.html"> <div class="gridded">Chap 4</div></a>
-       <a href="./c5.html"><div class="gridded">Chap 5</div></a>
-         <a href="./c6.html"> <div class="gridded">Chap 6</div></a>
-       <a href="./c7.html"><div class="gridded">Chap 7</div></a>
-       <a href="./c8.html"><div class="gridded">Chap 8</div></a>
-              <a href="./c9.html"><div class="gridded">Chap 9</div></a>
-                 <a href="./c10.html"><div class="gridded">Chap 10</div></a>
+      <a href="./c2.html"><div class="gridded selected">Chap 2</div></a>
+      <a href="./c3.html"><div class="gridded">Chap 3</div></a>
+      <a href="./c4.html"><div class="gridded">Chap 4</div></a>
     </ul>
   </div>
-  <h1>Data Structures: Objects and Arrays</h1>
 
-  <div class="quote">
-    “On two occasions I have been asked, ‘Pray, Mr. Babbage, if you put into the machine wrong figures, will the right answers come out?’ [...] I am not able rightly to apprehend the kind of confusion of ideas that could provoke such a question.”
-    <br><br>
-    — Charles Babbage, <em>Passages from the Life of a Philosopher</em> (1864)
+  <div class="container">
+    <h1>Higher-Order Functions</h1>
+
+    <blockquote>
+      “There are two ways of constructing a software design: One way is to make it so simple that there are obviously no deficiencies,
+      and the other way is to make it so complicated that there are no obvious deficiencies.”  
+      — C.A.R. Hoare, 1980 ACM Turing Award Lecture
+    </blockquote>
+
+    <p>
+      Large programs increase complexity, confusion, bugs, and debugging effort.
+      Smaller, abstracted programs express solutions closer to the intent of the problem — easier to reason and less error-prone.
+    </p>
+
+    <h2>Abstraction</h2>
+    <p>
+      Abstractions allow programmers to work at a higher conceptual level by hiding irrelevant details.
+      Functions help us build these abstractions.
+    </p>
+
+    <h2>Abstracting Repetition</h2>
+    <p>You can write a loop directly:</p>
+    <pre><code>for (let i = 0; i &lt; 10; i++) {
+  console.log(i);
+}</code></pre>
+
+    <p>But we can abstract the idea of “repeat something N times” into a function:</p>
+
+    <pre><code>function repeat(n, action) {
+  for (let i = 0; i &lt; n; i++) {
+    action(i);
+  }
+}
+
+repeat(3, console.log);</code></pre>
+
+    <p>
+      We can pass a predefined function or create one inline:
+    </p>
+
+    <pre><code>let labels = [];
+repeat(5, i =&gt; labels.push(`Unit ${i+1}`));</code></pre>
+
+    <h2>Higher-Order Functions</h2>
+    <p>
+      Functions that receive or return other functions are called higher-order functions.
+      They allow abstraction over actions, not just values.
+    </p>
+
+    <h3>Functions that Create Functions</h3>
+    <pre><code>function greaterThan(n) {
+  return m =&gt; m &gt; n;
+}
+
+let greaterThan10 = greaterThan(10);
+console.log(greaterThan10(11)); // true</code></pre>
+
+    <h3>Functions that Modify Functions</h3>
+    <pre><code>function noisy(f) {
+  return (...args) =&gt; {
+    console.log("calling with", args);
+    let result = f(...args);
+    console.log("called with", args, ", returned", result);
+    return result;
+  };
+}
+
+noisy(Math.min)(3,2,1);</code></pre>
+
+    <h3>Control Flow Functions</h3>
+    <pre><code>function unless(test, then) {
+  if (!test) then();
+}</code></pre>
+
+    <h2>Built-in Higher-Order Methods</h2>
+    <p>Example: <b>forEach</b></p>
+    <pre><code>["A","B"].forEach(l =&gt; console.log(l));</code></pre>
+
+    <h2>Data Processing — Script Dataset</h2>
+    <p>
+      Unicode defines ~140 writing scripts. Example dataset entries look like:
+    </p>
+    <pre><code>{
+  name: "Coptic",
+  ranges: [[994, 1008], ...],
+  direction: "ltr",
+  year: -200,
+  living: false
+}</code></pre>
+
+    <h2>Array Transformations</h2>
+
+    <h3>Filtering</h3>
+    <pre><code>console.log(SCRIPTS.filter(s =&gt; s.living));</code></pre>
+
+    <h3>Mapping</h3>
+    <pre><code>let rtlScripts = SCRIPTS.filter(s =&gt; s.direction == "rtl");
+console.log(rtlScripts.map(s =&gt; s.name));</code></pre>
+
+    <h3>Reducing</h3>
+    <pre><code>console.log([1,2,3,4].reduce((a,b) =&gt; a + b));</code></pre>
+
+    <p>Example — finding script with most characters:</p>
+    <pre><code>function characterCount(script) {
+  return script.ranges.reduce((count,[from,to]) =&gt; count + (to - from), 0);
+}
+
+console.log(SCRIPTS.reduce((a,b) =&gt;
+  characterCount(a) &lt; characterCount(b) ? b : a));</code></pre>
+
+    <h2>Function Composition</h2>
+    <pre><code>function average(array){
+  return array.reduce((a,b) =&gt; a + b) / array.length;
+}
+
+console.log(Math.round(average(
+  SCRIPTS.filter(s =&gt; s.living).map(s =&gt; s.year))));</code></pre>
+
+    <h2>Character Scripts</h2>
+    <pre><code>function characterScript(code){
+  for (let script of SCRIPTS){
+    if (script.ranges.some(([from,to]) =&gt; code &gt;= from && code &lt; to))
+      return script;
+  }
+  return null;
+}</code></pre>
+
+    <h2>Extracting Script Use</h2>
+    <pre><code>function countBy(items, groupName) {
+  ...
+}</code></pre>
+
+    <pre><code>function textScripts(text) {
+  let scripts = countBy(text, char =&gt; {
+    let script = characterScript(char.codePointAt(0));
+    return script ? script.name : "none";
+  }).filter(({name}) =&gt; name != "none");
+
+  let total = scripts.reduce((n, {count}) =&gt; n + count, 0);
+  if (total == 0) return "No scripts found";
+
+  return scripts.map(({name,count}) =&gt;
+    `${Math.round(count * 100 / total)}% ${name}`
+  ).join(", ");
+}</code></pre>
+
+    <h2>Summary</h2>
+    <ul>
+      <li>You can pass functions as values.</li>
+      <li>Higher-order functions fill “gaps” in computation.</li>
+      <li>Array methods like forEach, filter, map, reduce, find, and some help transform data.</li>
+    </ul>
+
+    <h2>Exercises</h2>
+
+    <h3>Flattening</h3>
+    <pre><code>let arrays = [[1, 2, 3], [4, 5], [6]];
+// Your code
+// → [1,2,3,4,5,6]</code></pre>
+
+    <h3>Your Own Loop</h3>
+    <pre><code>// Your code here.
+loop(3, n =&gt; n &gt; 0, n =&gt; n - 1, console.log);</code></pre>
+
+    <h3>Everything</h3>
+    <pre><code>function every(array, test) {
+  // Your code
+}</code></pre>
+
+    <h3>Dominant Writing Direction</h3>
+    <pre><code>function dominantDirection(text){
+  // Your code
+}</code></pre>
+
   </div>
-
-  <div class="illustration">
-    Illustration of a squirrel next to a pile of books and a pair of glasses. A moon and stars are visible in the background.
-  </div>
-
-  <p>
-    Numbers, booleans, and strings act as the basic atoms of information. But most ideas require more structure. Objects allow us to bundle values—including other objects—letting us form richer, more complex data shapes.
-  </p>
-
-  <p>
-    Until now, our programs have worked entirely with simple types. After you understand the data structures introduced in this chapter, you'll be ready to build programs that handle far more realistic scenarios.
-  </p>
-
-  <h2>The Weresquirrel</h2>
-  <p>
-    Every now and then, between 8 p.m. and 10 p.m., Jacques finds himself transforming into a small furry creature with a very expressive tail…
-  </p>
-
-  <pre><code>let listOfNumbers = [2, 3, 5, 7, 11];
-console.log(listOfNumbers[2]); // → 5
-console.log(listOfNumbers[0]); // → 2
-console.log(listOfNumbers[2 - 1]); // → 3
-</code></pre>
-
-  <h2>Properties</h2>
-  <pre><code>null.length;
-// → TypeError: null has no properties
-</code></pre>
-
-  <h2>Methods</h2>
-  <pre><code>let doh = "Doh";
-console.log(typeof doh.toUpperCase); // → function
-console.log(doh.toUpperCase());      // → DOH
-</code></pre>
-
-  <h2>Objects</h2>
-  <pre><code>let day1 = {
-  squirrel: false,
-  events: ["work", "touched tree", "pizza", "running"]
-};
-console.log(day1.squirrel); // → false
-</code></pre>
-
-  <h2>Mutability</h2>
-  <pre><code>let object1 = {value: 10};
-let object2 = object1;
-let object3 = {value: 10};
-
-console.log(object1 == object2); // → true
-console.log(object1 == object3); // → false
-</code></pre>
-
-  <h2>The Lycanthrope’s Log</h2>
-  <pre><code>let journal = [];
-
-function addEntry(events, squirrel) {
-  journal.push({events, squirrel});
-}
-</code></pre>
-
-  <h2>Computing Correlation</h2>
-  <pre><code>function phi(table) {
-  return (table[3] * table[0] - table[2] * table[1]) /
-    Math.sqrt(
-      (table[2] + table[3]) *
-      (table[0] + table[1]) *
-      (table[1] + table[3]) *
-      (table[0] + table[2])
-    );
-}
-
-console.log(phi([76, 9, 4, 1]));
-// → 0.068599434
-</code></pre>
-
-  <h2>Further Arrayology</h2>
-  <pre><code>function remove(array, index) {
-  return array.slice(0, index)
-              .concat(array.slice(index + 1));
-}
-
-console.log(remove(["a", "b", "c", "d", "e"], 2));
-// → ["a", "b", "d", "e"]
-</code></pre>
-
 </body>
 </html>
