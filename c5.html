@@ -180,23 +180,60 @@ console.log(Math.round(average(
 
     <h3>Flattening</h3>
     <pre><code>let arrays = [[1, 2, 3], [4, 5], [6]];
-// Your code
+console.log(arrays.reduce((a, b) =&gt; a.concat(b))); 
 // → [1,2,3,4,5,6]</code></pre>
 
     <h3>Your Own Loop</h3>
-    <pre><code>// Your code here.
+    <pre><code>
+      function loop(value, test, update, body) {
+  for (let current = value; test(current); current = update(current)) {
+    body(current);
+  }
+}
 loop(3, n =&gt; n &gt; 0, n =&gt; n - 1, console.log);</code></pre>
 
     <h3>Everything</h3>
-    <pre><code>function every(array, test) {
-  // Your code
-}</code></pre>
+    <pre><code>
+function every(array, test) {
+  return !array.some(element => !test(element));
+}
+//OR
+function every(array, test) {
+  for (let element of array) {
+    if (!test(element)) {
+      return false;
+    }
+  }
+  return true;
+}
+</code></pre>
 
     <h3>Dominant Writing Direction</h3>
     <pre><code>function dominantDirection(text){
-  // Your code
-}</code></pre>
+function dominantDirection(text) {
+  // Count characters by script direction
+  let counted = countBy(text, char => {
+    let script = characterScript(char.codePointAt(0));
+    return script ? script.direction : "none";
+  }).filter(({name}) => name != "none");
 
+  // If no script found, return default or message
+  if (counted.length === 0) return "ltr";
+
+  // Find the direction with the highest count
+  return counted.reduce((a, b) => (a.count > b.count ? a : b)).name;
+}
+
+console.log(textScripts('英国的狗说"woof", 俄罗斯的狗说"тяв"'));
+// → 61% Han, 22% Latin, 17% Cyrillic
+}</code></pre>
+Property	Description
+name	Name of the script (e.g., "Latin", "Cyrillic", "Han")
+ranges	Array of Unicode ranges that belong to this script. Each range is [from, to] (numbers).
+direction	Writing direction: "ltr", "rtl", or "ttb"
+year	Approximate year the script was first used (historical info)
+living	Boolean: whether the script is still in use today
+link	URL to more information about the script (optional, sometimes included in Eloquent JS dataset)
   </div>
 </body>
 </html>
