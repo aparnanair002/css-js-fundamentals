@@ -1,168 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Program Structure — Summary</title>
-    <link rel="stylesheet" href="styles.css" />
-
+  <meta charset="UTF-8">
+  <title>Project: A Robot</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
   <div class="sidebar">
     <h2>Contents</h2>
     <ul>
       <a href="./c1.html"><div class="gridded">Chap 1</div></a>
       <a href="./c2.html"><div class="gridded">Chap 2</div></a>
-       <a href="./c3.html"><div class="gridded">Chap 3</div></a>
-      <a href="./c4.html"> <div class="gridded">Chap 4</div></a>
-       <a href="./c5.html"><div class="gridded">Chap 5</div></a>
-         <a href="./c6.html"> <div class="gridded">Chap 6</div></a>
-       <a href="./c7.html"><div class="gridded">Chap 7</div></a>
-       <a href="./c8.html"><div class="gridded">Chap 8</div></a>
-              <a href="./c9.html"><div class="gridded">Chap 9</div></a>
-                      <a href="./c10.html"><div class="gridded">Chap 10</div></a>
-
+      <a href="./c3.html"><div class="gridded">Chap 3</div></a>
+      <a href="./c4.html"><div class="gridded">Chap 4</div></a>
+      <a href="./c5.html"><div class="gridded">Chap 5</div></a>
+      <a href="./c6.html"><div class="gridded">Chap 6</div></a>
+      <a href="./c7.html"><div class="gridded">Chap 7</div></a>
+      <a href="./c8.html"><div class="gridded">Chap 8</div></a>
+      <a href="./c9.html"><div class="gridded">Chap 9</div></a>
+      <a href="./c10.html"><div class="gridded">Chap 10</div></a>
     </ul>
   </div>
-<h1>Program Structure — Summary</h1>
 
-<div class="quote">
-“If we want a machine to be intelligent, it needs to be able to adjust its behavior…”
-<br>— Marvin Minsky
-</div>
+  <div class="container">
+    <h1>Project: A Robot</h1>
 
-<p>This chapter introduces how programs are structured in JavaScript. Programming is about using simple building blocks (<strong>values</strong>, <strong>variables</strong>, <strong>operators</strong>) and organizing them into meaningful structures.</p>
+    <blockquote>
+      “The question of whether Machines Can Think [...] is about as relevant as the question of whether Submarines Can Swim.”  
+      — Edsger Dijkstra, The Threats to Computing Science
+    </blockquote>
 
-<h2>Expressions & Statements</h2>
-<p>
-An <strong>expression</strong> produces a value.  
-A <strong>statement</strong> performs an action.
-</p>
+    <p>
+      In this chapter, we build a virtual mail-delivery robot that picks up parcels and delivers them in a small village. This teaches <b>graphs, state modeling, immutability, and pathfinding</b>.
+    </p>
 
-<p>Example of an expression in a statement:</p>
-<pre><code>1;
-!false;</code></pre>
+    <h2>1. The World: Meadowfield</h2>
+    <p>
+      The village has 11 places connected by 14 roads. Roads are represented as strings and converted into a <b>graph</b>:
+    </p>
+    <pre><code>function buildGraph(edges) {
+  let graph = Object.create(null);
+  function addEdge(from, to) {
+    if (from in graph) graph[from].push(to);
+    else graph[from] = [to];
+  }
+  for (let [from, to] of edges.map(r =&gt; r.split("-"))) {
+    addEdge(from, to);
+    addEdge(to, from);
+  }
+  return graph;
+}
 
-<p>A real program is usually a series of statements.</p>
+const roadGraph = buildGraph(roads);</code></pre>
 
-<h2>Bindings (Variables)</h2>
-<p>A binding stores a value and lets you refer to it later:</p>
+    <h2>2. Modeling State (Immutably)</h2>
+    <p>
+      The robot’s state consists of its current location and the set of parcels. State is immutable:
+    </p>
+    <pre><code>class VillageState {
+  constructor(place, parcels) {
+    this.place = place;
+    this.parcels = parcels;
+  }
 
-<pre><code>let caught = 5 * 5;</code></pre>
+  move(destination) {
+    if (!roadGraph[this.place].includes(destination)) return this;
 
-<p>Bindings can be updated to point to new values:</p>
+    let parcels = this.parcels.map(p =&gt;
+      p.place != this.place ? p : {place: destination, address: p.address}
+    ).filter(p =&gt; p.place != p.address);
 
-<pre><code>let mood = "light";
-mood = "dark";</code></pre>
-
-<p>They do not “contain” values — they simply point to them.</p>
-
-<h2>Keywords: <code>let</code>, <code>const</code>, <code>var</code></h2>
-<ul>
-    <li><strong>let</strong> — changeable binding</li>
-    <li><strong>const</strong> — binding that cannot be reassigned</li>
-    <li><strong>var</strong> — older keyword, behaves differently in scopes</li>
-</ul>
-
-<h2>Binding Names</h2>
-<p>Must start with a letter, $, or _. Examples:</p>
-
-<pre><code>archenemy, $result, _hidden</code></pre>
-
-<p>Not allowed:</p>
-<pre><code>2fast, my-variable</code></pre>
-
-<p>Some words are reserved (example: <code>let</code>, <code>class</code>, <code>return</code>).</p>
-
-<h2>Environment</h2>
-<p>The <strong>environment</strong> is the collection of bindings that exist at a given time. Some are built-in:</p>
-
-<pre><code>console.log("Hello");</code></pre>
-
-<p>You access them without creating them.</p>
-
-<h2>Functions</h2>
-<p>A function is a program wrapped in a value. You call it using parentheses:</p>
-
-<pre><code>alert("Hello!");
-console.log(Math.max(3, 11));</code></pre>
-
-<h2>Return Values</h2>
-<p>Some functions return values, others (like <code>alert()</code>) don't.</p>
-
-<h2>Control Flow</h2>
-<p>By default, statements run top to bottom. Control flow statements change that.</p>
-
-<h2>Conditional Execution</h2>
-<p><code>if</code> runs code only when something is true.</p>
-
-<pre><code>let num = 10;
-if (num > 5) {
-  console.log("Large");
-} else {
-  console.log("Small");
-}</code></pre>
-
-<h2>Looping</h2>
-<p>Loops repeat actions.</p>
-
-<h3><code>while</code> loop:</h3>
-<pre><code>let number = 0;
-while (number <= 12) {
-  console.log(number);
-  number = number + 2;
-}</code></pre>
-
-<h3><code>do…while</code> loop:</h3>
-<pre><code>do {
-  var name = prompt("Who?");
-} while (!name);</code></pre>
-
-<h3><code>for</code> loop:</h3>
-<pre><code>for (let i = 0; i <= 12; i = i + 2) {
-  console.log(i);
-}</code></pre>
-
-<h2>Breaking out</h2>
-<pre><code>for (let current = 20; ; current++) {
-  if (current % 7 == 0) {
-    console.log(current);
-    break;
+    return new VillageState(destination, parcels);
   }
 }</code></pre>
 
-<h2>Updating Bindings</h2>
-<p>Use operators like <code>+=</code> or <code>++</code>:</p>
-
-<pre><code>let counter = 0;
-counter += 2;
-counter++;
-</code></pre>
-
-<h2>Dispatching on a Value: <code>switch</code></h2>
-<pre><code>switch (weather) {
-  case "rainy":
-    console.log("Bring umbrella");
-    break;
-  case "sunny":
-    console.log("Wear sunglasses");
-    break;
-  default:
-    console.log("Unknown weather");
+    <h2>3. Running a Robot</h2>
+    <pre><code>function runRobot(state, robot, memory) {
+  for (let turn = 0;; turn++) {
+    if (state.parcels.length == 0) {
+      console.log(`Done in ${turn} turns`);
+      break;
+    }
+    let action = robot(state, memory);
+    state = state.move(action.direction);
+    memory = action.memory;
+    console.log(`Moved to ${action.direction}`);
+  }
 }</code></pre>
 
-<h2>Capitalization</h2>
-<p>JavaScript is case-sensitive. Convention uses <strong>camelCase</strong>:</p>
-<pre><code>thisIsCamelCase
-addedTaxRate</code></pre>
+    <h2>4. Robots Implemented</h2>
 
-<h2>Comments</h2>
-<pre><code>// Single-line comment
+    <h3>a) Random Robot</h3>
+    <pre><code>function randomPick(array) {
+  let choice = Math.floor(Math.random() * array.length);
+  return array[choice];
+}
 
-/* Multi-line
-   comment */</code></pre>
+function randomRobot(state) {
+  return {direction: randomPick(roadGraph[state.place])};
+}</code></pre>
 
-<h2>Summary</h2>
-<p>This chapter introduced the basic structures of JavaScript programs—bindings, functions, control flow, loops, and conditionals—showing how simple tools combine into powerful logic.</p>
+    <h3>b) Route Robot</h3>
+    <pre><code>const mailRoute = [
+  "Alice's House", "Cabin", "Alice's House", "Bob's House",
+  "Town Hall", "Daria's House", "Ernie's House",
+  "Grete's House", "Shop", "Grete's House", "Farm",
+  "Marketplace", "Post Office"
+];
 
+function routeRobot(state, memory) {
+  if (memory.length == 0) memory = mailRoute;
+  return {direction: memory[0], memory: memory.slice(1)};
+}</code></pre>
+
+    <h3>c) Goal-Oriented Robot</h3>
+    <pre><code>function findRoute(graph, from, to) {
+  let work = [{at: from, route: []}];
+  for (let i = 0; i &lt; work.length; i++) {
+    let {at, route} = work[i];
+    for (let place of graph[at]) {
+      if (place == to) return route.concat(place);
+      if (!work.some(w =&gt; w.at == place)) {
+        work.push({at: place, route: route.concat(place)});
+      }
+    }
+  }
+}
+
+function goalOrientedRobot({place, parcels}, route) {
+  if (route.length == 0) {
+    let parcel = parcels[0];
+    if (parcel.place != place)
+      route = findRoute(roadGraph, place, parcel.place);
+    else
+      route = findRoute(roadGraph, place, parcel.address);
+  }
+  return {direction: route[0], memory: route.slice(1)};
+}</code></pre>
+
+    <h2>5. Persistent Data</h2>
+    <p>Immutable state helps reason about programs more easily. Use <code>Object.freeze()</code> if needed:</p>
+    <pre><code>let object = Object.freeze({value: 5});
+object.value = 10;
+console.log(object.value); // → 5</code></pre>
+
+    <h2>6. Exercises Summary</h2>
+
+    <h3>A. compareRobots</h3>
+    <p>Compare performance of two robots over 100 tasks:</p>
+    <pre><code>function compareRobots(robot1, memory1, robot2, memory2) {
+  // Generate 100 tasks
+  // Run both robots on each task
+  // Compute average turns
+}</code></pre>
+
+    <h3>B. Robot Efficiency</h3>
+    <p>Design a smarter robot that finishes deliveries faster than <code>goalOrientedRobot</code>.</p>
+
+    <h3>C. PGroup (Persistent Group)</h3>
+    <p>Immutable set-like data structure:</p>
+    <ul>
+      <li><code>.add(value)</code> → returns new PGroup</li>
+      <li><code>.delete(value)</code> → returns new PGroup</li>
+      <li><code>.has(value)</code> → boolean</li>
+    </ul>
+    <p>Start with <code>PGroup.empty</code>.</p>
+
+    <h2>Final Takeaways</h2>
+    <ul>
+      <li>Model state immutably for clarity</li>
+      <li>Design simple, understandable systems</li>
+      <li>Simulate behavior in a virtual world</li>
+      <li>Use BFS for shortest-path search</li>
+      <li>Compare algorithms objectively</li>
+      <li>Learn persistent data structures</li>
+    </ul>
+
+  </div>
 </body>
 </html>
