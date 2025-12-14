@@ -37,18 +37,25 @@ let r2 = new RegExp("abc");</code></pre>
 
   <h2>3. Character Sets</h2>
   <ul>
-    <li><code>[0-9]</code> — digits</li>
-    <li><code>\d</code> — digit</li>
-    <li><code>\w</code> — word character</li>
-    <li><code>\s</code> — whitespace</li>
-    <li><code>.</code> — any char except newline</li>
+   
+\d	Any digit character
+\w	An alphanumeric character (“word character”)
+\s	Any whitespace character (space, tab, newline, and similar)
+\D	A character that is not a digit
+\W	A nonalphanumeric character
+\S	A nonwhitespace character
+.	Any character except for newline
   </ul>
 
   <h2>4. Unicode Properties</h2>
   <p>Available with the <code>u</code> flag:</p>
   <ul>
-    <li><code>\p{L}</code> — letter</li>
-    <li><code>\p{N}</code> — number</li>
+  
+\p{L}	Any letter
+\p{N}	Any numeric character
+\p{P}	Any punctuation character
+\P{L}	Any nonletter (uppercase P inverts)
+\p{Script=Hangul}	Any character from the given scrip
   </ul>
 
   <h2>5. Repetition</h2>
@@ -75,6 +82,10 @@ let r2 = new RegExp("abc");</code></pre>
     <li><code>(?= )</code> — look-ahead</li>
     <li><code>(?! )</code> — negative look-ahead</li>
   </ul>
+  match and exec
+match : string method
+exec : regex method
+  
 
   <h2>9. Alternatives</h2>
   <pre><code>/pig|cow|chicken/</code></pre>
