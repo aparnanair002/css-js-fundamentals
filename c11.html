@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Asynchronous Programming – Summary</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      margin: 40px;
+      background: #f9fafb;
+      color: #1f2937;
+    }
+    h1, h2, h3 {
+      color: #111827;
+    }
+    h1 {
+      border-bottom: 3px solid #6366f1;
+      padding-bottom: 10px;
+    }
+    section {
+      background: #ffffff;
+      padding: 20px;
+      margin-bottom: 24px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+    ul {
+      margin-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    code {
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.95em;
+    }
+    .note {
+      background: #eef2ff;
+      border-left: 4px solid #6366f1;
+      padding: 12px;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Asynchronous Programming – Quick Summary</h1>
+
+  <section>
+    <h2>What Is Asynchronous Programming?</h2>
+    <ul>
+      <li>Allows programs to continue running while waiting for slow operations (network, disk, timers).</li>
+      <li>Prevents the processor from sitting idle.</li>
+      <li>Common in JavaScript environments (Browser & Node.js).</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Synchronous vs Asynchronous</h2>
+    <ul>
+      <li><strong>Synchronous:</strong> Tasks run one after another; waiting blocks execution.</li>
+      <li><strong>Asynchronous:</strong> Long-running tasks run in the background; program continues.</li>
+      <li>Waiting is <em>implicit</em> in synchronous code and <em>explicit</em> in asynchronous code.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Callbacks</h2>
+    <ul>
+      <li>Functions passed as arguments to run after an async task completes.</li>
+      <li>Example: <code>setTimeout(fn, time)</code></li>
+      <li>Problems:
+        <ul>
+          <li>Deep nesting (callback hell).</li>
+          <li>Error handling is difficult.</li>
+          <li>Asynchronicity spreads through the code.</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Promises</h2>
+    <ul>
+      <li>A Promise represents a value that may be available in the future.</li>
+      <li>States: <strong>pending</strong>, <strong>fulfilled</strong>, <strong>rejected</strong>.</li>
+      <li>Key methods:
+        <ul>
+          <li><code>then()</code> – handle success</li>
+          <li><code>catch()</code> – handle failure</li>
+          <li><code>Promise.resolve()</code></li>
+          <li><code>Promise.reject()</code></li>
+          <li><code>Promise.all()</code> – wait for multiple promises</li>
+        </ul>
+      </li>
+      <li>Promises allow chaining and cleaner async flow.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Error Handling with Promises</h2>
+    <ul>
+      <li>Errors propagate automatically through promise chains.</li>
+      <li>If any step fails, the chain becomes rejected.</li>
+      <li><code>catch()</code> can recover from failures.</li>
+    </ul>
+    <div class="note">
+      Rejected promises that are not handled are reported as errors by JavaScript runtimes.
+    </div>
+  </section>
+
+  <section>
+    <h2>Async / Await</h2>
+    <ul>
+      <li><code>async</code> functions always return a promise.</li>
+      <li><code>await</code> pauses execution until a promise resolves or rejects.</li>
+      <li>Makes asynchronous code look synchronous.</li>
+      <li>Improves readability over chained <code>then()</code> calls.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Generators</h2>
+    <ul>
+      <li>Defined using <code>function*</code> and <code>yield</code>.</li>
+      <li>Can pause and resume execution.</li>
+      <li>Useful for building iterators.</li>
+      <li><code>async</code> functions are a special kind of generator using promises.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Promise.all()</h2>
+    <ul>
+      <li>Runs multiple promises in parallel.</li>
+      <li>Resolves when all promises succeed.</li>
+      <li>Rejects immediately if any promise fails.</li>
+      <li>Useful for parallel network or file operations.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>The Event Loop</h2>
+    <ul>
+      <li>JavaScript runs on a single thread.</li>
+      <li>Async callbacks are queued and executed one at a time.</li>
+      <li>Long-running code blocks other events.</li>
+      <li>Promises always resolve in a future event loop turn.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Common Asynchronous Bugs</h2>
+    <ul>
+      <li>Shared state modified across async gaps.</li>
+      <li>Race conditions due to timing differences.</li>
+      <li>Fix by:
+        <ul>
+          <li>Returning values instead of mutating variables.</li>
+          <li>Using <code>Promise.all()</code> and pure functions.</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Key Takeaways</h2>
+    <ul>
+      <li>Asynchronous programming prevents blocking.</li>
+      <li>Callbacks → Promises → Async/Await is the evolution.</li>
+      <li>Promises simplify error handling and composition.</li>
+      <li>Async/Await offers the cleanest syntax.</li>
+      <li>Understanding the event loop is critical.</li>
+    </ul>
+  </section>
+
+</body>
+</html>
