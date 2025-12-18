@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Egg Programming Language – Summary</title>
+</head>
+<body>
+
+<h2>Project: A Programming Language (Egg)</h2>
+
+<p>
+This chapter explains how to build a simple programming language called <b>Egg</b>.
+It demonstrates that programming languages are not magical—they are ordinary programs
+made of parsers and evaluators.
+</p>
+
+<hr>
+
+<h3>Core Idea</h3>
+<p>
+Egg is a small, expression-based language capable of expressing any computation.
+Everything in Egg is an <b>expression</b>, including control structures and function calls.
+</p>
+
+<hr>
+
+<h3>Syntax & Expressions</h3>
+<ul>
+  <li><b>Value</b>: numbers and strings</li>
+  <li><b>Word</b>: variable names (bindings)</li>
+  <li><b>Apply</b>: function calls and special forms</li>
+</ul>
+
+<p>Example:</p>
+<pre>
+do(define(x, 10),
+   if(>(x, 5),
+      print("large"),
+      print("small")))
+</pre>
+
+<hr>
+
+<h3>Parsing</h3>
+<p>
+The parser converts source code into a <b>syntax tree</b>.
+It uses recursive functions to reflect the nested structure of expressions.
+</p>
+
+<ul>
+  <li><b>parseExpression</b>: parses values, words, or applications</li>
+  <li><b>parseApply</b>: handles function application and arguments</li>
+  <li><b>skipSpace</b>: ignores whitespace (later extended for comments)</li>
+</ul>
+
+<hr>
+
+<h3>Syntax Tree Structure</h3>
+<ul>
+  <li><code>type: "value"</code> → literal values</li>
+  <li><code>type: "word"</code> → identifiers</li>
+  <li><code>type: "apply"</code> → function or special form calls</li>
+</ul>
+
+<hr>
+
+<h3>Evaluator</h3>
+<p>
+The evaluator walks the syntax tree and executes it using a <b>scope</b>
+(an object mapping names to values).
+</p>
+
+<ul>
+  <li>Values return themselves</li>
+  <li>Words look up bindings in scope</li>
+  <li>Applications evaluate operators and arguments</li>
+</ul>
+
+<hr>
+
+<h3>Special Forms</h3>
+<p>
+Special forms control evaluation behavior and do not evaluate all arguments.
+</p>
+
+<ul>
+  <li><b>if</b> – conditional execution</li>
+  <li><b>while</b> – looping</li>
+  <li><b>do</b> – sequence of expressions</li>
+  <li><b>define</b> – create bindings</li>
+</ul>
+
+<hr>
+
+<h3>Environment (Scope)</h3>
+<ul>
+  <li>Global scope contains <code>true</code> and <code>false</code></li>
+  <li>Arithmetic operators (+, -, *, /, &lt;, &gt;, ==)</li>
+  <li><code>print</code> function for output</li>
+</ul>
+
+<hr>
+
+<h3>Functions</h3>
+<p>
+The <b>fun</b> special form defines functions with parameters and a body.
+Functions create their own local scope and support closures.
+</p>
+
+<p>Example:</p>
+<pre>
+fun(a, fun(b, +(a, b)))
+</pre>
+
+<hr>
+
+<h3>Closures</h3>
+<p>
+Functions remember the scope in which they were defined.
+This allows inner functions to access outer variables.
+</p>
+
+<hr>
+
+<h3>Interpreter vs Compilation</h3>
+<ul>
+  <li>Egg is an <b>interpreter</b>, not a compiler</li>
+  <li>Compilation transforms code before execution for efficiency</li>
+  <li>Egg could theoretically compile to JavaScript</li>
+</ul>
+
+<hr>
+
+<h3>Domain-Specific Languages (DSLs)</h3>
+<p>
+Egg demonstrates how small, focused languages can be built
+to solve specific problems more expressively than general-purpose languages.
+</p>
+
+<hr>
+
+<h3>Exercises Overview</h3>
+<ul>
+  <li>Add array support</li>
+  <li>Explain closure behavior</li>
+  <li>Add comment support using <code>#</code></li>
+  <li>Fix scope assignment using a new <code>set</code> form</li>
+</ul>
+
+<hr>
+
+<h3>Conclusion</h3>
+<p>
+A full programming language—with variables, control flow, functions,
+and closures—can be built in under 150 lines of JavaScript.
+Understanding this removes the mystery behind language design.
+</p>
+
+</body>
+</html>
