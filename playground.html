@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS & CSS Playground</title>
+  <style>
+    body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 100vh;
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100%;
+      padding: 10px;
+      font-family: monospace;
+    }
+
+    iframe {
+      border: none;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Code Editor -->
+  <textarea id="editor">
+<h1>Hello Playground</h1>
+
+<style>
+  h1 { color: purple; }
+</style>
+
+<script>
+  console.log("Hello JS!");
+</script>
+  </textarea>
+
+  <!-- Output -->
+  <iframe id="preview"></iframe>
+
+  <script>
+    const editor = document.getElementById("editor");
+    const preview = document.getElementById("preview");
+
+    function update() {
+      preview.srcdoc = editor.value;
+    }
+
+    editor.addEventListener("input", update);
+    update();
+  </script>
+</body>
+</html>
