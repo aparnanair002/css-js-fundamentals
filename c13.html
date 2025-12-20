@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>JavaScript & The Browser — Summary</title>
+     <link rel="stylesheet" href="styles.css" />
+
+</head>
+<body>
+
+  <h1>JavaScript and the Browser — Quick Summary</h1>
+
+  <section>
+    <h2>1. The Web & JavaScript</h2>
+    <p>
+      JavaScript exists mainly because of web browsers. The web was designed as a
+      universal, decentralized information space where anyone can share and link
+      information.
+    </p>
+  </section>
+
+  <section>
+    <h2>2. Networks & the Internet</h2>
+    <ul>
+      <li>Computers communicate by sending bits over networks.</li>
+      <li>Protocols define how data is sent and interpreted.</li>
+      <li>TCP ensures reliable, ordered communication.</li>
+      <li>Clients connect to servers using ports (e.g., HTTP → port 80).</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>3. HTTP & URLs</h2>
+    <p>
+      HTTP is used to request and deliver web resources like pages and images.
+      Each resource is identified using a URL:
+    </p>
+    <ul>
+      <li><strong>Protocol:</strong> http / https</li>
+      <li><strong>Server:</strong> domain name</li>
+      <li><strong>Path:</strong> specific resource</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>4. HTML Basics</h2>
+    <ul>
+      <li>HTML structures web pages using tags.</li>
+      <li>Common tags: <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;a&gt;</code></li>
+      <li>Browsers are error-tolerant and fix missing tags.</li>
+      <li>Special characters use entities like <code>&amp;lt;</code> and <code>&amp;amp;</code>.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>5. HTML & JavaScript</h2>
+    <ul>
+      <li><code>&lt;script&gt;</code> allows JavaScript inside HTML.</li>
+      <li>Scripts can be inline or loaded from external files.</li>
+      <li>JavaScript can respond to user actions like clicks.</li>
+    </ul>
+    <button onclick="showAlert()">Run Example</button>
+  </section>
+
+  <section>
+    <h2>6. Browser Sandboxing</h2>
+    <p>
+      Browsers run JavaScript in a sandbox to protect users.
+      Scripts cannot access files or system resources directly.
+    </p>
+  </section>
+
+  <section>
+    <h2>7. Browser Wars & Compatibility</h2>
+    <ul>
+      <li>Early browsers introduced incompatible features.</li>
+      <li>This caused major development issues.</li>
+      <li>Modern browsers follow standards more closely.</li>
+      <li>Today’s web is more stable and consistent.</li>
+    </ul>
+  </section>
+
+  <script>
+    function showAlert() {
+      alert("JavaScript is running inside the browser!");
+    }
+  </script>
+
+</body>
+</html>
