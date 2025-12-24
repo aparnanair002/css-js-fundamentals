@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DOM Manipulation — Notes</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <h1>DOM Manipulation — Quick Notes</h1>
+
+  <section>
+    <h2>1. What is the DOM?</h2>
+    <p>
+      The Document Object Model (DOM) is a programming interface that represents
+      an HTML document as a tree of objects. Each HTML element, attribute, and
+      piece of text becomes a node in this tree.
+    </p>
+    <p>
+      JavaScript can access and modify this tree to change the structure,
+      content, and appearance of a web page dynamically.
+    </p>
+  </section>
+
+  <section>
+    <h2>2. DOM Tree Structure</h2>
+    <ul>
+      <li>The DOM is organized as a tree with a single root: <code>document</code>.</li>
+      <li>Each element is a node and may have child nodes.</li>
+      <li>Nodes have parent–child and sibling relationships.</li>
+      <li>Common node types:
+        <ul>
+          <li>Element nodes (<code>Node.ELEMENT_NODE</code>)</li>
+          <li>Text nodes (<code>Node.TEXT_NODE</code>)</li>
+          <li>Comment nodes (<code>Node.COMMENT_NODE</code>)</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>3. Accessing DOM Elements</h2>
+    <ul>
+      <li><code>document.getElementById()</code> – selects an element by ID.</li>
+      <li><code>getElementsByTagName()</code> – selects elements by tag name.</li>
+      <li><code>getElementsByClassName()</code> – selects elements by class.</li>
+      <li><code>querySelector()</code> – selects the first matching element.</li>
+      <li><code>querySelectorAll()</code> – selects all matching elements.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>4. Traversing the DOM</h2>
+    <ul>
+      <li><code>parentNode</code> – access the parent element.</li>
+      <li><code>childNodes</code> – access all child nodes.</li>
+      <li><code>children</code> – access only element children.</li>
+      <li><code>firstChild</code> / <code>lastChild</code></li>
+      <li><code>previousSibling</code> / <code>nextSibling</code></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>5. Reading & Changing Content</h2>
+    <ul>
+      <li><code>textContent</code> – reads or changes text inside an element.</li>
+      <li><code>innerHTML</code> – reads or replaces HTML content.</li>
+      <li><code>nodeValue</code> – accesses text node values.</li>
+      <li>Changing content updates the page immediately.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>6. Creating & Removing Elements</h2>
+    <ul>
+      <li><code>document.createElement()</code> – creates a new element.</li>
+      <li><code>document.createTextNode()</code> – creates text nodes.</li>
+      <li><code>appendChild()</code> – adds a node at the end.</li>
+      <li><code>insertBefore()</code> – inserts a node at a specific position.</li>
+      <li><code>remove()</code> – removes a node from the DOM.</li>
+      <li><code>replaceChild()</code> – replaces one node with another.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>7. Working with Attributes</h2>
+    <ul>
+      <li><code>getAttribute()</code> – reads an attribute.</li>
+      <li><code>setAttribute()</code> – sets or updates an attribute.</li>
+      <li>Custom attributes should use <code>data-*</code> format.</li>
+      <li><code>className</code> is used to access the <code>class</code> attribute.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>8. Styling with DOM</h2>
+    <ul>
+      <li><code>element.style</code> modifies inline styles.</li>
+      <li>CSS property names use camelCase in JavaScript.</li>
+      <li>Example: <code>style.backgroundColor</code></li>
+      <li><code>display: none</code> hides elements without removing them.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>9. Live vs Static Collections</h2>
+    <ul>
+      <li><code>getElementsBy*</code> returns live collections.</li>
+      <li><code>querySelectorAll()</code> returns static collections.</li>
+      <li>Live collections update automatically when DOM changes.</li>
+      <li>Use <code>Array.from()</code> to convert collections into arrays.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>10. Performance Considerations</h2>
+    <ul>
+      <li>Frequent DOM reads and writes are expensive.</li>
+      <li>Avoid repeatedly forcing layout calculations.</li>
+      <li>Batch DOM updates when possible.</li>
+      <li>Use <code>requestAnimationFrame()</code> for animations.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>11. Summary</h2>
+    <p>
+      DOM manipulation allows JavaScript to dynamically control web pages.
+      Understanding the DOM tree, node traversal, and efficient updates is
+      essential for building interactive and performant web applications.
+    </p>
+  </section>
+
+</body>
+</html>
