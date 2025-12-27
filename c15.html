@@ -112,6 +112,21 @@
     <li>Properties vary by event type (mouse button, key pressed, coordinates).</li>
     <li>Methods: <code>stopPropagation()</code> and <code>preventDefault()</code>.</li>
   </ul>
+  <textarea name="" id="">
+    <button>Click me any way you want</button>
+<script>
+  let button = document.querySelector("button");
+  button.addEventListener("mousedown", event => {
+    if (event.button == 0) {
+      console.log("Left button");
+    } else if (event.button == 1) {
+      console.log("Middle button");
+    } else if (event.button == 2) {
+      console.log("Right button");
+    }
+  });
+</script>
+  </textarea>
 </section>
 
 <h2>Propagation</h2>

@@ -114,6 +114,22 @@
   font-weight: 600;
   letter-spacing: 0.3px;
 }
+textarea{
+     font-family: 'Fira Code', Consolas, 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    background-color: #1e1e1e;
+    color: #19cc02;
+    padding: 12px;
+    border-radius: 6px;
+    width: 90%;
+    max-width: 800px;
+    height: 400px;
+    overflow: auto;
+    white-space: pre;
+    border: 1px solid #333;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
 
 .string-table tbody tr:nth-child(even) {
   background-color: #fafafa;
