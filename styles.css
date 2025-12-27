@@ -14,9 +14,12 @@
       top: 0;
       left: 0;
       width: 15%;
-      height: 100%;
+      height:100vh;
       background-color: #8e0003;
       box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+      scrollbar-width: thin;
+      scrollbar-color: #ffffff #8e0003;
+      overflow-y: auto;
     }
     .sidebar h2 {
       color: #fff;
@@ -79,7 +82,7 @@
       text-align: center;
       margin: 30px 0;
       font-size: 0.9em;
-      color: #666;
+      color: 8e0003;
     }
 
     hr {
@@ -87,3 +90,40 @@
       border: none;
       border-top: 1px solid #ddd;
     }
+.string-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  color: #222;
+}
+
+.string-table thead {
+  background-color: #f4f6f8;
+}
+
+.string-table th,
+.string-table td {
+  padding: 12px 14px;
+  text-align: left;
+  border: 1px solid #e0e0e0;
+  vertical-align: top;
+}
+
+.string-table th {
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.string-table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.string-table tbody tr:hover {
+  background-color: #eef4ff;
+}
+
+.string-table td:last-child {
+  font-family: monospace;
+  color: #8e0003;
+}

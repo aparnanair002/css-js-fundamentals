@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DOM Manipulation — Notes</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="sidebar">
+  <h2>Contents</h2>
+  <ul>
+      <a href="./c1.html"><div class="gridded">Chap 1</div></a>
+      <a href="./c2.html"><div class="gridded">Chap 2</div></a>
+       <a href="./c3.html"><div class="gridded">Chap 3</div></a>
+      <a href="./c4.html"> <div class="gridded">Chap 4</div></a>
+       <a href="./c5.html"><div class="gridded">Chap 5</div></a>
+         <a href="./c6.html"> <div class="gridded">Chap 6</div></a>
+       <a href="./c7.html"><div class="gridded">Chap 7</div></a>
+       <a href="./cc8.html"><div class="gridded">Chap 8</div></a>
+              <a href="./c9.html"><div class="gridded">Chap 9</div></a>
+        <a href="./c10.html"><div class="gridded">Chap 10</div></a>
+        <a href="./c11.html"><div class="gridded">Chap 11</div></a>
+                <a href="./c12.html"><div class="gridded">Chap 12</div></a>
+      <a href="./c13.html"><div class="gridded">Chap 13</div></a>
+        <a href="./c14.html"><div class="gridded">Chap 14</div></a>
+          <a href="./c15.html"><div class="gridded">Chap 15</div></a>
+
+    </ul>
+  </div>
+  <h1>Handling Events</h2>
+   <table class="string-table">
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Where Used</th>
+      <th>What the String Represents</th>
+      <th>Examples</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Event type strings</strong></td>
+      <td><code>addEventListener()</code></td>
+      <td>Name of a browser event</td>
+      <td>"click", "keydown", "submit"</td>
+    </tr>
+    <tr>
+      <td><strong>Selector strings</strong></td>
+      <td><code>querySelector()</code></td>
+      <td>CSS selector to find elements</td>
+      <td>"button", "#login", ".card"</td>
+    </tr>
+    <tr>
+      <td><strong>Attribute name strings</strong></td>
+      <td><code>getAttribute()</code></td>
+      <td>HTML attribute names</td>
+      <td>"id", "class", "disabled"</td>
+    </tr>
+    <tr>
+      <td><strong>Property / key strings</strong></td>
+      <td>Object access</td>
+      <td>Object property names</td>
+      <td>"type", "target", "value"</td>
+    </tr>
+    <tr>
+      <td><strong>CSS value strings</strong></td>
+      <td><code>element.style</code></td>
+      <td>CSS values</td>
+      <td>"red", "16px", "none"</td>
+    </tr>
+    <tr>
+      <td><strong>Method-argument strings</strong></td>
+      <td>DOM / Web APIs</td>
+      <td>API-specific options</td>
+      <td>"smooth", "json"</td>
+    </tr>
+    <tr>
+      <td><strong>Custom strings</strong></td>
+      <td>Custom events / app logic</td>
+      <td>User-defined meanings</td>
+      <td>"user-logged-in", "dark-mode"</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Handling Events</h2>
+<section>
+  <p>Event handling allows web pages to react to user interactions in real time.</p>
+  <ul>
+    <li>Events are triggered by user actions or browser processes.</li>
+    <li>Event handlers are functions executed in response to these events.</li>
+    <li>Using handlers avoids constant polling for input.</li>
+  </ul>
+</section>
+
+<h2>Event Handlers and DOM Nodes</h2>
+<section>
+  <p>Handlers are attached to DOM nodes to react to specific events.</p>
+  <ul>
+    <li>Use <code>addEventListener</code> to attach multiple handlers safely.</li>
+    <li><code>removeEventListener</code> unregisters handlers.</li>
+    <li>Handlers can be attached to the <code>window</code>, <code>document</code>, or any element.</li>
+    <li>Handlers only respond to events on the node or its children (context matters).</li>
+  </ul>
+</section>
+
+<h2>Event Objects</h2>
+<section>
+  <p>Event handlers receive an object containing details about the event.</p>
+  <ul>
+    <li><code>type</code>: identifies the event type (e.g., "click").</li>
+    <li><code>target</code>: the node where the event originated.</li>
+    <li>Properties vary by event type (mouse button, key pressed, coordinates).</li>
+    <li>Methods: <code>stopPropagation()</code> and <code>preventDefault()</code>.</li>
+  </ul>
+</section>
+
+<h2>Propagation</h2>
+<section>
+  <p>Events bubble from the target element to its ancestors unless stopped.</p>
+  <ul>
+    <li>Handlers on child nodes run before parent nodes.</li>
+    <li>Use <code>stopPropagation()</code> to prevent parent handlers from firing.</li>
+    <li>Useful for nested interactive elements to avoid conflicts.</li>
+  </ul>
+</section>
+
+<h2>Default Actions</h2>
+<section>
+  <p>Many events trigger default browser behavior.</p>
+  <ul>
+    <li>Examples: clicking links, pressing keys, form submission.</li>
+    <li>Use <code>preventDefault()</code> to override default behavior.</li>
+    <li>Be cautious: breaking user expectations can frustrate users.</li>
+  </ul>
+</section>
+
+<h2>Key Events</h2>
+<section>
+  <p>Key events detect keyboard interactions.</p>
+  <ul>
+    <li><code>keydown</code> fires when a key is pressed; repeats if held down.</li>
+    <li><code>keyup</code> fires when a key is released.</li>
+    <li>Check <code>event.key</code> for key identity and modifier keys (Shift, Ctrl, Alt, Meta).</li>
+    <li>Target depends on the focused element.</li>
+  </ul>
+</section>
+
+<h2>Pointer Events and Types</h2>
+<section>
+  <p>Pointer events include mouse and touch interactions.</p>
+  <ul>
+    <li>Mouse: <code>mousedown</code>, <code>mouseup</code>, <code>click</code>, <code>dblclick</code>, <code>mousemove</code>.</li>
+    <li>Touch: <code>touchstart</code>, <code>touchmove</code>, <code>touchend</code> with multiple fingers.</li>
+    <li>Event objects provide coordinates, button codes, and touch points.</li>
+    <li>Useful for dragging, drawing, gestures, or custom UI controls.</li>
+  </ul>
+</section>
+
+<h2>Load Events</h2>
+<section>
+  <p>Load events signal when the page or resources have fully loaded.</p>
+  <ul>
+    <li><code>window.onload</code> or <code>load</code> event: page fully loaded.</li>
+    <li>Use for initialization after DOM and resources are ready.</li>
+    <li><code>beforeunload</code> warns users before leaving the page.</li>
+  </ul>
+</section>
+
+<h2>Events and the Event Loop</h2>
+<section>
+  <p>Event handlers are executed asynchronously via the event loop.</p>
+  <ul>
+    <li>Handlers wait for the main thread to be free.</li>
+    <li>Heavy or long-running handlers can block the page.</li>
+    <li>Web Workers can run code in parallel without blocking the UI.</li>
+  </ul>
+</section>
+
+<h2>Timers</h2>
+<section>
+  <p>Timers schedule code to run later or repeatedly.</p>
+  <ul>
+    <li><code>setTimeout</code> runs once after a delay.</li>
+    <li><code>setInterval</code> runs repeatedly at a fixed interval.</li>
+    <li><code>requestAnimationFrame</code> schedules animation updates efficiently.</li>
+    <li>Cancel with <code>clearTimeout</code> or <code>clearInterval</code>.</li>
+  </ul>
+</section>
+
+<h2>Debouncing</h2>
+<section>
+  <p>Debouncing prevents rapid events from executing handlers too frequently.</p>
+  <ul>
+    <li>Useful for events like <code>mousemove</code> or <code>scroll</code>.</li>
+    <li>Handler execution is delayed until a pause occurs.</li>
+    <li>Use <code>setTimeout</code> and clear previous timeouts to implement.</li>
+  </ul>
+</section>
+
+<h2>Summary</h2>
+<section>
+  <p>Event handling in JavaScript is crucial for interactive web applications.</p>
+  <ul>
+    <li>Attach handlers to DOM nodes using <code>addEventListener</code>.</li>
+    <li>Event objects provide detailed info about events and control methods.</li>
+    <li>Propagation allows parent nodes to react to child events; can be stopped.</li>
+    <li>Default actions can be prevented with <code>preventDefault()</code>.</li>
+    <li>Key, mouse, touch, scroll, focus, and load events are commonly used.</li>
+    <li>Timers, debouncing, and Web Workers help manage performance and asynchronous tasks.</li>
+  </ul>
+</section>
+
+<h2>Exercises</h2>
+<section>
+  <ul>
+    <li><strong>Balloon:</strong> Control an emoji balloon using arrow keys. Inflate/deflate it and make it explode past a size limit.</li>
+    <li><strong>Mouse Trail:</strong> Display elements following the mouse pointer with <code>mousemove</code>.</li>
+    <li><strong>Tabs:</strong> Implement tabbed panels using <code>data-tabname</code> attributes and buttons to switch views.</li>
+  </ul>
+</section>
+
+</body>
+</html>
