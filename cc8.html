@@ -1,48 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Bugs and Errors</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-
-  <div class="sidebar">
-    <h2>Contents</h2>
-    <ul>
-      <a href="./c1.html"><div class="gridded">Chap 1</div></a>
-      <a href="./c2.html"><div class="gridded">Chap 2</div></a>
-       <a href="./c3.html"><div class="gridded">Chap 3</div></a>
-      <a href="./c4.html"> <div class="gridded">Chap 4</div></a>
-       <a href="./c5.html"><div class="gridded">Chap 5</div></a>
-         <a href="./c6.html"> <div class="gridded">Chap 6</div></a>
-       <a href="./c7.html"><div class="gridded">Chap 7</div></a>
-       <a href="./cc8.html"><div class="gridded">Chap 8</div></a>
-              <a href="./c9.html"><div class="gridded">Chap 9</div></a>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bugs and Errors</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2>Contents</h2>
+      <ul>
+        <a href="./c1.html"><div class="gridded">Chap 1</div></a>
+        <a href="./c2.html"><div class="gridded">Chap 2</div></a>
+        <a href="./c3.html"><div class="gridded">Chap 3</div></a>
+        <a href="./c4.html"> <div class="gridded">Chap 4</div></a>
+        <a href="./c5.html"><div class="gridded">Chap 5</div></a>
+        <a href="./c6.html"> <div class="gridded">Chap 6</div></a>
+        <a href="./c7.html"><div class="gridded">Chap 7</div></a>
+        <a href="./cc8.html"><div class="gridded">Chap 8</div></a>
+        <a href="./c9.html"><div class="gridded">Chap 9</div></a>
         <a href="./c10.html"><div class="gridded">Chap 10</div></a>
         <a href="./c11.html"><div class="gridded">Chap 11</div></a>
-                <a href="./c12.html"><div class="gridded">Chap 12</div></a>
+        <a href="./c12.html"><div class="gridded">Chap 12</div></a>
+        <a href="./c13.html"><div class="gridded">Chap 13</div></a>
+        <a href="./c14.html"><div class="gridded">Chap 14</div></a>
+        <a href="./c15.html"><div class="gridded">Chap 15</div></a>
 
+        <a href="./c17.html"><div class="gridded">Chap 17</div></a>
+        <a href="./c18.html"><div class="gridded">Chap 18</div></a>
+        <a href="./c20.html"><div class="gridded">Chap 20</div></a>
+      </ul>
+    </div>
+    <div class="content">
+      <h1>Bugs and Errors</h1>
 
-    </ul>
-  </div>
+      <p>
+        <em
+          >Debugging is twice as hard as writing the code in the first place.
+          Therefore, if you write the code as cleverly as possible, you are, by
+          definition, not smart enough to debug it.</em
+        ><br />
+        <strong
+          >— Brian Kernighan and P.J. Plauger, The Elements of Programming
+          Style</strong
+        >
+      </p>
 
-  <div class="content">
-    <h1>Bugs and Errors</h1>
+      <p>Illustration showing various insects and a centipede</p>
 
-    <p><em>Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.</em><br>
-    <strong>— Brian Kernighan and P.J. Plauger, The Elements of Programming Style</strong></p>
+      <p>
+        Flaws in computer programs are usually called bugs. It makes programmers
+        feel good to imagine them as little things that just happen to crawl
+        into our work. In reality, of course, we put them there ourselves.
+      </p>
 
-    <p>Illustration showing various insects and a centipede</p>
+      <p>
+        If a program is crystallized thought, we can roughly categorize bugs
+        into those caused by the thoughts being confused and those caused by
+        mistakes introduced while converting a thought to code. The former type
+        is generally harder to diagnose and fix than the latter.
+      </p>
 
-    <p>Flaws in computer programs are usually called bugs. It makes programmers feel good to imagine them as little things that just happen to crawl into our work. In reality, of course, we put them there ourselves.</p>
+      <h2>Language</h2>
+      <p>
+        Many mistakes could be pointed out to us automatically by the computer
+        if it knew enough about what we’re trying to do. But here, JavaScript’s
+        looseness is a hindrance...
+      </p>
 
-    <p>If a program is crystallized thought, we can roughly categorize bugs into those caused by the thoughts being confused and those caused by mistakes introduced while converting a thought to code. The former type is generally harder to diagnose and fix than the latter.</p>
-
-    <h2>Language</h2>
-    <p>Many mistakes could be pointed out to us automatically by the computer if it knew enough about what we’re trying to do. But here, JavaScript’s looseness is a hindrance...</p>
-
-    <pre><code>function canYouSpotTheProblem() {
+      <pre><code>function canYouSpotTheProblem() {
   "use strict";
   for (counter = 0; counter &lt; 10; counter++) {
     console.log("Happy happy");
@@ -53,31 +78,37 @@ canYouSpotTheProblem();
 // → ReferenceError: counter is not defined
 </code></pre>
 
-    <p>...Code inside classes and modules is automatically strict...</p>
+      <p>...Code inside classes and modules is automatically strict...</p>
 
-    <h2>Strict mode</h2>
+      <h2>Strict mode</h2>
 
-    <p>JavaScript can be made a little stricter by enabling strict mode...</p>
+      <p>JavaScript can be made a little stricter by enabling strict mode...</p>
 
-    <pre><code>"use strict";
+      <pre><code>"use strict";
 function Person(name) { this.name = name; }
 let ferdinand = Person("Ferdinand"); // forgot new
 // → TypeError: Cannot set property 'name' of undefined
 </code></pre>
 
-    <h2>Types</h2>
-    <p>Some languages want to know the types of all your bindings and expressions before even running a program...</p>
+      <h2>Types</h2>
+      <p>
+        Some languages want to know the types of all your bindings and
+        expressions before even running a program...
+      </p>
 
-    <pre><code>// (graph: Object, from: string, to: string) =&gt; string[]
+      <pre><code>// (graph: Object, from: string, to: string) =&gt; string[]
 function findRoute(graph, from, to) {
   // ...
 }
 </code></pre>
 
-    <h2>Testing</h2>
-    <p>If the language is not going to do much to help us find mistakes, we’ll have to find them the hard way...</p>
+      <h2>Testing</h2>
+      <p>
+        If the language is not going to do much to help us find mistakes, we’ll
+        have to find them the hard way...
+      </p>
 
-    <pre><code>function test(label, body) {
+      <pre><code>function test(label, body) {
   if (!body()) console.log(`Failed: ${label}`);
 }
 
@@ -86,10 +117,13 @@ test("convert Latin text to uppercase", () =&gt; {
 });
 </code></pre>
 
-    <h2>Debugging</h2>
-    <p>Once you notice there is something wrong with your program because it misbehaves or produces errors...</p>
+      <h2>Debugging</h2>
+      <p>
+        Once you notice there is something wrong with your program because it
+        misbehaves or produces errors...
+      </p>
 
-    <pre><code>function numberToString(n, base = 10) {
+      <pre><code>function numberToString(n, base = 10) {
   let result = "", sign = "";
   if (n &lt; 0) {
     sign = "-";
@@ -104,19 +138,19 @@ test("convert Latin text to uppercase", () =&gt; {
 console.log(numberToString(13, 10));
 </code></pre>
 
-    <h2>Error propagation</h2>
-    <p>Not all problems can be prevented by the programmer...</p>
+      <h2>Error propagation</h2>
+      <p>Not all problems can be prevented by the programmer...</p>
 
-    <pre><code>function promptNumber(question) {
+      <pre><code>function promptNumber(question) {
   let result = Number(prompt(question));
   if (Number.isNaN(result)) return null;
   else return result;
 }
 </code></pre>
 
-    <h2>Exceptions</h2>
+      <h2>Exceptions</h2>
 
-    <pre><code>function promptDirection(question) {
+      <pre><code>function promptDirection(question) {
   let result = prompt(question);
   if (result.toLowerCase() == "left") return "L";
   if (result.toLowerCase() == "right") return "R";
@@ -130,10 +164,10 @@ try {
 }
 </code></pre>
 
-    <h2>Cleaning up after exceptions</h2>
-    <p>A finally block says “no matter what happens, run this code...”</p>
+      <h2>Cleaning up after exceptions</h2>
+      <p>A finally block says “no matter what happens, run this code...”</p>
 
-    <pre><code>function transfer(from, amount) {
+      <pre><code>function transfer(from, amount) {
   if (accounts[from] &lt; amount) return;
   let progress = 0;
   try {
@@ -149,10 +183,10 @@ try {
 }
 </code></pre>
 
-    <h2>Selective catching</h2>
-    <p>When an exception makes it all the way to the bottom of the stack...</p>
-
-  </div>
-
-</body>
+      <h2>Selective catching</h2>
+      <p>
+        When an exception makes it all the way to the bottom of the stack...
+      </p>
+    </div>
+  </body>
 </html>
