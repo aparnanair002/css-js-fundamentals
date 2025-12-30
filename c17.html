@@ -1,8 +1,200 @@
-<html>
-    <p>Normal HTML here.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Drawing on canvas — Notes</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="sidebar">
+  <h2>Contents</h2>
+  <ul>
+      <a href="./c1.html"><div class="gridded">Chap 1</div></a>
+      <a href="./c2.html"><div class="gridded">Chap 2</div></a>
+       <a href="./c3.html"><div class="gridded">Chap 3</div></a>
+      <a href="./c4.html"> <div class="gridded">Chap 4</div></a>
+       <a href="./c5.html"><div class="gridded">Chap 5</div></a>
+         <a href="./c6.html"> <div class="gridded">Chap 6</div></a>
+       <a href="./c7.html"><div class="gridded">Chap 7</div></a>
+       <a href="./cc8.html"><div class="gridded">Chap 8</div></a>
+              <a href="./c9.html"><div class="gridded">Chap 9</div></a>
+        <a href="./c10.html"><div class="gridded">Chap 10</div></a>
+        <a href="./c11.html"><div class="gridded">Chap 11</div></a>
+                <a href="./c12.html"><div class="gridded">Chap 12</div></a>
+      <a href="./c13.html"><div class="gridded">Chap 13</div></a>
+        <a href="./c14.html"><div class="gridded">Chap 14</div></a>
+          <a href="./c15.html"><div class="gridded">Chap 15</div></a>
+
+    </ul>
+  </div>
+  <h1>Drawing on Canvas</h1>
 <svg xmlns="http://www.w3.org/2000/svg">
   <circle r="50" cx="50" cy="50" fill="red"/>
   <rect x="120" y="5" width="90" height="90"
         stroke="blue" fill="none"/>
 </svg>
+<br>
+<div class="textareas" >
+  &lt;svg xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;circle r="50" cx="50" cy="50" fill="red"/&gt;
+  &lt;rect x="120" y="5" width="90" height="90"
+        stroke="blue" fill="none"/&gt;
+&lt;/svg&gt;
+
+</div>
+  <h2>Introduction</h2>
+  <section>
+    <p>The <code>&lt;canvas&gt;</code> element provides a bitmap area that can be drawn on using JavaScript. Canvas graphics are pixel-based and do not retain object structure like SVG.</p>
+    <p>To draw, you must first get the 2D rendering context:</p>
+    <pre><code>
+let canvas = document.querySelector("canvas");
+let ctx = canvas.getContext("2d");
+    </code></pre>
+  </section>
+
+  <h2>Drawing Rectangles</h2>
+  <section>
+    <ul>
+      <li><code>fillRect(x, y, w, h)</code> — draws filled rectangle</li>
+      <li><code>strokeRect(x, y, w, h)</code> — draws rectangle outline</li>
+      <li>Set color using <code>fillStyle</code> or <code>strokeStyle</code></li>
+    </ul>
+    <pre><code>
+ctx.fillStyle = "red";
+ctx.fillRect(10, 10, 100, 50);
+
+ctx.strokeStyle = "blue";
+ctx.lineWidth = 5;
+ctx.strokeRect(135, 5, 50, 50);
+    </code></pre>
+  </section>
+
+  <h2>Paths and Lines</h2>
+  <section>
+    <ul>
+      <li>Use <code>beginPath()</code> to start a new path</li>
+      <li><code>moveTo(x, y)</code> sets starting point</li>
+      <li><code>lineTo(x, y)</code> adds a line to the path</li>
+      <li><code>stroke()</code> draws the path</li>
+    </ul>
+    <pre><code>
+ctx.beginPath();
+ctx.moveTo(10, 10);
+ctx.lineTo(100, 100);
+ctx.stroke();
+    </code></pre>
+  </section>
+
+  <h2>Curves</h2>
+  <section>
+    <ul>
+      <li>Quadratic curve: <code>quadraticCurveTo(cpx, cpy, x, y)</code></li>
+      <li>Cubic Bezier curve: <code>bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)</code></li>
+    </ul>
+    <pre><code>
+// Quadratic curve
+ctx.beginPath();
+ctx.moveTo(10, 90);
+ctx.quadraticCurveTo(60, 10, 90, 90);
+ctx.stroke();
+
+// Bezier curve
+ctx.beginPath();
+ctx.moveTo(10, 10);
+ctx.bezierCurveTo(10, 10, 90, 10, 50, 90);
+ctx.stroke();
+    </code></pre>
+  </section>
+
+  <h2>Text</h2>
+  <section>
+    <ul>
+      <li><code>fillText(text, x, y)</code> — fills text</li>
+      <li><code>strokeText(text, x, y)</code> — outlines text</li>
+      <li>Set font using <code>ctx.font</code></li>
+    </ul>
+    <pre><code>
+ctx.font = "28px Georgia";
+ctx.fillText("Hello Canvas", 10, 50);
+    </code></pre>
+  </section>
+
+  <h2>Images</h2>
+  <section>
+    <ul>
+      <li>Draw images with <code>drawImage(img, x, y)</code></li>
+      <li>Can crop or resize using extra parameters</li>
+    </ul>
+    <pre><code>
+let img = document.createElement("img");
+img.src = "img.png";
+img.addEventListener("load", () => {
+  ctx.drawImage(img, 10, 10);
+});
+    </code></pre>
+  </section>
+
+  <h2>Transformations</h2>
+  <section>
+    <ul>
+      <li><code>translate(x, y)</code> — moves coordinate system</li>
+      <li><code>scale(x, y)</code> — stretches/shrinks drawing</li>
+      <li><code>rotate(angle)</code> — rotates drawing</li>
+      <li>Use <code>save()</code> and <code>restore()</code> to manage state</li>
+    </ul>
+    <pre><code>
+ctx.save();
+ctx.translate(50,50);
+ctx.rotate(Math.PI / 4);
+ctx.restore();
+    </code></pre>
+  </section>
+
+  <h2>Animation</h2>
+  <section>
+    <ul>
+      <li>Use <code>clearRect()</code> to clear canvas each frame</li>
+      <li>Use <code>requestAnimationFrame()</code> for smooth animation</li>
+      <li>Redraw all elements on each frame</li>
+    </ul>
+    <pre><code>
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  // draw shapes here
+  requestAnimationFrame(animate);
+}
+animate();
+    </code></pre>
+  </section>
+
+  <h2>Canvas vs SVG</h2>
+  <section>
+    <ul>
+      <li>Canvas is pixel-based; fast for dynamic graphics</li>
+      <li>SVG is vector-based; retains shape objects for manipulation</li>
+      <li>Use Canvas for games and free-form drawing, SVG for diagrams and scalable graphics</li>
+    </ul>
+  </section>
+
+  <h2>Summary</h2>
+  <section>
+    <ul>
+      <li>Canvas is a powerful 2D drawing tool in the browser</li>
+      <li>Draw shapes, lines, curves, text, and images</li>
+      <li>Transformations and animations are done via JavaScript</li>
+      <li>Event loop and <code>requestAnimationFrame</code> handle interactive graphics efficiently</li>
+      <li>Choose Canvas or SVG based on performance and interactivity needs</li>
+    </ul>
+  </section>
+
+  <h2>Exercises</h2>
+  <section>
+    <ul>
+      <li><strong>Pie Chart:</strong> Draw a pie chart with colored slices using <code>arc()</code> and loops.</li>
+      <li><strong>Bouncing Ball:</strong> Animate a ball moving across the canvas with collision detection.</li>
+      <li><strong>Drawing App:</strong> Implement free-hand drawing with mouse events.</li>
+    </ul>
+  </section>
+
+</body>
 </html>
