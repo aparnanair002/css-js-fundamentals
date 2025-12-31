@@ -1,105 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>HTTP and Forms — Notes</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-      <div class="sidebar">
-  <h2>Contents</h2>
-  <ul>
-      <a href="./c1.html"><div class="gridded">Chap 1</div></a>
-      <a href="./c2.html"><div class="gridded">Chap 2</div></a>
-       <a href="./c3.html"><div class="gridded">Chap 3</div></a>
-      <a href="./c4.html"> <div class="gridded">Chap 4</div></a>
-       <a href="./c5.html"><div class="gridded">Chap 5</div></a>
-         <a href="./c6.html"> <div class="gridded">Chap 6</div></a>
-       <a href="./c7.html"><div class="gridded">Chap 7</div></a>
-       <a href="./cc8.html"><div class="gridded">Chap 8</div></a>
-              <a href="./c9.html"><div class="gridded">Chap 9</div></a>
+  <head>
+    <meta charset="UTF-8" />
+    <title>HTTP and Forms — Notes</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      
+      <h2><a href="./index.html" style="size:50 px;">🏠︎</a>
+ Contents</h2>
+      <ul>
+        <a href="./c1.html"><div class="gridded">Chap 1</div></a>
+        <a href="./c2.html"><div class="gridded">Chap 2</div></a>
+        <a href="./c3.html"><div class="gridded">Chap 3</div></a>
+        <a href="./c4.html"> <div class="gridded">Chap 4</div></a>
+        <a href="./c5.html"><div class="gridded">Chap 5</div></a>
+        <a href="./c6.html"> <div class="gridded">Chap 6</div></a>
+        <a href="./c7.html"><div class="gridded">Chap 7</div></a>
+        <a href="./cc8.html"><div class="gridded">Chap 8</div></a>
+        <a href="./c9.html"><div class="gridded">Chap 9</div></a>
         <a href="./c10.html"><div class="gridded">Chap 10</div></a>
         <a href="./c11.html"><div class="gridded">Chap 11</div></a>
-                <a href="./c12.html"><div class="gridded">Chap 12</div></a>
-      <a href="./c13.html"><div class="gridded">Chap 13</div></a>
+        <a href="./c12.html"><div class="gridded">Chap 12</div></a>
+        <a href="./c13.html"><div class="gridded">Chap 13</div></a>
         <a href="./c14.html"><div class="gridded">Chap 14</div></a>
-          <a href="./c15.html"><div class="gridded">Chap 15</div></a>
+        <a href="./c15.html"><div class="gridded">Chap 15</div></a>
+        <a href="./c17.html"><div class="gridded">Chap 17</div></a>
+        <a href="./c18.html"><div class="gridded">Chap 18</div></a>
+        <a href="./c20.html"><div class="gridded">Chap 20</div></a>
+      </ul>
+    </div>
+    <h1>HTTP and Forms</h1>
 
-          <a href="./c17.html"><div class="gridded">Chap 17</div></a>
-          <a href="./c18.html"><div class="gridded">Chap 18</div></a>
-          <a href="./c20.html"><div class="gridded">Chap 20</div></a>
+    <h2>What Is HTTP?</h2>
+    <section>
+      <p>
+        The Hypertext Transfer Protocol (HTTP) is the protocol used for
+        communication between web clients (browsers) and servers. It is
+        stateless, meaning each request must contain all information needed to
+        understand it. The server responds with a status and content.
+      </p>
+    </section>
 
+    <h2>How HTTP Works</h2>
+    <section>
+      <ul>
+        <li>
+          A client opens a TCP connection to the server’s HTTP port (typically
+          80 for HTTP, 443 for HTTPS). 
+        </li>
+        <li>
+          The client sends a request line like <code>GET /path HTTP/1.1</code>.
+    
+        </li>
+        <li>
+          The server replies with a status line (e.g.,
+          <code>HTTP/1.1 200 OK</code>), headers, and a body.
+        
+        </li>
+      </ul>
+    </section>
 
+    <h2>HTTP Methods</h2>
+    <section>
+      <ul>
+        <li>
+          <strong>GET</strong> — Retrieve a resource.
+         
+        </li>
+        <li>
+          <strong>POST</strong> — Send data to the server.
+        
+        </li>
+        <li>
+          <strong>PUT</strong> — Replace or create a resource.
+         
+        </li>
+        <li>
+          <strong>DELETE</strong> — Remove a resource.
+         
+        </li>
+      </ul>
+    </section>
 
+    <h2>Browsers and HTTP</h2>
+    <section>
+      <ul>
+        <li>
+          Browsers request HTML pages and then automatically request referenced
+          resources (CSS, JS, images). 
+        </li>
+        <li>
+          Headers provide metadata (e.g., <code>Content‑Type</code>,
+          <code>Content‑Length</code>). 
+        </li>
+        <li>
+          Status codes indicate success (200s), redirection (300s), client
+          errors (400s), and server errors (500s).
+        </li>
+      </ul>
+    </section>
 
+    <h2>Forms</h2>
+    <section>
+      <p>
+        HTML forms allow users to submit data. Form controls
+        (<code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>,
+        <code>&lt;select&gt;</code>) send data via query strings or request
+        bodies. 
+      </p>
+    </section>
 
-    </ul>
-  </div>
-  <h1>HTTP and Forms</h1>
-
-  <h2>What Is HTTP?</h2>
-  <section>
-    <p>The Hypertext Transfer Protocol (HTTP) is the protocol used for communication between web clients (browsers) and servers. It is stateless, meaning each request must contain all information needed to understand it. The server responds with a status and content. :contentReference[oaicite:1]{index=1}</p>
-  </section>
-
-  <h2>How HTTP Works</h2>
-  <section>
-    <ul>
-      <li>A client opens a TCP connection to the server’s HTTP port (typically 80 for HTTP, 443 for HTTPS). :contentReference[oaicite:2]{index=2}</li>
-      <li>The client sends a request line like <code>GET /path HTTP/1.1</code>. :contentReference[oaicite:3]{index=3}</li>
-      <li>The server replies with a status line (e.g., <code>HTTP/1.1 200 OK</code>), headers, and a body. :contentReference[oaicite:4]{index=4}</li>
-    </ul>
-  </section>
-
-  <h2>HTTP Methods</h2>
-  <section>
-    <ul>
-      <li><strong>GET</strong> — Retrieve a resource. :contentReference[oaicite:5]{index=5}</li>
-      <li><strong>POST</strong> — Send data to the server. :contentReference[oaicite:6]{index=6}</li>
-      <li><strong>PUT</strong> — Replace or create a resource. :contentReference[oaicite:7]{index=7}</li>
-      <li><strong>DELETE</strong> — Remove a resource. :contentReference[oaicite:8]{index=8}</li>
-    </ul>
-  </section>
-
-  <h2>Browsers and HTTP</h2>
-  <section>
-    <ul>
-      <li>Browsers request HTML pages and then automatically request referenced resources (CSS, JS, images). :contentReference[oaicite:9]{index=9}</li>
-      <li>Headers provide metadata (e.g., <code>Content‑Type</code>, <code>Content‑Length</code>). :contentReference[oaicite:10]{index=10}</li>
-    </ul>
-  </section>
-
-  <h2>Forms</h2>
-  <section>
-    <p>HTML forms allow users to submit data. Form controls (<code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, <code>&lt;select&gt;</code>) send data via query strings or request bodies. :contentReference[oaicite:11]{index=11}</p>
-  </section>
-
-  <h2>The Fetch API</h2>
-  <section>
-    <p>JavaScript can make HTTP requests using the <code>fetch()</code> API, which returns a promise resolving to a response object. :contentReference[oaicite:12]{index=12}</p>
-    <pre><code>
+    <h2>The Fetch API</h2>
+    <section>
+      <p>
+        JavaScript can make HTTP requests using the <code>fetch()</code> API,
+        which returns a promise resolving to a response object.
+        
+      </p>
+      <pre><code>
 fetch("example/data.txt")
   .then(response => response.text())
   .then(text => console.log(text));
     </code></pre>
-  </section>
+    </section>
+    <h2>Form Fields</h2>
+    <section>
+      <p>
+        Form fields have properties (e.g., <code>value</code>) and fire events
+        (<code>input</code>, <code>change</code>). You can prevent default
+        submission with event handlers.
+      </p>
+    </section>
 
-  <h2>Security</h2>
-  <section>
-    <ul>
-      <li>Browsers restrict cross‑domain HTTP requests for security. :contentReference[oaicite:13]{index=13}</li>
-      <li>CORS headers (e.g., <code>Access‑Control‑Allow‑Origin</code>) can allow cross‑domain access. :contentReference[oaicite:14]{index=14}</li>
-      <li>HTTPS encrypts HTTP to protect data. :contentReference[oaicite:15]{index=15}</li>
-    </ul>
-  </section>
+    <h2>Security</h2>
+    <section>
+      <ul>
+        <li>
+          Browsers restrict cross‑domain HTTP requests for security.
+        
+        </li>
+        <li>
+          CORS headers (e.g., <code>Access‑Control‑Allow‑Origin</code>) can
+          allow cross‑domain access.
+        </li>
+        <li>
+          HTTPS encrypts HTTP to protect data.
+         
+      </ul>
+    </section>
 
-  <h2>Working With Form Fields</h2>
-  <section>
-    <ul>
-      <li>Form fields have properties like <code>value</code> and fire events (e.g., <code>input</code>, <code>change</code>). :contentReference[oaicite:16]{index=16}</li>
-      <li>You can prevent default submission with event handlers. :contentReference[oaicite:17]{index=17}</li>
-    </ul>
-  </section>
+    <h2>Appreciating HTTP</h2>
+    <section>
+      <p>
+        Understanding HTTP helps in web development, debugging, and building
+        web applications.
+      </p>
+      </section>
 
-</body>
+    <h2>Working With Form Fields</h2>
+    <section>
+      <ul>
+        <li>
+          Form fields have properties like <code>value</code> and fire events
+          (e.g., <code>input</code>, <code>change</code>).
+        
+        </li>
+        <li>
+          You can prevent default submission with event handlers.
+       
+        </li>
+      </ul>
+    </section>
+
+    <h2>Focus</h2>
+    <section>
+      <ul>
+        <li>
+          The <code>focus()</code> method sets focus to a form field.
+        
+        </li>
+        <li>
+          The <code>blur()</code> method removes focus from a form field.
+        
+        </li>
+      </ul>
+      </section>
+      <h2>Disabled Fields</h2>
+        <section>
+          lets you disable form fields so they cannot be interacted with.
+        </section>>
+
+        <h2>Text Fields</h2>
+        <section>
+          Text fields allow users to input text data. They can be single-line
+          (<code>&lt;input type="text"&gt;</code>) or multi-line
+          (<code>&lt;textarea&gt;</code>).
+        </section>
+
+        <h2>Check boxes and radio buttons</h2>
+        <section>
+          Check boxes and radio buttons allow users to select options.
+        </section>
+
+        <h2>select</h2>
+        <section>
+          The <code>&lt;select&gt;</code> element creates a drop-down list of
+          options.
+        </section>
+
+        <h2>File Uploads</h2>
+        <section>
+          The <code>&lt;input type="file"&gt;</code> element allows users to
+          upload files.
+        </section>
+
+        <h2>Storing Data Client side</h2>
+        <section>
+          Web Storage API provides <code>localStorage</code> and
+          <code>sessionStorage</code> for storing data on the client side.
+
+
+          <p>
+            Cookies are small pieces of data stored by the browser and sent with
+            each HTTP request to the server.
+
+            code to create it on js:
+          <pre><code>
+document.cookie = "username=JohnDoe; expires=Fri, 31 Dec 2024 23:59:59 GMT; path=/";
+            </code></pre>
+          </p>
+
+          <p>sessionStorage
+            <pre><code>
+// Store data
+sessionStorage.setItem("key", "value");
+// Retrieve data
+const value = sessionStorage.getItem("key");
+            </code></pre>
+            it is until a reload
+
+          </p>
+
+          <p><code>localStorage</code> persists data even after the browser is closed.</p>
+            <pre><code>
+// Store data
+localStorage.setItem("key", "value");
+// Retrieve data
+const value = localStorage.getItem("key");
+            </code></pre>
+          
+        </section>
+
+  </body>
 </html>
