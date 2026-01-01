@@ -39,30 +39,30 @@
 
   <h2>Introduction</h2>
   <section>
-    <p>Node.js allows JavaScript to run outside the browser, making it useful for scripting, command‑line tools, and web servers. :contentReference[oaicite:18]{index=18}</p>
+    <p>Node.js allows JavaScript to run outside the browser, making it useful for scripting, command‑line tools, and web servers. </p>
   </section>
 
   <h2>Running JavaScript in Node</h2>
   <section>
-    <p>Save a file <code>hello.js</code> and run it with <code>node hello.js</code>. :contentReference[oaicite:19]{index=19}</p>
+    <p>Save a file <code>hello.js</code> and run it with <code>node hello.js</code>. </p>
     <pre><code>
 let message = "Hello world";
 console.log(message);
     </code></pre>
-    <p>Node’s REPL allows interactive JS execution. :contentReference[oaicite:20]{index=20}</p>
+    <p>Node’s REPL allows interactive JS execution. </p>
   </section>
 
   <h2>Global Objects</h2>
   <section>
     <ul>
-      <li><code>console</code> — Logging output. :contentReference[oaicite:21]{index=21}</li>
-      <li><code>process</code> — Provides access to arguments and environment. :contentReference[oaicite:22]{index=22}</li>
+      <li><code>console</code> — Logging output.</li>
+      <li><code>process</code> — Provides access to arguments and environment.</li>
     </ul>
   </section>
 
   <h2>Modules</h2>
   <section>
-    <p>Node supports CommonJS and ES modules. Use <code>require()</code> or <code>import</code> to include functionality. :contentReference[oaicite:23]{index=23}</p>
+    <p>Node supports CommonJS and ES modules. Use <code>require()</code> or <code>import</code> to include functionality.</p>
     <pre><code>
 // ES module example
 import { reverse } from "./reverse.mjs";
@@ -72,7 +72,7 @@ console.log(reverse("Node"));
 
   <h2>NPM (Node Package Manager)</h2>
   <section>
-    <p>NPM installs packages from the online registry for reuse in your projects. :contentReference[oaicite:24]{index=24}</p>
+    <p>NPM installs packages from the online registry for reuse in your projects.</p>
     <pre><code>
 $ npm install ini
 import { parse } from "ini";
@@ -81,7 +81,7 @@ import { parse } from "ini";
 
   <h2>Filesystem Module</h2>
   <section>
-    <p>The <code>node:fs</code> module provides async file operations. :contentReference[oaicite:25]{index=25}</p>
+    <p>The <code>node:fs</code> module provides async file operations.</p>
     <pre><code>
 import { readFile } from "node:fs";
 
@@ -93,7 +93,7 @@ readFile("file.txt", "utf8", (err, text) => {
 
   <h2>HTTP Module</h2>
   <section>
-    <p>Node can run an HTTP server using the built‑in <code>node:http</code> module. :contentReference[oaicite:26]{index=26}</p>
+    <p>Node can run an HTTP server using the built‑in <code>node:http</code> module.</p>
     <pre><code>
 import { createServer } from "node:http";
 
@@ -107,23 +107,23 @@ createServer((req, res) => {
   <h2>Streams</h2>
   <section>
     <ul>
-      <li>Readable and writable streams handle large data. :contentReference[oaicite:27]{index=27}</li>
-      <li>Event‑based reading uses methods like <code>on("data")</code>. :contentReference[oaicite:28]{index=28}</li>
+      <li>Readable and writable streams handle large data. </li>
+      <li>Event‑based reading uses methods like <code>on("data")</code>.</li>
     </ul>
   </section>
 
   <h2>Building a File Server</h2>
   <section>
-    <p>A file server can map URLs to files and return their contents or directory listings. :contentReference[oaicite:29]{index=29}</p>
+    <p>A file server can map URLs to files and return their contents or directory listings.</p>
   </section>
 
   <h2>Summary</h2>
   <section>
     <ul>
-      <li>Node extends JS beyond the browser. :contentReference[oaicite:30]{index=30}</li>
-      <li>Asynchronous I/O is a core design. :contentReference[oaicite:31]{index=31}</li>
-      <li>Modules and NPM make code reusable. :contentReference[oaicite:32]{index=32}</li>
-      <li>Useful built‑ins include filesystem, HTTP servers, and streams. :contentReference[oaicite:33]{index=33}</li>
+      <li>Node extends JS beyond the browser.</li>
+      <li>Asynchronous I/O is a core design.</li>
+      <li>Modules and NPM make code reusable.</li>
+      <li>Useful built‑ins include filesystem, HTTP servers, and streams.</li>
     </ul>
   </section>
 
