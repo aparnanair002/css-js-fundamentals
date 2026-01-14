@@ -52,4 +52,39 @@ const myPromise = new Promise((resolve, reject) => {
 </code></pre>
 
                     </section>
+                    <h2>async/await</h2>
+                    <section>
+                        async/await is a way to write asynchronous code that looks and behaves like synchronous code.
+                        The async keyword is used to declare a function as asynchronous, and the await keyword is used to wait for a Promise to resolve.
+                        This makes it easier to read and understand asynchronous code.
+                        <pre><code>
+                            let stock={
+                                fruits:["strawberry","grapes","banana","apple"],
+                                liquid:["water","ice"],
+                                holder:["cone","cup","stick"],
+                                toppings:["chocolate","peanuts"]
+                            };
+                            let shop_open=true;
+                            
+                            let toppings_choice= ()=>{
+                                return new Promise((resolve,reject)=>{
+                                    setTimeout(()=>{
+                                        resolve(console.log("which topping would you love?")); //without resolve, it stops at await in async
+                                    },3000);
+                                });
+                            };
+                            async function kitchen(){
+                                console.log("A");
+                                console.log("B");
+                                await toppings_choice();
+                                console.log("C");
+                                console.log("D");
+                                console.log("E");
+                            }
+                            kitchen();
+                            console.log("doing the dishes");
+                            console.log("cleaning the tables");
+                            console.log("taking others orders");
+                        </code></pre>
+
 </html>
