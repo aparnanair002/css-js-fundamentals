@@ -114,13 +114,13 @@ let h = a => a % 3;
 <section>
  The previous chapter introduced the standard function Math.min that returns its smallest argument. We can write a function like that ourselves now. Define the function min that takes two arguments and returns their minimum.
 
-// Your code here.
+ function minimum(a, b) {
+ return(a < b ? a : b);
+  
+}
 
-console.log(min(0, 10));
-// → 0
-console.log(min(0, -10));
-// → -10
-Display hints...
+console.log(minimum(3, -10));
+
 Recursion
 We’ve seen that we can use % (the remainder operator) to test whether a number is even or odd by using % 2 to see whether it’s divisible by two. Here’s another way to define whether a positive whole number is even or odd:
 
