@@ -155,7 +155,44 @@ Next, write a function called countChar that behaves like countBs, except it tak
 console.log(countBs("BOB"));
 // → 2
 console.log(countChar("kakkerlak", "k"));
-// → 4</code></pre>
+// → 4
+
+
+Answer:
+
+</code></pre>
+<pre><code>
+  <textarea style="display:none;">
+  function countBS(a)
+{
+  let count=0
+  for(i=0;i<a.length;i++)
+    {
+      if (a[i].toLowerCase()=="b")
+      {
+        count++;
+      }
+    }
+  return count;
+}
+
+function countChar(a,b)
+{
+ let cout=0
+  for(let i=0;i<a.length;i++)
+    {
+      if (a[i].toLowerCase()==b.toLowerCase())
+      {
+        cout++;
+      }
+    }
+  return cout;
+}
+console.log(countBS("BOB"))
+console.log("number of that in this",countChar("kakkerlak", "k"))
+
+</textarea>
+</code></pre>
 
 </body>
 </html>
