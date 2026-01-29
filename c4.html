@@ -179,7 +179,36 @@ let arrayValue = [1, 2, 3, 4, 5];
 reverseArrayInPlace(arrayValue);
 console.log(arrayValue);
 // → [5, 4, 3, 2, 1]
-Display hints...
+answer:
+<textarea>
+  function reverseArray(a)
+{
+  const x=[];
+    for (let i = a.length - 1; i >= 0; i--) {
+    x.push(a[i]);
+  }
+  return x;
+}
+
+function reverseArrayInPlace(a)
+{
+  for(let i=0;i<a.length/2;i++)
+    {
+      let t=a[i];
+      a[i]=a[a.length - 1 - i];
+      a[a.length - 1 - i]=t;
+    }
+return a
+}
+
+
+
+let myArray = ["A", "B", "C"];
+console.log(reverseArray(myArray));
+let arrayValue = [1, 2, 3, 4, 5];
+reverseArrayInPlace(arrayValue);
+console.log(arrayValue);
+</textarea>
 A list
 As generic blobs of values, objects can be used to build all sorts of data structures. A common data structure is the list (not to be confused with arrays). A list is a nested set of objects, with the first object holding a reference to the second, the second to the third, and so on:
 
