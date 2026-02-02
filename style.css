@@ -100,6 +100,20 @@ nav h1 {
     font-family: meta;
     padding: 20px;
 }
+.gridded {
+    color: #ffffff;
+    background-color: #000000;
+    width: auto;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: meta;
+    padding: 20px;
+}
 
 .gridded:hover {
     background-color: #ffee00;
@@ -256,3 +270,24 @@ p{
   text-align: justify;
 }
 
+.quest{
+  font-family: jump;
+  font-size: 22px;
+  color: #000000;
+  text-align: justify;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  padding: 10px;
+  background-color:  #ffee00;
+}
+
+.questbox{
+  padding: 20px;
+  font-family: jump;
+  font-size: 18px;
+  color: #ffee00;
+  border: 2px solid #ffee00;
+  text-align: justify;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
